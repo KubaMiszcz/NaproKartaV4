@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <h4 class="card-title m-2">Wybrana Karta: {{chartName}}</h4>
+      <button type="button" class="m-2 btn btn-info">Edytuj Wlaściwości tej karty</button>
+      <button type="button" class="m-2 btn btn-danger">Usuń te kartę</button>
+    </div>
+    <!-- <p class="card-text">Text</p> -->
+    <h6 class="card-subtitle mb-2 text-muted">Twoja Notka do tej Karty:</h6>
+    <span> {{chartNote}}</span>
+
+
+    
+    <table class="m-2">
+      <tr>
+        <table>
+          <tr>
+            <td>
+              <app-chart-row></app-chart-row>
+            </td>
+             </tr>
+          <tr>
+            <td>
+              <app-chart-row></app-chart-row>
+            </td>
+             </tr>
+        </table>
+      
+      </tr>
+    </table>
+  
+  
+  
+  
+  </div>
+</div>
+

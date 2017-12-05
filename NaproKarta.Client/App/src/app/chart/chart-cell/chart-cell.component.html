@@ -1,0 +1,64 @@
+<table>
+  <tbody>
+    <tr>
+      <td class="marker">
+        <img src="{{markerUrl}}" alt="{{markerAltText}}" />
+      </td>
+    </tr>
+    <tr>
+      <td class=" date">12-12</td>
+    </tr>
+    <tr>
+      <td>{{letter}}</td>
+    </tr>
+    <tr>
+      <td>{{numTimes}}</td>
+    </tr>
+    <tr>
+      <td>{{cipherAndCipherCD}}</td>
+    </tr>
+    <tr>
+      <td>
+        {{comments}}</td>
+    </tr>
+    <tr>
+      <td>{{noteMarks}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 
+<table class="chartCellContent" name="RowCol" value="@Model.RowCol" @*onclick="@(" window.location.href='" + @Url.Action("ObservationEdit", "User", new {id = Model.ID, RowCol = Model.RowCol}) + "'
+  ");">*@ @*onclick="@("location.href='" + @Url.Action("ObservationEdit", "User", new {id = Model.ID, RowCol = Model.RowCol}) +
+  "'");"*@ onclick="location.href='@Url.Action("ObservationEdit", "User", new { id = Model.ID, RowCol = Model.RowCol })'"
+  @*location.href='
+  <%: Url.Action("Action", "Controller")*@
+       >
+    <tr>
+        <td style="background-color: beige;">
+            <img style="width: 50px; height: auto;" src="@Model.MarkerUrl" alt="@Model.MarkerAltText"/>
+        </td>
+    </tr>
+    <tr><td class="chartCellContent date">@Html.Raw(Model.Date)</td></tr>
+    <tr><td class="chartCellContent">@Html.Raw(Model.Letter)</td></tr>
+    <tr><td class="chartCellContent">@Html.Raw(Model.NumTimes)</td></tr>
+    <tr><td class="chartCellContent">@Html.Raw(Model.CipherAndCipherCD)</td></tr>
+    <tr><td class="chartCellContent">@Html.Raw(Model.Comments)</td></tr>
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    @{
+                        int i = 0;
+                        foreach (string noteMark in Model.NoteMarks)
+                        {
+                            <td class="chartCellContent" style="@Model.NoteMarksBackgroundColors[i]">
+                                <div>@Html.Raw(noteMark)</div></td>
+                            i++;
+                        }
+                    }
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table> -->

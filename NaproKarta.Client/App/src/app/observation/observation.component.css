@@ -1,0 +1,16 @@
+img {
+    width: 60px;
+  }
+.card{
+    border-color: lightseagreen;
+}
+ button{
+    /* background-color: rgb(165, 168, 255) */
+}
+
+button:hover{
+    background-color: lightblue;
+}
+.selected-button{
+    background-color: rgb(35, 41, 221);
+}
