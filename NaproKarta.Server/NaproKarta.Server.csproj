@@ -157,6 +157,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IApplicationUser.cs" />
     <Compile Include="Interfaces\IChart.cs" />
     <Compile Include="Interfaces\ICycle.cs" />
     <Compile Include="Interfaces\IObservation.cs" />
@@ -172,14 +173,33 @@
     <Compile Include="Migrations\201712051654034_2.Designer.cs">
       <DependentUpon>201712051654034_2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712052007167_3.cs" />
+    <Compile Include="Migrations\201712052007167_3.Designer.cs">
+      <DependentUpon>201712052007167_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712052022523_4.cs" />
+    <Compile Include="Migrations\201712052022523_4.Designer.cs">
+      <DependentUpon>201712052022523_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712052025079_5.cs" />
+    <Compile Include="Migrations\201712052025079_5.Designer.cs">
+      <DependentUpon>201712052025079_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712052115170_6.cs" />
+    <Compile Include="Migrations\201712052115170_6.Designer.cs">
+      <DependentUpon>201712052115170_6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Interfaces\IUserData.cs" />
+    <Compile Include="Context\NaproKartaDbContext.cs" />
+    <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\Observation.cs" />
     <Compile Include="Models\UserData.cs" />
     <Compile Include="Models\Chart.cs" />
     <Compile Include="Models\Cycle.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\NaproKartaDbServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -197,7 +217,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -211,6 +230,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712051654034_2.resx">
       <DependentUpon>201712051654034_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712052007167_3.resx">
+      <DependentUpon>201712052007167_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712052022523_4.resx">
+      <DependentUpon>201712052022523_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712052025079_5.resx">
+      <DependentUpon>201712052025079_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712052115170_6.resx">
+      <DependentUpon>201712052115170_6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

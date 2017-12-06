@@ -1,3 +1,4 @@
+import { IChart } from './../../viewModels/ichart';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -15,7 +16,6 @@ export class NavBarComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

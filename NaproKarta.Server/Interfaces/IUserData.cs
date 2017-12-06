@@ -1,9 +1,9 @@
 ﻿using System;
-using NaproKarta.Server.Interfaces;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using NaproKarta.Server.Models;
 
-namespace NaproKarta.Server.Models
+namespace NaproKarta.Server.Interfaces
 {
    public interface IUserData
    {

@@ -1,7 +1,7 @@
 import { ICycle } from './icycle';
 
 export interface IChart {
-    name: string;
+    title: string;
     note: string;
-    cycles: ICycle[];
+    //cycles: ICycle[];
 }
