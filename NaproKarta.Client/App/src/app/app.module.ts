@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import {
   MatSlideToggleModule
   , MatCheckboxModule
@@ -46,6 +47,7 @@ import { UserService } from './services/user.service';
       //  , { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ])
     , BrowserModule
+    , HttpClientModule
     , BrowserAnimationsModule
     , MatSlideToggleModule
     , MatButtonModule

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Microsoft.AspNet.Identity;
+using NaproKarta.WebApi.Models;
+using NaproKarta.Server.Services;
 
 namespace NaproKarta.WebApi.Controllers
 {
@@ -16,8 +19,21 @@ namespace NaproKarta.WebApi.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
-        public string Get(int id)
+       [Route("GetLoggedUser")]
+       [HttpGet]
+       public UserViewModel GetLoggedUser()
+       {
+          var loggedUser = NaproKartaDbServices.GetLoggedUser(User.Identity.GetUserId());
+
+          return new UserViewModel()
+          {
+             Name = loggedUser?.UserName
+          };
+       }
+
+
+      // GET api/values/5
+      public string Get(int id)
         {
             return "value";
         }

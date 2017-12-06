@@ -16,5 +16,13 @@ namespace NaproKarta.Server.Services
             return context.Charts.Where(x => x.UserId == userId).ToList();
          }
       }
+
+      public static ApplicationUser GetLoggedUser(string userId)
+      {
+         using (var context = new NaproKartaDbContext())
+         {
+            return context.Users.Find(userId);
+         }
+      }
    }
 }

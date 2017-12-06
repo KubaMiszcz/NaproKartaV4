@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using NaproKarta.Client.Models;
 using NaproKarta.Server.Models;
 using System.Collections.Generic;
+using NaproKarta.Client.ViewModels;
 
 namespace NaproKarta.Client.Controllers
 {

@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security.AntiXss;
+using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using NaproKarta.Client.Models;
 using NaproKarta.Server.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using NaproKarta.Client.ViewModels;
@@ -57,41 +57,36 @@ namespace NaproKarta.Client.Controllers
          }
       }
 
-      [Route("GetLoggedUserName")]
-      [HttpGet]
-      public string GetLoggedUserName()
-      {
-         var currentUserId = User.Identity.GetUserId();
-         using (var context = new NaproKartaDbContext())
-         {
-            var u = context.Users.Find(currentUserId);
-            return null;
-         }
-
-         //var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new NaproKartaDbContext()));
-         //var currentUser = manager.FindById(User.Identity.GetUserId());
-         //var c = manager.FindById(User.Identity.GetUserId()).ListUserDatas.ToList();
-         //var a = currentUser.ListUserDatas.ToList();
-         //var b = manager.FindById(User.Identity.GetUserId()).ListUserDatas.ToList();
-
-         //var ss = currentUser.UserData.First().Name;
-         return null;
-      }
 
       [Route("GetUserCharts")]
       [HttpGet]
       //public IList<Chart> GetUserCharts()
       public ChartViewModel GetUserCharts()
       {
-         var currentUserId = User.Identity.GetUserId();
-         var chart = NaproKartaDbServices.GetUserCharts(currentUserId).FirstOrDefault();
+         //var currentUserId = User.Identity.GetUserId();
+         //var loggedUser = NaproKartaDbServices.GetLoggedUser(User.Identity.GetUserId());
 
-         return new ChartViewModel()
+         //return new UserViewModel()
+         //{
+         //   Name = chart?.Title,
+         //   Note = chart?.Note
+         //};
+         return null;
+      }
+
+
+      [Route("GetLoggedUser")]
+      [HttpGet]
+      public UserViewModel GetLoggedUser()
+      {
+         var loggedUser = NaproKartaDbServices.GetLoggedUser(User.Identity.GetUserId());
+
+         return new UserViewModel()
          {
-            Title = chart?.Title,
-            Note = chart?.Note
+            Name = loggedUser?.UserName
          };
       }
+
 
       //======================================================
       //======================================================

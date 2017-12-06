@@ -1,4 +1,4 @@
-import { IChart } from './../../viewModels/ichart';
+import { IChart } from './../../models/ichart';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 
@@ -14,7 +14,22 @@ export class ChartComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.chart = this.userService.GetChart();
+    // this.chart = this.userService.GetChart()
+    // .subscribe(chart => this.chart = (chart as IChart), error => console.log(error));
+
+    // this.userService.getUserInfo()
+    // .subscribe(user => this.user = user, error => console.log(error), () => {
+    //   this.restaurantService.userInfo = this.user;
+    //   this.restaurantService.balance = this.user.balance;
+    //   this.isAdmin = this.user.isAdmin;
+    // });
+
+    // this.restaurantService.getUserInfo()
+    // .subscribe(user => this.user = user, error => console.log(error), () => {
+    //   this.restaurantService.userInfo = this.user;
+    //   this.restaurantService.balance = this.user.balance;
+    //   this.isAdmin = this.user.isAdmin;
+    // });
   }
 
 }
