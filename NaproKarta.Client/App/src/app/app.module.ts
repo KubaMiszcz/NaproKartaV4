@@ -21,7 +21,8 @@ import { ChartComponent } from './chart/chart/chart.component';
 import { ObservationComponent } from './observation/observation.component';
 
 import { MyToggleSwitchComponent } from './my-toggle-switch/my-toggle-switch.component';
-import { DateMmDdPipe } from './viewModels/date-mm-dd.pipe';
+import { DateMmDdPipe } from './services/date-mm-dd.pipe';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { DateMmDdPipe } from './viewModels/date-mm-dd.pipe';
     , MatSelectModule
     , MatFormFieldModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
