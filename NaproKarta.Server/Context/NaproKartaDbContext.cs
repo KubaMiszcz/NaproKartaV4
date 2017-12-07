@@ -2,25 +2,33 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using NaproKarta.Server.Models;
 
+/*
+   Enable-Migrations -force -verbose
+   Add-Migration 1
+   Update-Database -Verbose -ProjectName NaproKarta.Server -StartUpProjectName NaproKarta.Server
+   */
+
+
 namespace NaproKarta.Server.Context
 {
-  // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
- public class NaproKartaDbContext : IdentityDbContext<ApplicationUser>
-  {
-    public NaproKartaDbContext()
-      : base("DefaultConnection", throwIfV1Schema: false)
-    {
+   // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
+   public class NaproKartaDbContext : IdentityDbContext<ApplicationUser>
+   {
+      public NaproKartaDbContext()
+        : base("DefaultConnection", throwIfV1Schema: false)
+      {
+         this.Configuration.LazyLoadingEnabled = false;
+         this.Configuration.ProxyCreationEnabled = false;
+      }
 
-    }
+      public static NaproKartaDbContext Create()
+      {
+         return new NaproKartaDbContext();
+      }
 
-    public static NaproKartaDbContext Create()
-    {
-      return new NaproKartaDbContext();
-    }
-
-    public DbSet<Chart> Charts { get; set; }
-    public DbSet<Cycle> Cycles { get; set; }
-    public DbSet<Observation> Observations { get; set; }
+      public DbSet<Chart> Charts { get; set; }
+      public DbSet<Cycle> Cycles { get; set; }
+      public DbSet<Observation> Observations { get; set; }
 
       //protected override void OnModelCreating(DbModelBuilder modelBuilder)
       //{

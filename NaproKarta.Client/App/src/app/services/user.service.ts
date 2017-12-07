@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { IUser } from '../models/iuser';
 
-const applicationUrl = 'http://localhost/NaproKarta/api/values/';
-// const applicationUrl = 'http://localhost:57454/manage/';
+// const applicationUrl = 'http://localhost/NaproKarta/api/values/';
+const applicationUrl = 'http://localhost:57454/api/values/';
 
 @Injectable()
 export class UserService {

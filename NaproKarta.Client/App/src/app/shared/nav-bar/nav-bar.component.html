@@ -24,10 +24,9 @@
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 Wybierz karte </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">karta1</a>
-                <a class="dropdown-item" href="#">karta2 </a>
-                <a class="dropdown-item" href="#">karta3 </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let chart of charts">
+                <a  class="dropdown-item" href="#">chart.title</a>
+                
               </div>
             </div>
           </li>
