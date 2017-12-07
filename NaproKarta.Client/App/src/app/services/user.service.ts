@@ -3,19 +3,20 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { IUser } from '../models/iuser';
 
-const applicationUrl = 'http://localhost:57454/api/values/';
+const applicationUrl = 'http://localhost/NaproKarta/api/values/';
 // const applicationUrl = 'http://localhost:57454/manage/';
 
 @Injectable()
 export class UserService {
   constructor(private http: HttpClient) { }
 
+  // TODO: set golab header withcredentials
   GetLoggedUser(): Observable<IUser> {
-    return this.http.get<IUser>(applicationUrl + 'GetLoggedUser');
+    return this.http.get<IUser>(applicationUrl + 'GetLoggedUser', { withCredentials: true });
   }
 
   GetStr(): Observable<string> {
-    return this.http.get<string>(applicationUrl + 'GetStr');
+    return this.http.get<string>(applicationUrl + 'GetStr', { withCredentials: true });
   }
 
 

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Mvc;
@@ -10,14 +12,13 @@ using NaproKarta.Server.Services;
 
 namespace NaproKarta.Client.Controllers
 {
-   //[System.Web.Http.Authorize]
-   [System.Web.Http.AllowAnonymous]
-   [System.Web.Http.RoutePrefix("api/Values")]
-   //[EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+  [System.Web.Http.Authorize]
+  //[System.Web.Http.AllowAnonymous]
+  [System.Web.Http.RoutePrefix("api/Values")]
    public class ValuesController : ApiController
    {
-      // GET api/values
-      [System.Web.Http.Route("Gettt")]
+    // GET api/values
+    [System.Web.Http.Route("Gettt")]
       [System.Web.Http.HttpGet]
       public IEnumerable<string> Get()
       {
@@ -34,16 +35,16 @@ namespace NaproKarta.Client.Controllers
 
       [System.Web.Http.Route("GetLoggedUser")]
       [System.Web.Http.HttpGet]
-      public UserViewModel GetLoggedUser()
+      public HttpResponseMessage GetLoggedUser()
       {
-         //var loggedUser = NaproKartaDbServices.GetLoggedUser(User.Identity.GetUserId());
-         var loggedUser = NaproKartaDbServices.GetLoggedUser("01c781f0-b36d-4df8-9cd7-56a60966c333");
+         var loggedUserId = User.Identity.GetUserId();
+         var loggedUser = NaproKartaDbServices.GetLoggedUser(loggedUserId);
 
          UserViewModel result= new UserViewModel()
          {
             Name = loggedUser?.UserName
          };
-         return result;
+        return Request.CreateResponse(HttpStatusCode.OK, result);
       }
 
 

@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using Newtonsoft.Json.Serialization;
+using System.Web.Http;
 using System.Web.Http.Cors;
 
 namespace NaproKarta.Client
@@ -11,15 +12,14 @@ namespace NaproKarta.Client
 
          // Web API routes
          config.MapHttpAttributeRoutes();
+      config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
-         //enable CORS across the API without annotating each controller:
-         //var corsAttr = new EnableCorsAttribute("http://localhost:4200", "*", "*");
-         //config.EnableCors(corsAttr);
+      //enable CORS across the API without annotating each controller:
+      //var corsAttr = new EnableCorsAttribute("http://localhost:4200", "*", "*");
+      //var cors = new EnableCorsAttribute("*", "*", "*");
+      //config.EnableCors(cors);
 
-
-
-
-         config.Routes.MapHttpRoute(
+      config.Routes.MapHttpRoute(
             name: "DefaultApiWithAction",
             routeTemplate: "api/{controller}/{action}/{id}",
             defaults: new { id = RouteParameter.Optional });
