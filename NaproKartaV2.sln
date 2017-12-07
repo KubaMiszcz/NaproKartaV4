@@ -1,15 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.8
+VisualStudioVersion = 15.0.27130.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaproKarta.Client", "NaproKarta.Client\NaproKarta.Client.csproj", "{2307D37D-7E35-4DBC-B785-DA4140EFD50B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaproKarta.WebApi", "NaproKarta.WebApi\NaproKarta.WebApi.csproj", "{B836814C-9905-428E-A3FF-4581687E7680}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaproKarta.Server", "NaproKarta.Server\NaproKarta.Server.csproj", "{7E00423F-E0B8-4DDE-A293-222AA4BF7D13}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{E0C1AD59-B996-4901-ACB0-B2F56BF7DE77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,18 +17,10 @@ Global
 		{2307D37D-7E35-4DBC-B785-DA4140EFD50B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2307D37D-7E35-4DBC-B785-DA4140EFD50B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2307D37D-7E35-4DBC-B785-DA4140EFD50B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B836814C-9905-428E-A3FF-4581687E7680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B836814C-9905-428E-A3FF-4581687E7680}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B836814C-9905-428E-A3FF-4581687E7680}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B836814C-9905-428E-A3FF-4581687E7680}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7E00423F-E0B8-4DDE-A293-222AA4BF7D13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7E00423F-E0B8-4DDE-A293-222AA4BF7D13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E00423F-E0B8-4DDE-A293-222AA4BF7D13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E00423F-E0B8-4DDE-A293-222AA4BF7D13}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E0C1AD59-B996-4901-ACB0-B2F56BF7DE77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E0C1AD59-B996-4901-ACB0-B2F56BF7DE77}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E0C1AD59-B996-4901-ACB0-B2F56BF7DE77}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E0C1AD59-B996-4901-ACB0-B2F56BF7DE77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
