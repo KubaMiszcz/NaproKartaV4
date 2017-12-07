@@ -192,7 +192,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Interfaces\IUserData.cs" />
     <Compile Include="Context\NaproKartaDbContext.cs" />
-    <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\Observation.cs" />
     <Compile Include="Models\UserData.cs" />
     <Compile Include="Models\Chart.cs" />

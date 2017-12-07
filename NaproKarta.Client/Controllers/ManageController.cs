@@ -57,42 +57,7 @@ namespace NaproKarta.Client.Controllers
          }
       }
 
-
-      [Route("GetUserCharts")]
-      [HttpGet]
-      //public IList<Chart> GetUserCharts()
-      public ChartViewModel GetUserCharts()
-      {
-         //var currentUserId = User.Identity.GetUserId();
-         //var loggedUser = NaproKartaDbServices.GetLoggedUser(User.Identity.GetUserId());
-
-         //return new UserViewModel()
-         //{
-         //   Name = chart?.Title,
-         //   Note = chart?.Note
-         //};
-         return null;
-      }
-
-
-      [Route("GetLoggedUser")]
-      [HttpGet]
-      public UserViewModel GetLoggedUser()
-      {
-         var loggedUser = NaproKartaDbServices.GetLoggedUser(User.Identity.GetUserId());
-
-         return new UserViewModel()
-         {
-            Name = loggedUser?.UserName
-         };
-      }
-
-
-      //======================================================
-      //======================================================
-      //======================================================
-
-      //
+    //
       // GET: /Manage/Index
       public async Task<ActionResult> Index(ManageMessageId? message)
       {

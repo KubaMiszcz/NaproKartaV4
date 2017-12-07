@@ -42,7 +42,9 @@ namespace NaproKarta.Client.Controllers
 
          UserViewModel result= new UserViewModel()
          {
-            Name = loggedUser?.UserName
+            Name = loggedUser?.UserName,
+            Charts = NaproKartaDbServices.GetUserCharts(loggedUserId)
+            
          };
         return Request.CreateResponse(HttpStatusCode.OK, result);
       }

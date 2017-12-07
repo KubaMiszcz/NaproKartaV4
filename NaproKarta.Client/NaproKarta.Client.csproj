@@ -208,10 +208,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\my1DefaultController.cs" />
-    <Compile Include="Controllers\my2DefaultController.cs" />
-    <Compile Include="ViewModels\Product.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="Global.asax.cs">
