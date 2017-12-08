@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { IUser } from '../models/iuser';
+import { INavBar } from '../models/navbar';
+import { IChart } from '../models/ichart';
 
-// const applicationUrl = 'http://localhost/NaproKarta/api/values/';
-const applicationUrl = 'http://localhost:57454/api/values/';
+const applicationUrl = 'http://localhost/NaproKarta/api/values/';
+// const applicationUrl = 'http://localhost:57454/api/values/';
 
 @Injectable()
 export class UserService {
   constructor(private http: HttpClient) { }
 
   // TODO: set golab header withcredentials
-  GetLoggedUser(): Observable<IUser> {
-    return this.http.get<IUser>(applicationUrl + 'GetLoggedUser', { withCredentials: true });
+  GetNavBarData(): Observable<INavBar> {
+    return this.http.get<INavBar>(applicationUrl + 'GetNavBarData', { withCredentials: true });
+  }
+
+  GetChartById(id): Observable<IChart> {
+    return this.http.get<IChart>(applicationUrl + 'GetChartById/' + id, { withCredentials: true });
   }
 
   GetStr(): Observable<string> {
@@ -32,7 +37,7 @@ export class UserService {
 
   ////////////////
 
-//  constructor(private http: HttpClient) { }
+  //  constructor(private http: HttpClient) { }
 
   // GetPendingOrders(): Observable<IPendingOrder[]> {
   //   return this.http.get<IPendingOrder[]>(this.pendingOrders);

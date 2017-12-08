@@ -156,7 +156,7 @@ namespace NaproKarta.Client.Controllers
       {
         var user = new ApplicationUser
         {
-          UserName = model.Email
+          UserName = model.Email  //.Split('@').ElementAt(0)
           , Email = model.Email
         };
         //UserData userData = new UserData(user);

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web;
@@ -15,60 +16,71 @@ namespace NaproKarta.Client.Controllers
   [System.Web.Http.Authorize]
   //[System.Web.Http.AllowAnonymous]
   [System.Web.Http.RoutePrefix("api/Values")]
-   public class ValuesController : ApiController
-   {
-    // GET api/values
-    [System.Web.Http.Route("Gettt")]
-      [System.Web.Http.HttpGet]
-      public IEnumerable<string> Get()
+  public class ValuesController : ApiController
+  {
+    [System.Web.Http.Route("GetNavBarData")]
+    [System.Web.Http.HttpGet]
+    public HttpResponseMessage GetNavBarData()
+    {
+      var loggedUserId = User.Identity.GetUserId();
+      var loggedUser = NaproKartaDbServices.GetLoggedUser(loggedUserId);
+
+      NavBarViewModel result = new NavBarViewModel();
+      result.IsLogged = loggedUserId != null ? true : false;
+      if (result.IsLogged)
       {
-         return new string[] { "value1", "value2" };
+        result.UserName = loggedUser?.UserName;
+        result.ChartIdsAndTitles = NaproKartaDbServices.GetUserChartIdsAndTitlesHashSet(loggedUserId);
       }
 
-      [System.Web.Http.Route("GetStr")]
-      [System.Web.Http.HttpGet]
-      public string GetStr()
+      return Request.CreateResponse(HttpStatusCode.OK, result);
+    }
+
+
+    [System.Web.Http.Route("GetChartById/{id}")]
+    [System.Web.Http.HttpGet]
+    public HttpResponseMessage GetChartById(int? id)
+    {
+      var chart = NaproKartaDbServices.GetChartById(id);
+
+      ChartViewModel result = new ChartViewModel();
+      if (chart != null)
       {
-         string str = "string111111";
-         return str;
+        result.Title = chart.Title;
+        result.Note = chart.Note;
       }
 
-      [System.Web.Http.Route("GetLoggedUser")]
-      [System.Web.Http.HttpGet]
-      public HttpResponseMessage GetLoggedUser()
-      {
-         var loggedUserId = User.Identity.GetUserId();
-         var loggedUser = NaproKartaDbServices.GetLoggedUser(loggedUserId);
-
-         UserViewModel result= new UserViewModel()
-         {
-            Name = loggedUser?.UserName,
-            Charts = NaproKartaDbServices.GetUserCharts(loggedUserId)
-            
-         };
-        return Request.CreateResponse(HttpStatusCode.OK, result);
-      }
+      return Request.CreateResponse(HttpStatusCode.OK, result);
+    }
 
 
-      // GET api/values/5
-      public string Get(int id)
-      {
-         return "value";
-      }
 
-      // POST api/values
-      public void Post([FromBody]string value)
-      {
-      }
 
-      // PUT api/values/5
-      public void Put(int id, [FromBody]string value)
-      {
-      }
 
-      // DELETE api/values/5
-      public void Delete(int id)
-      {
-      }
-   }
+
+    //=============//=============//=============//=============//=============//=============//=============//=============
+    //=============//=============//=============//=============//=============//=============//=============//=============
+    //=============//=============//=============//=============//=============//=============//=============//=============
+
+    // GET api/values/5
+    public string Get(int id)
+    {
+      return "value";
+    }
+
+    // POST api/values
+    public void Post([FromBody]string value)
+    {
+    }
+
+    // PUT api/values/5
+    public void Put(int id, [FromBody]string value)
+    {
+    }
+
+    // DELETE api/values/5
+    public void Delete(int id)
+    {
+    }
+  }
 }

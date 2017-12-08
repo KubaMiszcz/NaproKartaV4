@@ -7,8 +7,8 @@
         <img src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top"
           alt=""> Navbar
       </span>
-      <span class="navbar-brand ">
-        Hello {{userName}}
+      <span *ngIf="isLogged" class="navbar-brand ">
+        {{isLogged ? ('Hello ' + userName) : ''}}
       </span>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -16,17 +16,18 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class=" collapse navbar-collapse" id="navbarSupportedContent">
+      <div *ngIf="isLogged" class=" collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
 
-          <li class="mr-2 nav-item">
+          <li class="mr-2 nav-item ">
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 Wybierz karte </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngFor="let chart of charts">
-                <a  class="dropdown-item" href="#">chart.title</a>
-                
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a *ngFor="let chartIdAndTitle of chartIdsAndTitles; let idx = index" class="dropdown-item" [id]='chartIdAndTitle[0]' [routerLink]="[ '/chart',chartIdAndTitle[0]]">
+                  {{chartIdAndTitle[1]}}
+                </a>
               </div>
             </div>
           </li>
@@ -39,17 +40,17 @@
 
     <div class="d-flex justify-content-end">
       <ul class="navbar-nav mr-auto">
-        <li>
-          <a class="nav-item nav-link" href="#">Ustawienia Konta</a>
+        <li *ngIf="isLogged">
+          <a href="http://localhost/NaproKarta/Manage" class="nav-item nav-link">Ustawienia Konta</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Zarejestruj</a>
+        <li *ngIf="!isLogged" class="nav-item">
+          <a href="http://localhost/NaproKarta/Account/Register" class="nav-item nav-link">Zarejestruj</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Zaloguj</a>
+        <li *ngIf="!isLogged" class="nav-item">
+          <a href="http://localhost/NaproKarta/Account/Login" class="nav-item nav-link">Zaloguj</a>
         </li>
-        <li class="nav-item">
-          <a href="http://getbootstrap.com/docs/4.0/components/card/" class="nav-link" >Wyloguj</a>
+        <li *ngIf="isLogged" class="nav-item">
+          <a href="http://getbootstrap.com/docs/4.0/components/card/" class="nav-item nav-link">Wyloguj</a>
         </li>
       </ul>
     </div>

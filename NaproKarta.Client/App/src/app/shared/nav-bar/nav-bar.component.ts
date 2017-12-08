@@ -1,7 +1,8 @@
-import { IUser } from './../../models/iuser';
 import { UserService } from './../../services/user.service';
 import { IChart } from './../../models/ichart';
 import { Component, OnInit } from '@angular/core';
+import { INavBar } from '../../models/navbar';
+import { Input } from '@angular/core/src/metadata/directives';
 
 
 @Component({
@@ -10,10 +11,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  user: IUser;
+  navBarData: INavBar;
   userName: string;
-  str: string;
-  // chartNamesList: string[];
+  isLogged: boolean;
+  chartIdsAndTitles: any;
+
   foods = [
     { value: 'steak-0', viewValue: 'Steak' },
     { value: 'pizza-1', viewValue: 'Pizza' },
@@ -23,14 +25,12 @@ export class NavBarComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.GetLoggedUser()
-      .subscribe(user => this.user = user, error => console.log(error), () => {
-        this.userName = this.user.name;
+    this.userService.GetNavBarData()
+      .subscribe(navBarData => this.navBarData = navBarData, error => console.log(error), () => {
+        this.userName = this.navBarData.userName;
+        this.isLogged = this.navBarData.isLogged;
+        this.chartIdsAndTitles = this.navBarData.chartIdsAndTitles;
+        // console.log(this.navBarData.chartIdsAndTitles);
       });
-
-
-    this.userService.GetStr()
-      .subscribe(str => this.str = str, error => console.log(error));
-
   }
 }
