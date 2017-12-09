@@ -2,6 +2,7 @@ import { UserService } from './../../services/user.service';
 import { IChart } from './../../models/ichart';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'app-chart',
@@ -13,6 +14,8 @@ export class ChartComponent implements OnInit {
   chartNote: string = 'adsadsad';
   chart: IChart;
   currentChartId: number;
+  sub: any;
+
   constructor(private userService: UserService, private route: ActivatedRoute) {
     this.currentChartId = +this.route.snapshot.paramMap.get('id');
     console.log(this.currentChartId);
@@ -25,6 +28,8 @@ export class ChartComponent implements OnInit {
         this.chartTitle = this.chart.title;
         this.chartNote = this.chart.note;
       });
+    console.log('aat' + this.currentChartId);
   }
+
 
 }
