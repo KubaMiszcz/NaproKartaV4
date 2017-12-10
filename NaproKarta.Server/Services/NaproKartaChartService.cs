@@ -7,16 +7,8 @@ using NaproKarta.Server.Models;
 
 namespace NaproKarta.Server.Services
 {
-  public class NaproKartaDbServices
-  {
-    public static ApplicationUser GetLoggedUser(string loggedUserId)
-    {
-      using (var context = new NaproKartaDbContext())
-      {
-        return context.Users.Find(loggedUserId);
-      }
-    }
-
+  public class NaproKartaChartService
+   {
     public static HashSet<string[]> GetUserChartIdsAndTitlesHashSet(string loggedUserId)
     {
       using (var context = new NaproKartaDbContext())

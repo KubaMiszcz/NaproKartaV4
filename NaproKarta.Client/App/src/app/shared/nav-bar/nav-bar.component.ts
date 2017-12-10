@@ -1,4 +1,4 @@
-import { UserService } from './../../services/user.service';
+import { AppService } from '../../services/app.service';
 import { IChart } from './../../models/ichart';
 import { Component, OnInit } from '@angular/core';
 import { INavBar } from '../../models/navbar';
@@ -22,10 +22,10 @@ export class NavBarComponent implements OnInit {
     { value: 'tacos-2', viewValue: 'Tacos' }
   ];
 
-  constructor(private userService: UserService) { }
+  constructor(private appService: AppService) { }
 
   ngOnInit() {
-    this.userService.GetNavBarData()
+    this.appService.GetNavBarData()
       .subscribe(navBarData => this.navBarData = navBarData, error => console.log(error), () => {
         this.userName = this.navBarData.userName;
         this.isLogged = this.navBarData.isLogged;

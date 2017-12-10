@@ -198,7 +198,8 @@
     <Compile Include="Models\Cycle.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\NaproKartaDbServices.cs" />
+    <Compile Include="Services\NaproKartaChartService.cs" />
+    <Compile Include="Services\NaproKartaUserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
