@@ -30,7 +30,7 @@ namespace NaproKarta.Client.ApiControllers
          if (result.IsLogged)
          {
             result.UserName = loggedUser?.UserName;
-            result.ChartIdsAndTitles = NaproKartaChartService.GetUserChartIdsAndTitlesHashSet(loggedUserId);
+            result.ChartIdsAndTitles = NaproServerChartService.GetUserChartIdsAndTitlesHashSet(loggedUserId);
          }
 
          return Request.CreateResponse(HttpStatusCode.OK, result);

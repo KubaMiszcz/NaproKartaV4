@@ -12,7 +12,8 @@ exports.config = {
     'browserName': 'chrome'
   },
   directConnect: true,
-  baseUrl: 'http://localhost:4200/',
+  // baseUrl: 'http://localhost:4200/',
+  baseUrl: 'http://www.naproangular.hostingasp.pl/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,

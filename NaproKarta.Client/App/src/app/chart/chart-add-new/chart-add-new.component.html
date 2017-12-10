@@ -1,3 +1,41 @@
-<p>
-  chart-add-new works!
-</p>
+<div class="row">
+  <div class="col-3"> </div>
+
+  <div class="col-6">
+    <!-- <form class="example-form"> -->
+
+    <div class="card">
+      <div class="card-body">
+        <p class="card-text">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nazwa Karty" [(ngModel)]='chartToAdd.title'>
+          </mat-form-field>
+        </p>
+      </div>
+    </div>
+    <br>
+
+    <div class="card">
+      <div class="card-body">
+        <p class="card-text">
+          <mat-form-field class="example-full-width note">
+            <textarea matInput placeholder="Notka do karty" 
+            matTextareaAutosize matAutosizeMinRows="2"
+            matAutosizeMaxRows="50"
+            [(ngModel)]='chartToAdd.note'></textarea>
+          </mat-form-field>
+        </p>
+      </div>
+    </div>
+    <br>
+    <div>
+      <button mat-raised-button class="btn ">Anuluj</button>
+      <button mat-raised-button color="primary" class="btn " (click)='AddNewChart()'>Dodaj</button>
+      <!-- [routerLink]="[ '/chart', id ]"         -->
+    </div>
+
+    <!-- </form> -->
+  </div>
+
+  <div class="col-3"> </div>
+</div>

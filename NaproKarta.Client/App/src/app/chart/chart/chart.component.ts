@@ -14,7 +14,6 @@ export class ChartComponent implements OnInit {
   chartNote: string = 'adsadsad';
   chart: IChart;
   currentChartId: number;
-  sub: any;
 
   constructor(private chartService: ChartService, private route: ActivatedRoute) {
     this.currentChartId = +this.route.snapshot.paramMap.get('id');

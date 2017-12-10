@@ -5,3 +5,9 @@ export interface IChart {
     note: string;
     //cycles: ICycle[];
 }
+
+export class Chart implements IChart {
+     title: string;
+     note: string;
+    //cycles: ICycle[];
+}

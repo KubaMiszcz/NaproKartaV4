@@ -14,6 +14,8 @@ import {
   , MatSelectModule
 } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 
 import { AppService } from './services/app.service';
 import { UserService } from './services/user.service';
@@ -58,6 +60,7 @@ import { MyToggleSwitchComponent } from './my-toggle-switch/my-toggle-switch.com
     , FormsModule
     , HttpClientModule
     , BrowserAnimationsModule
+    , MatInputModule
     , MatSlideToggleModule
     , MatButtonModule
     , MatCheckboxModule

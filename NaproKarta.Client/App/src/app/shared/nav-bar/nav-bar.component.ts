@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { INavBar } from '../../models/navbar';
 import { Input } from '@angular/core/src/metadata/directives';
 
+const applicationUrl = 'http://www.naproclient.hostingasp.pl';
 
 @Component({
   selector: 'app-nav-bar',

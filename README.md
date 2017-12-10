@@ -2,7 +2,10 @@
 
 
 
-
+TOFDO:
+sprawdzanie czy to twoj chart
+erro page albo jakismesage jak error
+naprawic to zeby dziallao tez z authorize przy naglowku options
 
 
 
