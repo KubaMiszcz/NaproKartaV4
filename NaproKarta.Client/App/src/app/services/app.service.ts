@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { INavBar } from '../models/navbar';
 
-// const applicationUrl = 'http://localhost/NaproKarta/api/app/';
-const applicationUrl = 'http://www.naproclient.hostingasp.pl/api/app/';
+ const applicationUrl = 'http://localhost/NaproKarta/api/app/';
+//const applicationUrl = 'http://www.naproclient.hostingasp.pl/api/app/';
 
 @Injectable()
 export class AppService {

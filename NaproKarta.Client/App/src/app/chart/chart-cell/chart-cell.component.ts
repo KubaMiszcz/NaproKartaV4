@@ -22,7 +22,7 @@ export class ChartCellComponent implements OnInit {
   ngOnInit() {
     this.row = 0;
     this.col = 0;
-    this.markerUrl = '/assets/img/markerGrey.jpeg';
+    this.markerUrl = '../../../assets/img/markers/markerGrey.jpg';
     this.markerAltText = 'altext';
     this.date = '12-12';
     this.letter = 'H B';
