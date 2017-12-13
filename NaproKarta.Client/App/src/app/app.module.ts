@@ -34,6 +34,7 @@ import { ObservationComponent } from './observation/observation.component';
 
 import { MyToggleSwitchComponent } from './my-toggle-switch/my-toggle-switch.component';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -45,7 +46,8 @@ import { MyToggleSwitchComponent } from './my-toggle-switch/my-toggle-switch.com
     , MyToggleSwitchComponent
     , DateMmDdPipe
     , NavBarComponent
-    , WelcomeComponent, ChartAddNewComponent
+    , WelcomeComponent
+    , ChartAddNewComponent
   ],
   imports: [
     RouterModule.forRoot([

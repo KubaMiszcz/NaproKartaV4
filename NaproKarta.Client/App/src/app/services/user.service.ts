@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { GlobalVariables } from '../shared/global-variables';
 
- const applicationUrl = 'http://localhost/NaproKarta/api/user/';
-//const applicationUrl = 'http://www.naproclient.hostingasp.pl/api/user/';
+const applicationUrl = GlobalVariables.BASE_API_URL + '/user';
 
 @Injectable()
 export class UserService {

@@ -3,8 +3,7 @@ import { IChart } from './../../models/ichart';
 import { Component, OnInit } from '@angular/core';
 import { INavBar } from '../../models/navbar';
 import { Input } from '@angular/core/src/metadata/directives';
-
-
+import { GlobalVariables } from '../global-variables';
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,8 +15,7 @@ export class NavBarComponent implements OnInit {
   userName: string;
   isLogged: boolean;
   chartIdsAndTitles: any;
-  //const applicationUrl = 'http://www.naproclient.hostingasp.pl';
-  applicationUrl = 'http://localhost/NaproKarta';
+  applicationUrl = GlobalVariables.BASE_NAPROCLIENT_URL;
 
   foods = [
     { value: 'steak-0', viewValue: 'Steak' },

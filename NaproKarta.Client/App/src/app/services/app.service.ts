@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { INavBar } from '../models/navbar';
+import { GlobalVariables } from '../shared/global-variables';
 
- const applicationUrl = 'http://localhost/NaproKarta/api/app/';
-//const applicationUrl = 'http://www.naproclient.hostingasp.pl/api/app/';
+const applicationUrl = GlobalVariables.BASE_API_URL + '/app';
 
 @Injectable()
 export class AppService {
@@ -12,11 +12,12 @@ export class AppService {
 
   // TODO: set golab header withcredentials
   GetNavBarData(): Observable<INavBar> {
-    return this.http.get<INavBar>(applicationUrl + 'GetNavBarData', { withCredentials: true });
+    console.log(applicationUrl + 'GetNavBarData');
+    return this.http.get<INavBar>(applicationUrl + '/GetNavBarData', { withCredentials: true });
   }
 
   GetStr(): Observable<string> {
-    return this.http.get<string>(applicationUrl + 'GetStr', { withCredentials: true });
+    return this.http.get<string>(applicationUrl + '/GetStr', { withCredentials: true });
   }
 
 
