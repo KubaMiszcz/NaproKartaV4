@@ -1,9 +1,10 @@
 import { AppService } from '../../services/app.service';
 import { IChart } from './../../models/ichart';
-import { Component, OnInit } from '@angular/core';
-import { INavBar } from '../../models/navbar';
-import { Input } from '@angular/core/src/metadata/directives';
-import { GlobalVariables } from '../global-variables';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { INavBar } from '../../models/inavbar';
+import { GlobalVariables } from '../../global-variables';
+import { IChartIdAndTitle } from '../../models/auxmodels/chart-id-and-title';
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,11 +12,12 @@ import { GlobalVariables } from '../global-variables';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+  applicationUrl = GlobalVariables.BASE_NAPROCLIENT_URL;
   navBarData: INavBar;
   userName: string;
   isLogged: boolean;
-  chartIdsAndTitles: any;
-  applicationUrl = GlobalVariables.BASE_NAPROCLIENT_URL;
+  chartIdsAndTitles: IChartIdAndTitle[];
+  @Output() chartChanged: EventEmitter<number> = new EventEmitter<number>();
 
   foods = [
     { value: 'steak-0', viewValue: 'Steak' },
@@ -26,13 +28,18 @@ export class NavBarComponent implements OnInit {
   constructor(private appService: AppService) { }
 
   ngOnInit() {
-
     this.appService.GetNavBarData()
-      .subscribe(navBarData => this.navBarData = navBarData, error => console.log(error), () => {
+      .subscribe(navBarData => this.navBarData = navBarData
+      , error => console.log(error)
+      , () => {
         this.userName = this.navBarData.userName;
         this.isLogged = this.navBarData.isLogged;
         this.chartIdsAndTitles = this.navBarData.chartIdsAndTitles;
         // console.log(this.navBarData.chartIdsAndTitles);
       });
+  }
+
+  RefreshChart(id: number) {
+    this.chartChanged.emit(id);
   }
 }

@@ -11,14 +11,12 @@ export class AppComponent {
   // userCharts
 
   // wywal potem
-  label = 'ok';
-  isChecked = true;
-  side = 'after';
+  // label = 'ok';
+  // isChecked = true;
+  // side = 'after';
 
-  clicked() {
-    console.log('cliked');
-    this.isChecked = !this.isChecked;
-    this.label = this.isChecked ? 'ok' : 'nook';
+  onChartChanged(id: number) {
+//    console.log('clicked' + id);
   }
 
 }

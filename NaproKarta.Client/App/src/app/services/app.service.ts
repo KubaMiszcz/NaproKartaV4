@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { INavBar } from '../models/navbar';
-import { GlobalVariables } from '../shared/global-variables';
+import { INavBar } from '../models/inavbar';
+import { GlobalVariables } from '../global-variables';
 
 const applicationUrl = GlobalVariables.BASE_API_URL + '/app';
 
@@ -12,7 +12,6 @@ export class AppService {
 
   // TODO: set golab header withcredentials
   GetNavBarData(): Observable<INavBar> {
-    console.log(applicationUrl + 'GetNavBarData');
     return this.http.get<INavBar>(applicationUrl + '/GetNavBarData', { withCredentials: true });
   }
 

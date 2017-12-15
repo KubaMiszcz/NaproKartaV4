@@ -52,14 +52,6 @@ namespace NaproKarta.Client.ApiControllers
 			return Request.CreateResponse(HttpStatusCode.OK, result);
 		}
 
-		[Route("testGetChart/{id?}")]
-		[HttpGet]
-		public HttpResponseMessage testGetChart(int id)
-		{
-			var result = _chartRepository.GetChart(id);
-			return Request.CreateResponse(HttpStatusCode.OK, result);
-		}
-
 		[Route("AddChart")]
 		[HttpPost, HttpOptions]
 		public HttpResponseMessage AddChart(ChartViewModel chartVm)

@@ -1,7 +1,11 @@
-<div class="container">
-  <div class="jumbotron">
-    <h1>end of teh internets</h1> 
-    <p>This is some text.</p> 
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">{{title}}</h1>
+    <p class="lead">{{content}}</p>
+    <hr class="my-2">
+    <p class="lead">
+      <button mat-raised-button color='primary' class="btn btn-block" [routerLink]="[ '/welcome']">Powrót
+      </button>
+    </p>
   </div>
-  <p>This is another text.</p> 
 </div>

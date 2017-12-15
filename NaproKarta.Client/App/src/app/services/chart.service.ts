@@ -2,7 +2,7 @@ import { IChart, Chart } from './../models/ichart';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { GlobalVariables } from '../shared/global-variables';
+import { GlobalVariables } from '../global-variables';
 
 const applicationUrl = GlobalVariables.BASE_API_URL + '/chart';
 
@@ -11,13 +11,13 @@ export class ChartService {
 
   constructor(private http: HttpClient) { }
 
-  GetChartById(id): Observable<IChart> {
-    return this.http.get<IChart>(applicationUrl + '/GetChartById/' + id, { withCredentials: true });
+  GetChart(id): Observable<IChart> {
+    return this.http.get<IChart>(applicationUrl + '/GetChart/' + id, { withCredentials: true });
   }
 
-  AddNewChart(chartToAdd: Chart) {
-    return this.http.post(applicationUrl + '/AddNewChart', chartToAdd, { withCredentials: true })
-      .subscribe(error => console.log(error), () => { });
+  AddChart(chart: IChart) {
+    return this.http.post(applicationUrl + '/AddChart', chart, { withCredentials: true });
+      //.subscribe(error => console.log(error), () => { });
   }
 
 

@@ -1,4 +1,3 @@
-import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -6,6 +5,7 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import 'hammerjs';
 import {
   MatSlideToggleModule
   , MatCheckboxModule
@@ -24,10 +24,11 @@ import { ChartService } from './services/chart.service';
 import { DateMmDdPipe } from './shared/pipes/date-mm-dd.pipe';
 
 import { WelcomeComponent } from './shared/welcome/welcome.component';
+import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 
 import { ChartComponent } from './chart/chart/chart.component';
-import { ChartAddNewComponent } from './chart/chart-add-new/chart-add-new.component';
+import { ChartAddComponent } from './chart/chart-add/chart-add.component';
 import { ChartCellComponent } from './chart/chart-cell/chart-cell.component';
 import { ChartRowComponent } from './chart/chart-row/chart-row.component';
 import { ObservationComponent } from './observation/observation.component';
@@ -47,14 +48,15 @@ import { MyToggleSwitchComponent } from './my-toggle-switch/my-toggle-switch.com
     , DateMmDdPipe
     , NavBarComponent
     , WelcomeComponent
-    , ChartAddNewComponent
+    , ChartAddComponent
   ],
   imports: [
     RouterModule.forRoot([
-      { path: 'chartAddNew', component: ChartAddNewComponent }
+      { path: 'AddChart', component: ChartAddComponent }
       , { path: 'chart/:id', component: ChartComponent }
-      , { path: 'error-page', component: ErrorPageComponent }
+      , { path: 'error', component: ErrorPageComponent }
       , { path: 'welcome', component: WelcomeComponent }
+      , { path: 'settings', redirectTo: 'http://localhost/NaproKarta/Manage'}
       , { path: '', redirectTo: 'welcome', pathMatch: 'full' }
       , { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ])

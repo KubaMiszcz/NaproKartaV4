@@ -4,12 +4,13 @@
 
 
       <span class="navbar-brand">
-        <img src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top"
-          alt=""> NaproKarta
+        <img [routerLink]="[ '/welcome']" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" width="30" height="30"
+          class="d-inline-block align-top" alt=""> NaproKarta
       </span>
-      <span *ngIf="isLogged" class="navbar-brand ">
+      <a [routerLink]="[ '/settings' ]" class="navbar-brand ">
         {{isLogged ? ('Hello ' + userName) : ''}}
-      </span>
+      </a>
+
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -21,12 +22,13 @@
 
           <li *ngIf="chartIdsAndTitles.length>0" class="mr-2 nav-item ">
             <div class="dropdown">
-                <button mat-raised-button color="primary"  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
+              <button mat-raised-button color="primary" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Wybierz karte </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a *ngFor="let chartIdAndTitle of chartIdsAndTitles; let idx = index" class="dropdown-item" [id]='chartIdAndTitle[0]' [routerLink]="[ '/chart',chartIdAndTitle[0]]">
-                  {{chartIdAndTitle[1]}}
+                <a *ngFor="let chartIdAndTitle of chartIdsAndTitles" class="dropdown-item" [id]='chartIdAndTitle.id' [routerLink]="[ '/chart',chartIdAndTitle.id]"
+                  (click)='RefreshChart(chartIdAndTitle.id)'>
+                  {{chartIdAndTitle.title}}
                 </a>
               </div>
             </div>
@@ -35,7 +37,7 @@
             <button type="button" class="btn btn-secondary" [routerLink]="[ '/chartAddNew']">Dodaj nową kartę</button>
           </li> -->
           <li class="ml-2 nav-item">
-              <button mat-raised-button color="primary" [routerLink]="[ '/chartAddNew']" class="btn btn-md">Dodaj nową kartę</button>
+            <button mat-raised-button color="primary" [routerLink]="[ '/Addchart']" class="btn btn-md">Dodaj nową kartę</button>
           </li>
         </ul>
       </div>

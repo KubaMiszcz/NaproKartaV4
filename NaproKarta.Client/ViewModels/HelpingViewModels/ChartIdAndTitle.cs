@@ -5,15 +5,15 @@ namespace NaproKarta.Client.ViewModels
 {
 	public class ChartIdAndTitle
 	{
-		public int ChartId { get; set; }
-		public string ChartTitle { get; set; }
+		public int Id { get; set; }
+		public string Title { get; set; }
 
 		public ChartIdAndTitle() { }
 
 		public ChartIdAndTitle(int id, string title)
 		{
-			this.ChartId = id;
-			this.ChartTitle = title;
+			Id = id;
+			Title = title;
 		}
 	}
 }

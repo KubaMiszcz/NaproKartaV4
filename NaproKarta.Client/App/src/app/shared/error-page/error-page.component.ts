@@ -7,6 +7,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class ErrorPageComponent implements OnInit {
+  title: string = 'error';
+  content: string = 'content';
 
   constructor() { }
 
