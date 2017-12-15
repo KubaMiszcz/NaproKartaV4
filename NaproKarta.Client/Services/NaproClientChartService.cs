@@ -29,15 +29,5 @@ namespace NaproKarta.Client.Services
            Note = chartVm.Note
          };
       }
-
-      public static bool ReqestHasOPTIONSHeader(HttpRequestMessage request)
-      {
-         //if (Request.Headers.Contains("Origin",StringComparer.CurrentCultureIgnoreCase)
-         ////    && Request.Method == HttpMethod.Options)
-         //{
-         //   Options();
-         //}
-         return request.Method == HttpMethod.Options ? true:false;
-      }
    }
 }

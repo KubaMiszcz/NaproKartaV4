@@ -9,56 +9,68 @@ using System.Web.Mvc;
 //using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using NaproKarta.Client.ViewModels;
-using NaproKarta.Server.Services;
+using NaproKarta.Server.Interfaces;
+using NaproKarta.Server.Repositories;
 
 namespace NaproKarta.Client.ApiControllers
 {
-   [System.Web.Http.Authorize]
-   //[System.Web.Http.AllowAnonymous]
-   [System.Web.Http.RoutePrefix("api/App")]
-   public class AppController : ApiController
-   {
-      [System.Web.Http.Route("GetNavBarData")]
-      [System.Web.Http.HttpGet]
-      public HttpResponseMessage GetNavBarData()
-      {
-         var loggedUserId = User.Identity.GetUserId();
-         var loggedUser = NaproKartaUserService.GetLoggedUser(loggedUserId);
+	//[System.Web.Http.Authorize]
+	[System.Web.Http.AllowAnonymous]
+	[System.Web.Http.RoutePrefix("api/App")]
+	public class AppController : ApiController
+	{
+		private readonly IChartRepository _chartRepository;
+		private readonly IApplicationUserRepository _applicationUserRepository;
+		private string loggedUserId;
 
-         NavBarViewModel result = new NavBarViewModel();
-         result.IsLogged = loggedUserId != null ? true : false;
-         if (result.IsLogged)
-         {
-            result.UserName = loggedUser?.UserName;
-            result.ChartIdsAndTitles = NaproServerChartService.GetUserChartIdsAndTitlesHashSet(loggedUserId);
-         }
+		public AppController()
+		{
+			loggedUserId = User.Identity.GetUserId();
+		}
 
-         return Request.CreateResponse(HttpStatusCode.OK, result);
-      }
+		public AppController(IChartRepository chartRepository, IApplicationUserRepository applicationUserRepository) : this()
+		{
+			_chartRepository = chartRepository;
+			_applicationUserRepository = applicationUserRepository;
+		}
 
-      #region DefaultActionsIn prebuilt controller webapi
+		[System.Web.Http.Route("GetNavBarData")]
+		[System.Web.Http.HttpGet]
+		public HttpResponseMessage GetNavBarData()
+		{
+			if (loggedUserId == null)
+				return Request.CreateResponse(HttpStatusCode.Unauthorized, "err niezalogoany");
 
-      // GET api/values/5
-      public string Get(int id)
-      {
-         return "value";
-      }
 
-      // POST api/values
-      public void Post([FromBody] string value)
-      {
-      }
+			var loggedUser = _applicationUserRepository.GetLoggedUser(loggedUserId);
+			var charts = _chartRepository.GetUserCharts(loggedUserId);
+			var result = new NavBarViewModel(loggedUser, charts);
+			return Request.CreateResponse(HttpStatusCode.OK, result);
+		}
 
-      // PUT api/values/5
-      public void Put(int id, [FromBody] string value)
-      {
-      }
+		#region DefaultActionsIn prebuilt controller webapi
 
-      // DELETE api/values/5
-      public void Delete(int id)
-      {
-      }
+		// GET api/values/5
+		public string Get(int id)
+		{
+			return "value";
+		}
 
-      #endregion
-   }
+		// POST api/values
+		public void Post([FromBody] string value)
+		{
+		}
+
+		// PUT api/values/5
+		public void Put(int id, [FromBody] string value)
+		{
+		}
+
+		// DELETE api/values/5
+		public void Delete(int id)
+		{
+		}
+
+		#endregion
+	}
 }

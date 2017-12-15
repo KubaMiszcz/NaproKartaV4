@@ -13,7 +13,7 @@ using NaproKarta.Server.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using NaproKarta.Client.ViewModels;
 using NaproKarta.Server.Context;
-using NaproKarta.Server.Services;
+using NaproKarta.Server.Repositories;
 
 namespace NaproKarta.Client.Controllers
 {

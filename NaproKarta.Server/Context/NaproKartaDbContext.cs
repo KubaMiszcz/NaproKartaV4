@@ -14,7 +14,11 @@ namespace NaproKarta.Server.Context
    // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
    public class NaproKartaDbContext : IdentityDbContext<ApplicationUser>
    {
-      public NaproKartaDbContext()
+      public DbSet<Chart> Charts { get; set; }
+      public DbSet<Cycle> Cycles { get; set; }
+      public DbSet<Observation> Observations { get; set; }
+
+		public NaproKartaDbContext()
         : base("DefaultConnection", throwIfV1Schema: false)
       {
          this.Configuration.LazyLoadingEnabled = false;
@@ -26,9 +30,6 @@ namespace NaproKarta.Server.Context
          return new NaproKartaDbContext();
       }
 
-      public DbSet<Chart> Charts { get; set; }
-      public DbSet<Cycle> Cycles { get; set; }
-      public DbSet<Observation> Observations { get; set; }
 
       //protected override void OnModelCreating(DbModelBuilder modelBuilder)
       //{

@@ -8,11 +8,12 @@ using NaproKarta.Server.Interfaces;
 
 namespace NaproKarta.Server.Models
 {
-   public class Observation : IObservation
-   {
-      [Key]
-      public int Id { get; set; }
-      public int CycleId { get; set; }
-      public virtual Cycle Cycle { get; set; }
-   }
+	public class Observation
+	{
+		[Key]
+		public int Id { get; set; }
+		public int CycleId { get; set; }
+		public virtual Cycle Cycle { get; set; }
+
+	}
 }

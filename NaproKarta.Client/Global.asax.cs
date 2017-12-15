@@ -9,15 +9,16 @@ using System.Web.Routing;
 
 namespace NaproKarta.Client
 {
-   public class MvcApplication : System.Web.HttpApplication
-   {
-      protected void Application_Start()
-      {
-         AreaRegistration.RegisterAllAreas();
-         GlobalConfiguration.Configure(WebApiConfig.Register);
-         FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-         RouteConfig.RegisterRoutes(RouteTable.Routes);
-         BundleConfig.RegisterBundles(BundleTable.Bundles);
-      }
-   }
+	public class MvcApplication : System.Web.HttpApplication
+	{
+		protected void Application_Start()
+		{
+			UnityConfig.RegisterComponents();
+			AreaRegistration.RegisterAllAreas();
+			GlobalConfiguration.Configure(WebApiConfig.Register);
+			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+			RouteConfig.RegisterRoutes(RouteTable.Routes);
+			BundleConfig.RegisterBundles(BundleTable.Bundles);
+		}
+	}
 }

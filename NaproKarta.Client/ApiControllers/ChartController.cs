@@ -13,49 +13,74 @@ using NaproKarta.Client.Services;
 using NaproKarta.Client.ViewModels;
 using NaproKarta.Server.Interfaces;
 using NaproKarta.Server.Models;
-using NaproKarta.Server.Services;
+using NaproKarta.Server.Context;
 
 namespace NaproKarta.Client.ApiControllers
 {
-   //[Authorize]
-   [AllowAnonymous]
-   [RoutePrefix("api/Chart")]
-   public class ChartController : ApiController
-   {
+	//[Authorize]
+	[AllowAnonymous]
+	[RoutePrefix("api/Chart")]
+	public class ChartController : ApiController
+	{
+		private readonly IChartRepository _chartRepository;
+		private string loggedUserId;
 
-      [Route("GetChartById/{id}")]
-      [HttpGet]
-      public HttpResponseMessage GetChartById(int? id)
-      {
-         if (id == null)
-            return Request.CreateResponse(HttpStatusCode.BadRequest);
+		public ChartController()
+		{
+			loggedUserId = User.Identity.GetUserId();
+		}
 
-         var chart = NaproServerChartService.GetChartById(id);
-         var result = NaproClientChartService.ChartDb2ChartVm(chart);
-         return Request.CreateResponse(HttpStatusCode.OK, result);
-      }
+		public ChartController(IChartRepository chartRepository) : this()
+		{
+			_chartRepository = chartRepository;
+		}
 
-      [Route("AddNewChart")]
-      [HttpPost, HttpOptions]
-      public HttpResponseMessage AddNewChart(ChartViewModel chartVm)
-      {
-         if (NaproClientChartService.ReqestHasOPTIONSHeader(Request))
-            return new HttpResponseMessage() { StatusCode = HttpStatusCode.OK };
+		[Route("GetChart/{id?}")]
+		[HttpGet]
+		public HttpResponseMessage GetChart(int id)
+		{
+			var chart = _chartRepository.GetChart(id);
 
-         if (!ModelState.IsValid)
-            return Request.CreateResponse(HttpStatusCode.BadRequest);
+			if (chart==null)
+				return Request.CreateResponse(HttpStatusCode.OK, "err chart nie istenieje");
 
-         if (User.Identity.GetUserId() == null)
-            //TODO: you are not logged message here
-            return Request.CreateResponse(HttpStatusCode.OK, "niezalogowany");
 
-         Chart chartToAdd = NaproClientChartService.ChartVm2ChartDb(chartVm);
-         chartToAdd.UserId = User.Identity.GetUserId();
-         var result = NaproServerChartService.AddNewChart(chartToAdd);
-         return Request.CreateResponse(HttpStatusCode.OK,
-            new string[] { result.ToString(), "nowa karta dodana" });
+			if (chart.UserId!=loggedUserId)
+				return Request.CreateResponse(HttpStatusCode.OK, "err nie twoj chart");
 
-      }
-   }
+			var result = NaproClientChartService.ChartDb2ChartVm(chart);
+			return Request.CreateResponse(HttpStatusCode.OK, result);
+		}
+
+		[Route("testGetChart/{id?}")]
+		[HttpGet]
+		public HttpResponseMessage testGetChart(int id)
+		{
+			var result = _chartRepository.GetChart(id);
+			return Request.CreateResponse(HttpStatusCode.OK, result);
+		}
+
+		[Route("AddChart")]
+		[HttpPost, HttpOptions]
+		public HttpResponseMessage AddChart(ChartViewModel chartVm)
+		{
+			if (NaproClientAppService.ReqestHasOPTIONSHeader(Request))
+				return new HttpResponseMessage() { StatusCode = HttpStatusCode.OK };
+
+			if (!ModelState.IsValid)
+				return Request.CreateResponse(HttpStatusCode.BadRequest);
+
+			if (loggedUserId == null)
+				//TODO: you are not logged message here
+				return Request.CreateResponse(HttpStatusCode.Unauthorized, "err niezalogowany");
+
+			Chart chart = NaproClientChartService.ChartVm2ChartDb(chartVm);
+			chart.UserId = User.Identity.GetUserId();
+			var result = _chartRepository.AddChart(chart);
+			return Request.CreateResponse(HttpStatusCode.Created,
+			   new string[] { result.ToString(), "success nowa karta dodana" });
+
+		}
+	}
 }
 

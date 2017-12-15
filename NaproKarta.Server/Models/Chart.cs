@@ -5,7 +5,7 @@ using NaproKarta.Server.Models;
 
 namespace NaproKarta.Server.Models
 {
-   public class Chart : IChart
+   public class Chart
    {
       [Key]
       public int Id { get; set; }
@@ -17,4 +17,30 @@ namespace NaproKarta.Server.Models
       public string Note { get; set; }
       public virtual IList<Cycle> Cycles { get; set; }
    }
+	/*
+	internal sealed class ResumeMappings : IEntityTypeConfiguration<Resume>
+	{
+		public void Configure(EntityTypeBuilder<Resume> builder)
+		{
+			builder.ToTable("Resumes", "Application");
+
+			builder.Property(p => p.FirstName).IsRequired().HasMaxLength(128);
+			builder.Property(p => p.LastName).IsRequired().HasMaxLength(128);
+			builder.Property(p => p.Email).IsRequired().HasMaxLength(128);
+			builder.HasIndex(p => p.Email).IsUnique();
+			builder.Property(p => p.FullText).IsRequired();
+			builder.ToTable("ResumesKeyWords", "Application");
+			builder.HasKey(p => new
+			{
+				p.ResumeId,
+				p.KeyWordId
+			});
+
+			builder.Ignore(p => p.FullName);
+						builder.ToTable("KeyWords", "Application");
+			builder.Property(p => p.Name).IsRequired().HasMaxLength(128);
+			builder.HasIndex(p => p.Name).IsUnique();
+		}
+	}
+	*/
 }
