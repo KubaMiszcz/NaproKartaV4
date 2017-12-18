@@ -45,8 +45,8 @@ namespace NaproKarta.Server.Migrations
 			lstr = new List<string>() { "B", "C", "C/K", "G", "L", "P", "Y", "\"P\"" };
 			foreach (string item in lstr) { context.CipherCds.AddOrUpdate(p => p.Id, new CipherCd() { Id = item }); }
 
-			//lstr = new List<string>() { "Badania", "Wizyta", "ILupucupu" };
-			//foreach (string item in lstr) { context.Comments.AddOrUpdate(p => p.Content, new Comment() { Content = item }); }
-		}
+         lstr = new List<string>() { "Badania", "Wizyta", "ILupucupu" };
+         foreach (string item in lstr) { context.Comments.AddOrUpdate(p => p.Content, new Comment() { Content = item }); }
+      }
 	}
 }

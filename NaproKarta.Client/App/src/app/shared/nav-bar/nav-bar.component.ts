@@ -12,18 +12,19 @@ import { IChartIdAndTitle } from '../../models/auxmodels/chart-id-and-title';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  applicationUrl = GlobalVariables.BASE_NAPROCLIENT_URL;
+  angularUrl = GlobalVariables.BASE_NAPROANGULAR_URL;
+  clientUrl = GlobalVariables.BASE_NAPROCLIENT_URL;
   navBarData: INavBar;
   userName: string;
   isLogged: boolean;
   chartIdsAndTitles: IChartIdAndTitle[];
-  @Output() chartChanged: EventEmitter<number> = new EventEmitter<number>();
+//  @Output() chartChanged: EventEmitter<number> = new EventEmitter<number>();
 
-  foods = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' }
-  ];
+  // foods = [
+  //   { value: 'steak-0', viewValue: 'Steak' },
+  //   { value: 'pizza-1', viewValue: 'Pizza' },
+  //   { value: 'tacos-2', viewValue: 'Tacos' }
+  // ];
 
   constructor(private appService: AppService) { }
 
@@ -39,7 +40,7 @@ export class NavBarComponent implements OnInit {
       });
   }
 
-  RefreshChart(id: number) {
-    this.chartChanged.emit(id);
-  }
+  // RefreshChart(id: number) {
+  //   this.chartChanged.emit(id);
+  // }
 }

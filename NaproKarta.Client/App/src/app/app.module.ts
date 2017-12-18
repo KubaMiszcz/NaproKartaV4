@@ -13,8 +13,10 @@ import {
   , MatButtonModule
   , MatButtonToggleModule
   , MatSelectModule
+  , MatCardModule
+  , MatGridListModule
 } from '@angular/material';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 //=======================end materials
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -32,12 +34,15 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 
 import { ChartComponent } from './chart/chart/chart.component';
+//vvvvvvvvvvvvvvvvvvvv
 import { ChartAddComponent } from './chart/chart-add/chart-add.component';
+import { ChartAdd2Component } from './chart/chart-add2/chart-add2.component';
+//^^^^^^^^^^^^^^^^^^
 import { ChartCellComponent } from './chart/chart-cell/chart-cell.component';
 import { ChartRowComponent } from './chart/chart-row/chart-row.component';
 import { ObservationComponent } from './observation/observation.component';
 
-import { MyToggleSwitchComponent } from './my-toggle-switch/my-toggle-switch.component';
+import { MyToggleSwitchComponent } from './shared/ZZZmy-toggle-switch/my-toggle-switch.component';
 import { ProgressSpinnerOverviewComponent } from './shared/progress-spinner-overview/progress-spinner-overview.component';
 
 
@@ -54,15 +59,15 @@ import { ProgressSpinnerOverviewComponent } from './shared/progress-spinner-over
     , NavBarComponent
     , WelcomeComponent
     , ChartAddComponent
-    , ProgressSpinnerOverviewComponent
+    , ProgressSpinnerOverviewComponent, ChartAdd2Component
   ],
   imports: [
     RouterModule.forRoot([
-      { path: 'AddChart', component: ChartAddComponent }
+      { path: 'add-chart', component: ChartAdd2Component }
       , { path: 'chart/:id', component: ChartComponent }
       , { path: 'error', component: ErrorPageComponent }
       , { path: 'welcome', component: WelcomeComponent }
-      , { path: 'settings', redirectTo: 'http://localhost/NaproKarta/Manage'}
+      , { path: 'settings', redirectTo: 'http://localhost/NaproKarta/Manage' }
       , { path: '', redirectTo: 'welcome', pathMatch: 'full' }
       , { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ])
@@ -78,7 +83,9 @@ import { ProgressSpinnerOverviewComponent } from './shared/progress-spinner-over
     , MatButtonToggleModule
     , MatSelectModule
     , MatFormFieldModule
+    , MatCardModule
     , MatProgressSpinnerModule
+    , MatGridListModule
     //material end
   ],
   providers: [UserService, AppService, ChartService],

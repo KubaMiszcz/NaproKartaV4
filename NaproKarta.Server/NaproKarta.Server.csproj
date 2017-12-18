@@ -177,13 +177,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\UnityConfig.cs" />
-    <Compile Include="Migrations\201712181433060_1.cs" />
-    <Compile Include="Migrations\201712181433060_1.Designer.cs">
-      <DependentUpon>201712181433060_1.cs</DependentUpon>
+    <Compile Include="Migrations\201712181910194_init.cs" />
+    <Compile Include="Migrations\201712181910194_init.Designer.cs">
+      <DependentUpon>201712181910194_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712181436366_2.cs" />
-    <Compile Include="Migrations\201712181436366_2.Designer.cs">
-      <DependentUpon>201712181436366_2.cs</DependentUpon>
+    <Compile Include="Migrations\201712181917256_1.cs" />
+    <Compile Include="Migrations\201712181917256_1.Designer.cs">
+      <DependentUpon>201712181917256_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712181927502_3.cs" />
+    <Compile Include="Migrations\201712181927502_3.Designer.cs">
+      <DependentUpon>201712181927502_3.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\SubModels\Cipher.cs" />
     <Compile Include="Models\SubModels\CipherCd.cs" />
@@ -204,10 +208,6 @@
     <Compile Include="Interfaces\ICycleRepository.cs" />
     <Compile Include="Interfaces\IObservationRepository.cs" />
     <Compile Include="Interfaces\IUserDataRepository.cs" />
-    <Compile Include="Migrations\201712031928210_init.cs" />
-    <Compile Include="Migrations\201712031928210_init.Designer.cs">
-      <DependentUpon>201712031928210_init.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Context\NaproKartaDbContext.cs" />
     <Compile Include="Models\Observation.cs" />
@@ -226,7 +226,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
@@ -242,14 +241,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712031928210_init.resx">
-      <DependentUpon>201712031928210_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712181910194_init.resx">
+      <DependentUpon>201712181910194_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712181433060_1.resx">
-      <DependentUpon>201712181433060_1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712181917256_1.resx">
+      <DependentUpon>201712181917256_1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712181436366_2.resx">
-      <DependentUpon>201712181436366_2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712181927502_3.resx">
+      <DependentUpon>201712181927502_3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

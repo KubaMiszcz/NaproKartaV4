@@ -15,6 +15,7 @@ namespace NaproKarta.Server.Models
 		public int Id { get; set; }
 		public int CycleId { get; set; }
 		public virtual Cycle Cycle { get; set; }
+	   public int NumberInCycle { get; set; }
 
 		public string MarkerId { get; set; }
 		public virtual Marker Marker { get; set; }

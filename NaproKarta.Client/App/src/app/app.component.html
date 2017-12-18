@@ -1,10 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<mat-card>
 <div class="app-progress-spinner-overview">
-  <!-- <mat-spinner *ngIf="expression" > </mat-spinner> -->
+    <!-- <mat-spinner *ngIf="expression" > </mat-spinner> -->
 
-  <app-nav-bar (chartChanged)='onChartChanged($event)'></app-nav-bar>
-  <br>
-  <br>
-  <br>
-  <router-outlet></router-outlet>
-</div>
+    <!-- (chartChanged)='onChartChanged($event)' -->
+    <app-nav-bar></app-nav-bar>
+    <br>
+    <br>
+    <br>
+    <router-outlet></router-outlet>
+  </div>
+</mat-card>

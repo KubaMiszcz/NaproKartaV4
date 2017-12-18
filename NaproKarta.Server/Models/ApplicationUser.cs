@@ -17,8 +17,8 @@ namespace NaproKarta.Server.Models
 		//[ForeignKey("UserDataId")]
 		//public virtual IList<UserData> ListUserDatas { get; set; }
 		public virtual IList<Chart> Charts { get; set; }
-		public DateTime LastLoginDate { get; set; }
-		public DateTime RegisterDate { get; set; }
+		//public DateTime LastLoginDate { get; set; }
+		//public DateTime RegisterDate { get; set; }
 
 
 		public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

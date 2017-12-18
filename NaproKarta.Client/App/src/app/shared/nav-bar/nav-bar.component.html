@@ -33,11 +33,8 @@
               </div>
             </div>
           </li>
-          <!-- <li class="ml-2 nav-item">
-            <button type="button" class="btn btn-secondary" [routerLink]="[ '/chartAddNew']">Dodaj nową kartę</button>
-          </li> -->
           <li class="ml-2 nav-item">
-            <button mat-raised-button color="primary" [routerLink]="[ '/Addchart']" class="btn btn-md">Dodaj nową kartę</button>
+            <button mat-raised-button color="primary" [routerLink]="[ '/add-chart']" class="btn btn-md">Dodaj nową kartę</button>
           </li>
         </ul>
       </div>
@@ -46,16 +43,16 @@
     <div class="d-flex justify-content-end">
       <ul class="navbar-nav mr-auto">
         <li *ngIf="isLogged">
-          <a href="{{applicationUrl + '/Manage'}}" class="nav-item nav-link">Ustawienia Konta</a>
+          <a href="{{clientUrl + '/Manage'}}" class="nav-item nav-link">Ustawienia Konta</a>
         </li>
         <li *ngIf="!isLogged" class="nav-item">
-          <a href="{{applicationUrl + '/Account/Register'}}" class="nav-item nav-link">Zarejestruj</a>
+          <a href="{{clientUrl + '/Account/Register'}}" class="nav-item nav-link">Zarejestruj</a>
         </li>
         <li *ngIf="!isLogged" class="nav-item">
-          <a href="{{applicationUrl + '/Account/Login'}}" class="nav-item nav-link">Zaloguj</a>
+          <a href="{{clientUrl + '/Account/Login'}}" class="nav-item nav-link">Zaloguj</a>
         </li>
         <li *ngIf="isLogged" class="nav-item">
-          <a href="{{applicationUrl + ''}}" class="nav-item nav-link">Wyloguj</a>
+          <a href="{{clientUrl + ''}}" class="nav-item nav-link">Wyloguj</a>
         </li>
       </ul>
     </div>
