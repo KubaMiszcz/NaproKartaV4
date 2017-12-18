@@ -4,3 +4,4 @@ export interface ICycle {
     note: string;
     observations: IObservation[];
 }
+

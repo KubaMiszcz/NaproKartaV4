@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import 'hammerjs';
+//==================materials
 import {
   MatSlideToggleModule
   , MatCheckboxModule
@@ -13,6 +14,9 @@ import {
   , MatButtonToggleModule
   , MatSelectModule
 } from '@angular/material';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+//=======================end materials
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
@@ -34,6 +38,7 @@ import { ChartRowComponent } from './chart/chart-row/chart-row.component';
 import { ObservationComponent } from './observation/observation.component';
 
 import { MyToggleSwitchComponent } from './my-toggle-switch/my-toggle-switch.component';
+import { ProgressSpinnerOverviewComponent } from './shared/progress-spinner-overview/progress-spinner-overview.component';
 
 
 @NgModule({
@@ -49,6 +54,7 @@ import { MyToggleSwitchComponent } from './my-toggle-switch/my-toggle-switch.com
     , NavBarComponent
     , WelcomeComponent
     , ChartAddComponent
+    , ProgressSpinnerOverviewComponent
   ],
   imports: [
     RouterModule.forRoot([
@@ -64,6 +70,7 @@ import { MyToggleSwitchComponent } from './my-toggle-switch/my-toggle-switch.com
     , FormsModule
     , HttpClientModule
     , BrowserAnimationsModule
+    //materials
     , MatInputModule
     , MatSlideToggleModule
     , MatButtonModule
@@ -71,6 +78,8 @@ import { MyToggleSwitchComponent } from './my-toggle-switch/my-toggle-switch.com
     , MatButtonToggleModule
     , MatSelectModule
     , MatFormFieldModule
+    , MatProgressSpinnerModule
+    //material end
   ],
   providers: [UserService, AppService, ChartService],
   bootstrap: [AppComponent]

@@ -1,0 +1,17 @@
+
+.app-progress-spinner-overview {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: rgba(0, 0, 255, 0.2);
+    z-index: 998;
+}
+
+mat-spinner {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    z-index: 999;
+}

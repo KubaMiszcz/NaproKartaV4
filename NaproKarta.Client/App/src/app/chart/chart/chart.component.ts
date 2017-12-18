@@ -1,3 +1,4 @@
+import { ICycle } from './../../models/icycle';
 import { ChartService } from '../../services/chart.service';
 import { IChart } from './../../models/ichart';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
@@ -16,6 +17,7 @@ export class ChartComponent implements OnInit, OnDestroy {
   chartTitle: string = 'chhh';
   chartNote: string = 'adsadsad';
   chart: IChart;
+  cycles: ICycle[];
   currentChartId: number;
   sub: any;
 

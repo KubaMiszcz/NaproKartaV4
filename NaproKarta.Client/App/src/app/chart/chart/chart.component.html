@@ -1,14 +1,18 @@
 <div class="card">
   <div class="card-body">
     <div class="row">
-      <h4 class="card-title m-2">Wybrana Karta: {{chartTitle}}</h4>
-      <button type="button" class="m-2 btn btn-info">Edytuj Wlaściwości tej karty</button>
-      <button type="button" class="m-2 btn btn-danger">Usuń te kartę</button>
+      <div class="d-flex justify-content-start">
+        <h4 class="card-title m-2">Wybrana Karta: {{chartTitle}}</h4>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button type="button" class="m-2 btn btn-info">Edytuj Wlaściwości tej karty</button>
+        <button type="button" class="m-2 btn btn-danger">Usuń te kartę</button>
+      </div>
     </div>
     <!-- <p class="card-text">Text</p> -->
     <h6 class="card-subtitle mb-2 text-muted">Twoja Notka do tej Karty:</h6>
     <span> {{chartNote}}</span>
- 
+
     <table class="m-2">
       <tr>
         <table>
@@ -16,20 +20,19 @@
             <td>
               <app-chart-row></app-chart-row>
             </td>
-             </tr>
+          </tr>
           <tr>
             <td>
               <app-chart-row></app-chart-row>
             </td>
-             </tr>
+          </tr>
         </table>
-      
+
       </tr>
     </table>
-  
-  
-  
-  
+
+
+
+
   </div>
 </div>
-
