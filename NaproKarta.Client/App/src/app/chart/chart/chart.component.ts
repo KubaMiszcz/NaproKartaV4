@@ -1,10 +1,10 @@
-import { ICycle } from './../../models/icycle';
+import { element } from 'protractor';
+import { IObservation, Observation } from './../../models/iobservation';
+import { ICycle, Cycle } from './../../models/icycle';
 import { ChartService } from '../../services/chart.service';
 import { IChart } from './../../models/ichart';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscriber } from 'rxjs/Subscriber';
-import { Subscription } from 'rxjs/Subscription';
 //import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 
 
@@ -14,11 +14,12 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./chart.component.css']
 })
 export class ChartComponent implements OnInit, OnDestroy {
-  chartTitle: string = 'chhh';
-  chartNote: string = 'adsadsad';
+  chartTitle: string;
+  chartNote: string;
   chart: IChart;
   cycles: ICycle[];
   currentChartId: number;
+  maxCycles = 5;
   sub: any;
 
   constructor(private chartService: ChartService, private route: ActivatedRoute) {
@@ -27,6 +28,13 @@ export class ChartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.cycles = new Array<Cycle>(this.maxCycles);
+    // let i = 0;
+    // this.cycles.forEach(e => {
+    //   e.numberInChart = i;
+    //   i++;
+    // });
+
     this.sub = this.route.paramMap
       .subscribe(v => this.UpdateChart(+v.get('id')),
       error => console.log(error),
@@ -34,7 +42,6 @@ export class ChartComponent implements OnInit, OnDestroy {
     //console.log('aat' + this.currentChartId);
   }
 
-  // ngOnChanges(changes: SimpleChanges) {
   UpdateChart(id: number) {
     this.currentChartId = id;
 

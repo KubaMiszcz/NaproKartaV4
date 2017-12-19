@@ -52,11 +52,11 @@ namespace NaproKarta.Client.ApiControllers
 			return Request.CreateResponse(HttpStatusCode.OK, result);
 		}
 
-		[Route("AddChart")]
+		//[Route("AddChart")]
 		[HttpPost, HttpOptions]
 		public HttpResponseMessage AddChart(ChartViewModel chartVm)
 		{
-			if (NaproClientAppService.ReqestHasOPTIONSHeader(Request))
+			if (NaproClientAppService.HasReqestOPTIONSHeader(Request))
 				return new HttpResponseMessage() { StatusCode = HttpStatusCode.OK };
 
 			if (!ModelState.IsValid)
@@ -69,6 +69,7 @@ namespace NaproKarta.Client.ApiControllers
 			Chart chart = NaproClientChartService.ChartVm2ChartDb(chartVm);
 			chart.UserId = User.Identity.GetUserId();
 			var result = _chartRepository.AddChart(chart);
+			//TODO: what if chart with this name already exists??
 			return Request.CreateResponse(HttpStatusCode.Created,
 			   new string[] { result.ToString(), "success nowa karta dodana" });
 

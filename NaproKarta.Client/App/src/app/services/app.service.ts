@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { INavBar } from '../models/inavbar';
 import { GlobalVariables } from '../global-variables';
 
-const applicationUrl = GlobalVariables.BASE_API_URL + '/app';
+const apiUrl = GlobalVariables.BASE_API_URL + '/app';
 
 @Injectable()
 export class AppService {
@@ -12,12 +12,12 @@ export class AppService {
 
   // TODO: set golab header withcredentials
   GetNavBarData(): Observable<INavBar> {
-    return this.http.get<INavBar>(applicationUrl + '/GetNavBarData', { withCredentials: true });
+    return this.http.get<INavBar>(apiUrl + '/GetNavBarData', { withCredentials: true });
   }
 
-  GetStr(): Observable<string> {
-    return this.http.get<string>(applicationUrl + '/GetStr', { withCredentials: true });
-  }
+  // GetStr(): Observable<string> {
+  //   return this.http.get<string>(apiUrl + '/GetStr', { withCredentials: true });
+  // }
 
 
   // GetChart(): Observable<IChart> {

@@ -12,7 +12,7 @@ namespace NaproKarta.Client.Services
 {
    public class NaproClientAppService
    {
-	  public static bool ReqestHasOPTIONSHeader(HttpRequestMessage request)
+	  public static bool HasReqestOPTIONSHeader(HttpRequestMessage request)
       {
          //if (Request.Headers.Contains("Origin",StringComparer.CurrentCultureIgnoreCase)
          ////    && Request.Method == HttpMethod.Options)

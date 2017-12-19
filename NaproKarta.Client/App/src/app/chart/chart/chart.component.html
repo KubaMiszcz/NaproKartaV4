@@ -1,38 +1,33 @@
-<div class="card">
-  <div class="card-body">
-    <div class="row">
-      <div class="d-flex justify-content-start">
-        <h4 class="card-title m-2">Wybrana Karta: {{chartTitle}}</h4>
-      </div>
-      <div class="d-flex justify-content-end">
-        <button type="button" class="m-2 btn btn-info">Edytuj Wlaściwości tej karty</button>
-        <button type="button" class="m-2 btn btn-danger">Usuń te kartę</button>
-      </div>
-    </div>
-    <!-- <p class="card-text">Text</p> -->
-    <h6 class="card-subtitle mb-2 text-muted">Twoja Notka do tej Karty:</h6>
-    <span> {{chartNote}}</span>
-
+<mat-card>
+  <mat-card-header class="cell">
+    <mat-card-title>
+      <h4>Wybrana Karta: {{chartTitle}} </h4>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <h6>
+        Twoja Notka do tej Karty:
+        <span> {{chartNote}}</span>
+      </h6>
+    </mat-card-subtitle>
+    <mat-card-actions >
+      <button mat-raised-button color="primary">Edytuj Wlaściwości tej karty</button>
+      <button mat-raised-button color="primary">Usuń te kartę</button>
+    </mat-card-actions>
+  </mat-card-header>
+  <mat-card-content class="cell">
     <table class="m-2">
       <tr>
         <table>
-          <tr>
+          <tr *ngFor="let item of cycles">
             <td>
-              <app-chart-row></app-chart-row>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <app-chart-row></app-chart-row>
+              <app-chart-cycle></app-chart-cycle>
             </td>
           </tr>
         </table>
-
       </tr>
     </table>
-
-
-
-
-  </div>
-</div>
+  </mat-card-content>
+  <mat-card-footer>
+    paginator
+  </mat-card-footer>
+</mat-card>

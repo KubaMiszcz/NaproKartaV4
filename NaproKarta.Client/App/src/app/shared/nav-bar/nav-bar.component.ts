@@ -1,9 +1,13 @@
+import { GlobalVariables } from '../../global-variables';
 import { AppService } from '../../services/app.service';
 import { IChart } from './../../models/ichart';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { INavBar } from '../../models/inavbar';
-import { GlobalVariables } from '../../global-variables';
 import { IChartIdAndTitle } from '../../models/auxmodels/chart-id-and-title';
+
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { ChartAddDialogComponent } from '../../chart/chart/chart-add-dialog/chart-add-dialog.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +22,9 @@ export class NavBarComponent implements OnInit {
   userName: string;
   isLogged: boolean;
   chartIdsAndTitles: IChartIdAndTitle[];
-//  @Output() chartChanged: EventEmitter<number> = new EventEmitter<number>();
+  chartAddDialogRef: MatDialogRef<ChartAddDialogComponent>;
+
+  //  @Output() chartChanged: EventEmitter<number> = new EventEmitter<number>();
 
   // foods = [
   //   { value: 'steak-0', viewValue: 'Steak' },
@@ -26,7 +32,8 @@ export class NavBarComponent implements OnInit {
   //   { value: 'tacos-2', viewValue: 'Tacos' }
   // ];
 
-  constructor(private appService: AppService) { }
+
+  constructor(private appService: AppService, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit() {
     this.appService.GetNavBarData()
@@ -40,7 +47,15 @@ export class NavBarComponent implements OnInit {
       });
   }
 
-  // RefreshChart(id: number) {
-  //   this.chartChanged.emit(id);
-  // }
+  RefreshChart(id: number) {
+    this.router.navigate(['/chart', id]);
+    console.log('sss');
+  }
+
+  AddChartByPopup() {
+    this.chartAddDialogRef = this.dialog.open(ChartAddDialogComponent, {
+      hasBackdrop: true
+    });
+  }
 }
+

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-chart-cell',
@@ -22,7 +22,7 @@ export class ChartCellComponent implements OnInit {
   ngOnInit() {
     this.row = 0;
     this.col = 0;
-    this.markerUrl = '../../../assets/img/markers/markerGrey.jpg';
+    this.markerUrl = '../../../assets/img/markers/markerGreyxxx.jpg';
     this.markerAltText = 'altext';
     this.date = '12-12';
     this.letter = 'H B';

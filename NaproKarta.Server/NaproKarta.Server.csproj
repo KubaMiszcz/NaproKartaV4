@@ -177,17 +177,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\UnityConfig.cs" />
-    <Compile Include="Migrations\201712181910194_init.cs" />
-    <Compile Include="Migrations\201712181910194_init.Designer.cs">
-      <DependentUpon>201712181910194_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712181917256_1.cs" />
-    <Compile Include="Migrations\201712181917256_1.Designer.cs">
-      <DependentUpon>201712181917256_1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712181927502_3.cs" />
-    <Compile Include="Migrations\201712181927502_3.Designer.cs">
-      <DependentUpon>201712181927502_3.cs</DependentUpon>
+    <Compile Include="Migrations\201712191037565_init.cs" />
+    <Compile Include="Migrations\201712191037565_init.Designer.cs">
+      <DependentUpon>201712191037565_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\SubModels\Cipher.cs" />
     <Compile Include="Models\SubModels\CipherCd.cs" />
@@ -241,14 +233,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712181910194_init.resx">
-      <DependentUpon>201712181910194_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712181917256_1.resx">
-      <DependentUpon>201712181917256_1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712181927502_3.resx">
-      <DependentUpon>201712181927502_3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712191037565_init.resx">
+      <DependentUpon>201712191037565_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

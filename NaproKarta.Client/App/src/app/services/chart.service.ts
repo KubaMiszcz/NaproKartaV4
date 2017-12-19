@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { GlobalVariables } from '../global-variables';
 
-const applicationUrl = GlobalVariables.BASE_API_URL + '/chart';
+const apiUrl = GlobalVariables.BASE_API_URL + '/chart';
 
 @Injectable()
 export class ChartService {
@@ -12,12 +12,14 @@ export class ChartService {
   constructor(private http: HttpClient) { }
 
   GetChart(id): Observable<IChart> {
-    return this.http.get<IChart>(applicationUrl + '/GetChart/' + id, { withCredentials: true });
+    return this.http.get<IChart>(apiUrl + '/GetChart/' + id, { withCredentials: true });
   }
 
   AddChart(chart: IChart) {
-    return this.http.post(applicationUrl + '/AddChart', chart, { withCredentials: true });
-      //.subscribe(error => console.log(error), () => { });
+    console.log('api:' + apiUrl + '/AddChart');
+    return this.http.post(apiUrl + '/AddChart', chart, { withCredentials: true });
+
+    //.subscribe(error => console.log(error), () => { });
   }
 
 

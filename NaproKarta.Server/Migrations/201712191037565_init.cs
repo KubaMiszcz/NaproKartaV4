@@ -39,6 +39,7 @@ namespace NaproKarta.Server.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         CycleId = c.Int(nullable: false),
+                        NumberInCycle = c.Int(nullable: false),
                         MarkerId = c.String(maxLength: 128),
                         Date = c.DateTime(nullable: false),
                         LetterId = c.String(maxLength: 3),
@@ -102,7 +103,6 @@ namespace NaproKarta.Server.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
-                        Url = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -132,8 +132,6 @@ namespace NaproKarta.Server.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
-                        LastLoginDate = c.DateTime(nullable: false),
-                        RegisterDate = c.DateTime(nullable: false),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),

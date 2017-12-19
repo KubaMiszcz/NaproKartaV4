@@ -1,43 +1,9 @@
 <table>
   <tr>
-    <td>
+    <td *ngFor="let item of observations">
       <app-chart-cell></app-chart-cell>
-    </td>
-    <td>
-      <app-chart-cell></app-chart-cell>
-    </td>
-    <td>
-      <app-chart-cell></app-chart-cell>
-    </td>
-    <td>
-      <app-chart-cell></app-chart-cell>
-    </td>
-    <td>
-      <app-chart-cell></app-chart-cell>
-    </td>
-    <td>
-      <app-chart-cell></app-chart-cell>
-    </td>
-    <td>
-      <app-chart-cell></app-chart-cell>
-    </td>
-    <td>
-      <app-chart-cell></app-chart-cell>
-    </td>
-    <td>
-      <app-chart-cell></app-chart-cell>
-    </td>
-    <td>
-      <app-chart-cell></app-chart-cell>
-    </td>
-    <td>
-      <app-chart-cell></app-chart-cell>
-    </td>
-    <td>
-      <app-chart-cell></app-chart-cell>
-    </td>
-    <td>
-      <app-chart-cell></app-chart-cell>
+<!--      [row]='item.row' [col]='item.col'
+      (click)='EditObservation(row,col)'></app-chart-cell> -->
     </td>
   </tr>
 </table>

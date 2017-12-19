@@ -26,15 +26,19 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Wybierz karte </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a *ngFor="let chartIdAndTitle of chartIdsAndTitles" class="dropdown-item" [id]='chartIdAndTitle.id' [routerLink]="[ '/chart',chartIdAndTitle.id]"
-                  (click)='RefreshChart(chartIdAndTitle.id)'>
-                  {{chartIdAndTitle.title}}
-                </a>
+                <a *ngFor="let chartIdAndTitle of chartIdsAndTitles" class="dropdown-item" [id]='chartIdAndTitle.id' 
+                (click)='RefreshChart(chartIdAndTitle.id)'>
+                {{chartIdAndTitle.title}}
+              </a>
+              <!-- [routerLink]="[ '/chart',chartIdAndTitle.id]" -->
               </div>
             </div>
           </li>
           <li class="ml-2 nav-item">
             <button mat-raised-button color="primary" [routerLink]="[ '/add-chart']" class="btn btn-md">Dodaj nową kartę</button>
+          </li>
+          <li class="ml-2 nav-item">
+            <button mat-raised-button color="primary" class="btn btn-md" (click)='AddChartByPopup()'>Dodaj przez popup</button>
           </li>
         </ul>
       </div>

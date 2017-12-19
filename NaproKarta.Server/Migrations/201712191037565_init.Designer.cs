@@ -13,7 +13,7 @@ namespace NaproKarta.Server.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201712181910194_init"; }
+            get { return "201712191037565_init"; }
         }
         
         string IMigrationMetadata.Source
