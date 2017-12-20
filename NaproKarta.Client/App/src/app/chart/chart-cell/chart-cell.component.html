@@ -1,4 +1,4 @@
-<table class="cell" >
+<table class="cell" (click)="onCellClicked()">
   <tbody>
     <tr>
       <td class="marker">
@@ -6,7 +6,8 @@
       </td>
     </tr>
     <tr>
-      <td class=" date">12-12</td>
+      <!-- pipe here -->
+      <td class="date">{{date}}</td>
     </tr>
     <tr>
       <td>{{letter}}</td>
@@ -26,6 +27,9 @@
     </tr>
   </tbody>
 </table>
+
+
+
 
 <!-- 
 <table class="chartCellContent" name="RowCol" value="@Model.RowCol" @*onclick="@(" window.location.href='" + @Url.Action("ObservationEdit", "User", new {id = Model.ID, RowCol = Model.RowCol}) + "'

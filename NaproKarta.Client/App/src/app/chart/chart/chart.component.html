@@ -9,7 +9,7 @@
         <span> {{chartNote}}</span>
       </h6>
     </mat-card-subtitle>
-    <mat-card-actions >
+    <mat-card-actions>
       <button mat-raised-button color="primary">Edytuj Wlaściwości tej karty</button>
       <button mat-raised-button color="primary">Usuń te kartę</button>
     </mat-card-actions>
@@ -18,9 +18,9 @@
     <table class="m-2">
       <tr>
         <table>
-          <tr *ngFor="let item of cycles">
+          <tr *ngFor="let item of cycles; let i=index">
             <td>
-              <app-chart-cycle></app-chart-cycle>
+              <app-chart-cycle [numberInChart]='i'></app-chart-cycle>
             </td>
           </tr>
         </table>

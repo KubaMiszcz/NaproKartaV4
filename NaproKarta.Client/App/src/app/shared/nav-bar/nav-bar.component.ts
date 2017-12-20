@@ -49,7 +49,6 @@ export class NavBarComponent implements OnInit {
 
   RefreshChart(id: number) {
     this.router.navigate(['/chart', id]);
-    console.log('sss');
   }
 
   AddChartByPopup() {

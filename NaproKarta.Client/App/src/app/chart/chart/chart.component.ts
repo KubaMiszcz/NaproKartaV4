@@ -7,19 +7,20 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 //import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 
+const maxCycles = 2;
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css']
 })
+
 export class ChartComponent implements OnInit, OnDestroy {
   chartTitle: string;
   chartNote: string;
   chart: IChart;
   cycles: ICycle[];
   currentChartId: number;
-  maxCycles = 5;
   sub: any;
 
   constructor(private chartService: ChartService, private route: ActivatedRoute) {
@@ -28,12 +29,7 @@ export class ChartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.cycles = new Array<Cycle>(this.maxCycles);
-    // let i = 0;
-    // this.cycles.forEach(e => {
-    //   e.numberInChart = i;
-    //   i++;
-    // });
+    this.cycles = new Array<Cycle>(maxCycles);
 
     this.sub = this.route.paramMap
       .subscribe(v => this.UpdateChart(+v.get('id')),

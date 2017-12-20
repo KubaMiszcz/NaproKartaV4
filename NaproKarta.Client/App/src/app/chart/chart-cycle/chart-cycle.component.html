@@ -1,0 +1,8 @@
+<table>
+  <tr>
+    <td *ngFor="let item of observations;let i=index">
+      <app-chart-cell [row]='numberInChart' [col]='i'>
+      </app-chart-cell>
+    </td>
+  </tr>
+</table>

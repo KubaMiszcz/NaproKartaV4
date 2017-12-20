@@ -36,7 +36,7 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { ChartComponent } from './chart/chart/chart.component';
 import { ChartAddComponent } from './chart/chart/chart-add/chart-add.component';
 import { ChartCellComponent } from './chart/chart-cell/chart-cell.component';
-import { ChartCycleComponent } from './chart/chart-row/chart-row.component';
+import { ChartCycleComponent } from './chart/chart-cycle/chart-cycle.component';
 import { ObservationComponent } from './observation/observation.component';
 
 import { MyToggleSwitchComponent } from './shared/ZZZmy-toggle-switch/my-toggle-switch.component';

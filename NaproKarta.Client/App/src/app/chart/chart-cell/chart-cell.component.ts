@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-chart-cell',
@@ -6,8 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./chart-cell.component.css']
 })
 export class ChartCellComponent implements OnInit {
-  row: number;
-  col: number;
+  @Input() row: number;
+  @Input() col: number;
   markerUrl: string;
   markerAltText: string;
   date: string;
@@ -17,11 +17,7 @@ export class ChartCellComponent implements OnInit {
   comments: string;
   noteMarks: string;
 
-  constructor() { }
-
-  ngOnInit() {
-    this.row = 0;
-    this.col = 0;
+  constructor() {
     this.markerUrl = '../../../assets/img/markers/markerGreyxxx.jpg';
     this.markerAltText = 'altext';
     this.date = '12-12';
@@ -30,16 +26,24 @@ export class ChartCellComponent implements OnInit {
     this.cipherAndCipherCD = '10CD';
     this.comments = this.convertArrayToString(['B', 'W', 'I']);
     this.noteMarks = this.convertArrayToString(['W', 'W', 'W']);
+  }
 
+  ngOnInit() {
   }
 
   convertArrayToString(array: string[]): string {
-    var arr = '';
+    let arr = '';
     array.forEach(element => {
       arr += (element.toUpperCase() + ' ');
       arr.slice(0, -1);
     });
     return arr;
+  }
+
+  //EditObservation(row: number, col: number) {
+
+  onCellClicked() {
+    console.log('from cell: ' + this.row + ',' + this.col);
   }
 
 }
