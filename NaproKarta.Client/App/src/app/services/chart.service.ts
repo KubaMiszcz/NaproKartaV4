@@ -15,13 +15,20 @@ export class ChartService {
     return this.http.get<IChart>(apiUrl + '/GetChart/' + id, { withCredentials: true });
   }
 
-  AddChart(chart: IChart) {
-    console.log('api:' + apiUrl + '/AddChart');
+  AddChart(chart: IChart): Observable<any> {
+    //console.log('api:' + apiUrl + '/AddChart');
     return this.http.post(apiUrl + '/AddChart', chart, { withCredentials: true });
-
-    //.subscribe(error => console.log(error), () => { });
   }
 
+  DeleteChart(id: number): Observable<any> {
+    console.log('api:' + apiUrl + '/DeleteChart/' + id);
+    return this.http.delete(apiUrl + '/DeleteChart/' + id, { withCredentials: true });
+  }
+
+  ModifyChart(chart: IChart): Observable<any> {
+    console.log('api:' + apiUrl + '/ModifyChart:' + chart);
+    return this.http.put(apiUrl + '/ModifyChart', chart, { withCredentials: true });
+  }
 
   // CashbackForUnfinished(rejectedUserOrders: IOrder[]) {
   //   this.http.put(this.cashbackForUnfinished, rejectedUserOrders)

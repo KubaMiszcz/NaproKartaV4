@@ -1,10 +1,13 @@
+import { ChartModifyDialogComponent } from './chart-modify-dialog/chart-modify-dialog.component';
 import { element } from 'protractor';
-import { IObservation, Observation } from './../../models/iobservation';
-import { ICycle, Cycle } from './../../models/icycle';
-import { ChartService } from '../../services/chart.service';
-import { IChart } from './../../models/ichart';
+import { IObservation, Observation } from '../models/iobservation';
+import { ICycle, Cycle } from '../models/icycle';
+import { ChartService } from '../services/chart.service';
+import { IChart } from './../models/ichart';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog, MatDialogRef } from '@angular/material';
+
 //import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 
 const maxCycles = 2;
@@ -22,11 +25,9 @@ export class ChartComponent implements OnInit, OnDestroy {
   cycles: ICycle[];
   currentChartId: number;
   sub: any;
+  chartModifyDialogRef: MatDialogRef<ChartModifyDialogComponent>;
 
-  constructor(private chartService: ChartService, private route: ActivatedRoute) {
-    // this.currentChartId = +this.route.snapshot.paramMap.get('id');
-    // console.log(this.currentChartId);
-  }
+  constructor(private chartService: ChartService, private route: ActivatedRoute, private router: Router, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.cycles = new Array<Cycle>(maxCycles);
@@ -35,7 +36,6 @@ export class ChartComponent implements OnInit, OnDestroy {
       .subscribe(v => this.UpdateChart(+v.get('id')),
       error => console.log(error),
     );
-    //console.log('aat' + this.currentChartId);
   }
 
   UpdateChart(id: number) {
@@ -47,6 +47,23 @@ export class ChartComponent implements OnInit, OnDestroy {
         this.chartNote = this.chart.note;
       });
   }
+
+  DeleteChart() {
+    this.chartService.DeleteChart(this.currentChartId)
+      .subscribe(msg => console.log(msg)
+      , error => console.log(error));
+    this.router.navigate(['/welcome']);
+
+  }
+
+  ModifyChart() {
+    this.chartModifyDialogRef = this.dialog.open(ChartModifyDialogComponent, {
+      hasBackdrop: true
+    });
+    this.chartModifyDialogRef.componentInstance.chart = this.chart;
+
+  }
+
 
   ngOnDestroy() {
     //Called once, before the instance is destroyed.

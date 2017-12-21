@@ -1,0 +1,95 @@
+<p mat-dialog-title class="mat-typography">
+  Nowa obserwacja na dzień RRR-MM-DD
+</p>
+<mat-card class="cell navigation-row">
+  <button mat-mini-fab color="primary">
+    <mat-icon>skip_previous</mat-icon>
+  </button>
+  <button mat-mini-fab>
+    <mat-icon>exposure_minus_1</mat-icon>
+  </button>
+
+  <mat-form-field disabled class="date-picker">
+    <input matInput [matDatepicker]="datePicker" placeholder="Wybierz Datę:" disabled class="date-picker">
+    <mat-datepicker-toggle matSuffix [for]="datePicker" style="zoom:200%;"></mat-datepicker-toggle>
+    <mat-datepicker touchUi="true" #datePicker disabled="false"></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-mini-fab>
+    <mat-icon>exposure_plus_1</mat-icon>
+  </button>
+  <button mat-mini-fab color="primary">
+    <mat-icon>skip_next</mat-icon>
+  </button>
+  <button mat-mini-fab color="warn">
+    <mat-icon>autorenew</mat-icon>
+  </button>
+
+</mat-card>
+
+<!-- znaczek -->
+<mat-card class="cell">
+  <mat-card-subtitle>Znaczek</mat-card-subtitle>
+  <mat-button-toggle mat-raised-button class="marker">
+    <img src="../../assets/img//markers/markerRed.jpg" alt="">
+  </mat-button-toggle>
+  <mat-button-toggle mat-raised-button class="marker">
+    <img src="../../assets/img//markers/markerRed.jpg" alt="">
+  </mat-button-toggle>
+  <button mat-raised-button class="marker">
+    <img src="../../assets/img//markers/markerRed.jpg" alt="">
+  </button>
+  <button mat-raised-button class="marker">
+    <img src="../../assets/img//markers/markerRed.jpg" alt="">
+  </button>
+  <button mat-raised-button class="marker">
+    <img src="../../assets/img//markers/markerRed.jpg" alt="">
+  </button>
+  <button mat-raised-button class="marker">
+    <img src="../../assets/img//markers/markerRed.jpg" alt="">
+  </button>
+  <button mat-raised-button class="marker">
+    <img src="../../assets/img//markers/markerRed.jpg" alt="">
+  </button>
+</mat-card>
+
+<!-- opis -->
+<mat-card class="cell">
+  <mat-card-header>
+    <mat-card-subtitle>Opis</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+    <!-- literki -->
+    <div class="navigation-row">
+      <mat-card class="vertical-radio">
+        <mat-radio-group class="example-radio-group">
+          <mat-radio-button class="example-radio-button radio-element" value="M"> M </mat-radio-button>
+          <mat-radio-button class="example-radio-button radio-element" value="H"> H </mat-radio-button>
+          <mat-radio-button class="example-radio-button radio-element" value="V"> V </mat-radio-button>
+          <mat-radio-button class="example-radio-button radio-element" value="1V"> V </mat-radio-button>
+          <mat-radio-button class="example-radio-button radio-element" value="2V"> V </mat-radio-button>
+          <mat-radio-button class="example-radio-button radio-element" value="3V"> V </mat-radio-button>
+
+          <mat-checkbox class="radio-element">B</mat-checkbox>
+        </mat-radio-group>
+      </mat-card>
+
+
+      <mat-card class="vertical-radio">
+        <mat-radio-group>
+          <mat-radio-button value="1" class="radio-element">Option 1</mat-radio-button>
+          <mat-radio-button value="2" class="radio-element">Option 2</mat-radio-button>
+        </mat-radio-group>
+      </mat-card>
+    </div>
+
+
+  </mat-card-content>
+</mat-card>
+
+
+<!-- notatki -->
+<mat-card>
+
+</mat-card>

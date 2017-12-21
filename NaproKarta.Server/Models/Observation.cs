@@ -13,9 +13,11 @@ namespace NaproKarta.Server.Models
 	{
 		[Key]
 		public int Id { get; set; }
+
 		public int CycleId { get; set; }
 		public virtual Cycle Cycle { get; set; }
-	   public int NumberInCycle { get; set; }
+
+		public int NumberInCycle { get; set; }
 
 		public string MarkerId { get; set; }
 		public virtual Marker Marker { get; set; }
@@ -33,15 +35,12 @@ namespace NaproKarta.Server.Models
 		public string CipherId { get; set; }
 		public virtual Cipher Cipher { get; set; }
 
-		public string  CipherCdId { get; set; }
+		public string CipherCdId { get; set; }
 		public virtual CipherCd CipherCd { get; set; }
 
 		public int CommentId { get; set; }
 		public virtual Comment Comment { get; set; }
 
 		public virtual IList<ObservationNote> Notes { get; set; }
-
-
-
 	}
 }

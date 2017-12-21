@@ -189,10 +189,7 @@
     <Compile Include="Interfaces\IApplicationUserRepository.cs" />
     <Compile Include="Models\SubModels\NumTime.cs" />
     <Compile Include="Models\SubModels\ObservationNote.cs" />
-    <Compile Include="xxxxApp_Start\BundleConfig.cs" />
-    <Compile Include="xxxxApp_Start\FilterConfig.cs" />
-    <Compile Include="xxxxApp_Start\RouteConfig.cs" />
-    <Compile Include="xxxxApp_Start\UnityConfig.cs" />
+    <Compile Include="Repositories\ObservationRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -1,0 +1,13 @@
+.example-full-width {
+    min-width: 500px;
+     max-width: 1000px;
+     width: 100%;
+ }
+ 
+ .note {
+     height: 100%;
+ } 
+ 
+ .btn {
+     width: 49%;
+ }

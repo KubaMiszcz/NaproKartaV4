@@ -1,4 +1,8 @@
+import { IObservation, Observation } from './../../models/iobservation';
+import { ObservationEditDialogComponent } from './../../observation/observation-edit-dialog/observation-edit-dialog.component';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MarkerNames } from '../../models/enum/marker-names.enum';
+import { MatDialog, MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-chart-cell',
@@ -8,24 +12,29 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ChartCellComponent implements OnInit {
   @Input() row: number;
   @Input() col: number;
-  markerUrl: string;
-  markerAltText: string;
-  date: string;
-  letter: string;
-  numTimes: string;
-  cipherAndCipherCD: string;
-  comments: string;
-  noteMarks: string;
+  // markerUrl: string;
+  // markerAltText: string;
+  // date: string;
+  // letter: string;
+  // numTimes: string;
+  // cipherAndCipherCD: string;
+  // comments: string;
+  // noteMarks: string;
 
-  constructor() {
-    this.markerUrl = '../../../assets/img/markers/markerGreyxxx.jpg';
-    this.markerAltText = 'altext';
-    this.date = '12-12';
-    this.letter = 'H B';
-    this.numTimes = 'XD';
-    this.cipherAndCipherCD = '10CD';
-    this.comments = this.convertArrayToString(['B', 'W', 'I']);
-    this.noteMarks = this.convertArrayToString(['W', 'W', 'W']);
+  observation: IObservation = new Observation();
+  observationEditDialogRef: MatDialogRef<ObservationEditDialogComponent>;
+
+  constructor(private dialog: MatDialog) {
+    this.row = 0;
+    this.col = 0;
+    // this.markerUrl = './../../../assets/img/marker' + MarkerNames.markerNone + '.jpg';
+    // this.markerAltText = MarkerNames.markerNone;
+    // this.date = '"&nbsp"';
+    // this.letter = 'x ';
+    // this.numTimes = 'x ';
+    // this.cipherAndCipherCD = 'x ';
+    // this.comments = 'x ';
+    // this.noteMarks = 'x ';
   }
 
   ngOnInit() {
@@ -43,7 +52,11 @@ export class ChartCellComponent implements OnInit {
   //EditObservation(row: number, col: number) {
 
   onCellClicked() {
-    console.log('from cell: ' + this.row + ',' + this.col);
+    //console.log('from cell: ' + this.row + ',' + this.col);
+    this.observationEditDialogRef = this.dialog.open(ObservationEditDialogComponent, {
+      hasBackdrop: true
+    });
+    //this.observationEditDialogRef.componentInstance.chart = this.chart;
   }
 
 }

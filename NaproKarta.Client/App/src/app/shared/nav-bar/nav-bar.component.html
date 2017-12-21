@@ -8,7 +8,7 @@
           class="d-inline-block align-top" alt=""> NaproKarta
       </span>
       <a [routerLink]="[ '/settings' ]" class="navbar-brand ">
-        {{isLogged ? ('Hello ' + userName) : ''}}
+        {{userName ? ('Hello ' + userName) : ''}}
       </a>
 
 
@@ -17,7 +17,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div *ngIf="isLogged" class=" collapse navbar-collapse" id="navbarSupportedContent">
+      <div *ngIf="userName" class=" collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
 
           <li *ngIf="chartIdsAndTitles.length>0" class="mr-2 nav-item ">
@@ -35,10 +35,7 @@
             </div>
           </li>
           <li class="ml-2 nav-item">
-            <button mat-raised-button color="primary" [routerLink]="[ '/add-chart']" class="btn btn-md">Dodaj nową kartę</button>
-          </li>
-          <li class="ml-2 nav-item">
-            <button mat-raised-button color="primary" class="btn btn-md" (click)='AddChartByPopup()'>Dodaj przez popup</button>
+            <button mat-raised-button color="primary" class="btn btn-md" (click)='AddChartByPopup()'>Dodaj nową kartę</button>
           </li>
         </ul>
       </div>
@@ -46,16 +43,16 @@
 
     <div class="d-flex justify-content-end">
       <ul class="navbar-nav mr-auto">
-        <li *ngIf="isLogged">
+        <li *ngIf="userName">
           <a href="{{clientUrl + '/Manage'}}" class="nav-item nav-link">Ustawienia Konta</a>
         </li>
-        <li *ngIf="!isLogged" class="nav-item">
+        <li *ngIf="!userName" class="nav-item">
           <a href="{{clientUrl + '/Account/Register'}}" class="nav-item nav-link">Zarejestruj</a>
         </li>
-        <li *ngIf="!isLogged" class="nav-item">
+        <li *ngIf="!userName" class="nav-item">
           <a href="{{clientUrl + '/Account/Login'}}" class="nav-item nav-link">Zaloguj</a>
         </li>
-        <li *ngIf="isLogged" class="nav-item">
+        <li *ngIf="userName" class="nav-item">
           <a href="{{clientUrl + ''}}" class="nav-item nav-link">Wyloguj</a>
         </li>
       </ul>

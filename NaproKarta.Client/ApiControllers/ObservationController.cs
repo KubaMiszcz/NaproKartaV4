@@ -19,42 +19,42 @@ namespace NaproKarta.Client.ApiControllers
 {
 	//[Authorize]
 	[AllowAnonymous]
-	[RoutePrefix("api/Chart")]
-	public class ChartController : ApiController
+	[RoutePrefix("api/Observation")]
+	public class ObservationController : ApiController
 	{
-		private readonly IChartRepository _chartRepository;
+		private readonly IObservationRepository _observationRepository;
 		private string loggedUserId;
 
-		public ChartController()
+		public ObservationController()
 		{
 			loggedUserId = User.Identity.GetUserId();
 		}
 
-		public ChartController(IChartRepository chartRepository) : this()
+		public ObservationController(IObservationRepository observationRepository) : this()
 		{
-			_chartRepository = chartRepository;
+			_observationRepository = observationRepository;
 		}
 
-		[Route("GetChart/{id?}")]
+		[Route("GetObservation/{id?}")]
 		[HttpGet]
-		public HttpResponseMessage GetChart(int id)
+		public HttpResponseMessage GetObservation(int id)
 		{
 			if (loggedUserId == null)
 				//TODO: you are not logged message here
 				return Request.CreateResponse(HttpStatusCode.Unauthorized, "err niezalogowany");
 
-			var chart = _chartRepository.GetChart(id);
+			var observation = _observationRepository.GetObservation(id);
 
-			if (chart == null)
-				return Request.CreateResponse(HttpStatusCode.OK, "err chart nie istenieje");
+			if (observation == null)
+				return Request.CreateResponse(HttpStatusCode.OK, "err Observation nie istenieje");
 
-			if (chart.UserId != loggedUserId)
-				return Request.CreateResponse(HttpStatusCode.OK, "err nie twoj chart");
-
-			var result = NaproClientChartService.ChartDb2ChartVm(chart);
+			//			var result = NaproClientChartService.ChartDb2ChartVm(chart);
+			var result = observation;
 			return Request.CreateResponse(HttpStatusCode.OK, result);
 		}
 
+		//======================================
+/*
 		//[Route("AddChart")]
 		[HttpPost, HttpOptions]
 		public HttpResponseMessage AddChart(ChartViewModel chartVm)
@@ -70,7 +70,7 @@ namespace NaproKarta.Client.ApiControllers
 				return Request.CreateResponse(HttpStatusCode.BadRequest);
 
 			Chart chart = NaproClientChartService.ChartVm2ChartDb(loggedUserId, chartVm);
-			var result = _chartRepository.AddChart(chart);
+			var result = _observationRepository.AddChart(chart);
 			//TODO: what if chart with this name already exists??
 			return Request.CreateResponse(HttpStatusCode.Created,
 			   new string[] { result.ToString(), "success nowa karta dodana" });
@@ -87,7 +87,7 @@ namespace NaproKarta.Client.ApiControllers
 				//TODO: you are not logged message here
 				return Request.CreateResponse(HttpStatusCode.Unauthorized, "err niezalogowany");
 
-			var chart = _chartRepository.GetChart(id);
+			var chart = _observationRepository.GetChart(id);
 
 			if (chart == null)
 				return Request.CreateResponse(HttpStatusCode.OK, "err chart nie istenieje");
@@ -95,7 +95,7 @@ namespace NaproKarta.Client.ApiControllers
 			if (chart.UserId != loggedUserId)
 				return Request.CreateResponse(HttpStatusCode.OK, "err nie twoj chart");
 
-			var result = _chartRepository.DeleteChart(chart);
+			var result = _observationRepository.DeleteChart(chart);
 			//TODO: what if chart with this name already exists??
 			return Request.CreateResponse(HttpStatusCode.OK, "success karta usunieta");
 
@@ -114,7 +114,7 @@ namespace NaproKarta.Client.ApiControllers
 			if (!ModelState.IsValid)
 				return Request.CreateResponse(HttpStatusCode.BadRequest);
 
-			var chart = _chartRepository.GetChart(chartVm.Id);
+			var chart = _observationRepository.GetChart(chartVm.Id);
 
 			if (chart.UserId != loggedUserId)
 				return Request.CreateResponse(HttpStatusCode.OK, "err nie twoj chart");
@@ -122,10 +122,12 @@ namespace NaproKarta.Client.ApiControllers
 			chart = NaproClientChartService.ChartVm2ChartDb(loggedUserId, chartVm);
 
 			//TODO: what if chart with this name already exists??
-			var result = _chartRepository.UpdateChart(chart);
+			var result = _observationRepository.UpdateChart(chart);
 			return Request.CreateResponse(HttpStatusCode.OK,
 				new string[] { result.ToString(), "success karta zmieniona" });
 		}
+
+	*/
 	}
 }
 

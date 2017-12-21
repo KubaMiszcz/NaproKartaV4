@@ -15,8 +15,9 @@ namespace NaproKarta.Client
 		{
 			// Web API configuration and services
 			var container = new UnityContainer();
-			container.RegisterType<IChartRepository, ChartRepository>(new HierarchicalLifetimeManager());
 			container.RegisterType<IApplicationUserRepository, ApplicationUserRepository>(new HierarchicalLifetimeManager());
+			container.RegisterType<IChartRepository, ChartRepository>(new HierarchicalLifetimeManager());
+			container.RegisterType<IObservationRepository, ObservationRepository>(new HierarchicalLifetimeManager());
 			config.DependencyResolver = new UnityResolver(container);
 
 

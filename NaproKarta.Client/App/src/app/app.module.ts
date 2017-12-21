@@ -17,10 +17,18 @@ import {
   , MatGridListModule
   , MatSnackBarModule
   , MatDialogModule
+  , MatDatepickerModule
+  , MatProgressSpinnerModule
+  , MatFormFieldModule
+  , MatInputModule
+  , MatNativeDateModule
+  , MatIconModule
+  , MatRadioModule
+
 } from '@angular/material';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+// import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+// import { MatInputModule } from '@angular/material/input';
 //=======================end materials
 
 import { AppService } from './services/app.service';
@@ -33,49 +41,49 @@ import { WelcomeComponent } from './shared/welcome/welcome.component';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 
-import { ChartComponent } from './chart/chart/chart.component';
-import { ChartAddComponent } from './chart/chart/chart-add/chart-add.component';
+import { ChartComponent } from './chart/chart.component';
+import { ChartAddDialogComponent } from './chart/chart-add-dialog/chart-add-dialog.component';
+import { ChartModifyDialogComponent } from './chart/chart-modify-dialog/chart-modify-dialog.component';
 import { ChartCellComponent } from './chart/chart-cell/chart-cell.component';
 import { ChartCycleComponent } from './chart/chart-cycle/chart-cycle.component';
-import { ObservationComponent } from './observation/observation.component';
+
+import { ObservationEditDialogComponent } from './observation/observation-edit-dialog/observation-edit-dialog.component';
 
 import { MyToggleSwitchComponent } from './shared/ZZZmy-toggle-switch/my-toggle-switch.component';
 import { ProgressSpinnerOverviewComponent } from './shared/progress-spinner-overview/progress-spinner-overview.component';
-import { ChartAddDialogComponent } from './chart/chart/chart-add-dialog/chart-add-dialog.component';
 import { ErrorDialogComponent } from './shared/error-dialog/error-dialog.component';
-import { ObservationEditFormComponent } from './chart/chart-cell/observation-edit-form/observation-edit-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent
+    , DateMmDdPipe
     , ErrorPageComponent
+    , ErrorDialogComponent
+    , WelcomeComponent
+    , NavBarComponent
     , ChartComponent
+    , ChartAddDialogComponent
+    , ChartModifyDialogComponent
     , ChartCycleComponent
     , ChartCellComponent
-    , ObservationComponent
-    , MyToggleSwitchComponent
-    , DateMmDdPipe
-    , NavBarComponent
-    , WelcomeComponent
-    , ChartAddComponent
+    , ObservationEditDialogComponent
     , ProgressSpinnerOverviewComponent
-    , ChartAddDialogComponent
-    , ErrorDialogComponent, ObservationEditFormComponent
+    , MyToggleSwitchComponent
   ],
   entryComponents: [
     //dialogs components only
-    ChartAddDialogComponent
-    , ErrorDialogComponent
+    ErrorDialogComponent
+    , ChartAddDialogComponent
+    , ChartModifyDialogComponent
   ],
   imports: [
     RouterModule.forRoot([
-      { path: 'add-chart', component: ChartAddComponent }
-      , { path: 'chart/:id', component: ChartComponent }
-      , { path: 'observation/:id', component: ObservationEditFormComponent }
+      { path: 'chart/:id', component: ChartComponent }
+      , { path: 'observation/:id', component: ObservationEditDialogComponent }
+      , { path: 'settings', redirectTo: 'http://localhost/NaproKarta/Manage' }
       , { path: 'error', component: ErrorPageComponent }
       , { path: 'welcome', component: WelcomeComponent }
-      , { path: 'settings', redirectTo: 'http://localhost/NaproKarta/Manage' }
       , { path: '', redirectTo: 'welcome', pathMatch: 'full' }
       , { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ])
@@ -96,6 +104,10 @@ import { ObservationEditFormComponent } from './chart/chart-cell/observation-edi
     , MatGridListModule
     , MatSnackBarModule
     , MatDialogModule
+    , MatDatepickerModule
+    , MatNativeDateModule
+    , MatIconModule
+    , MatRadioModule
     //material end
   ],
   providers: [UserService, AppService, ChartService],

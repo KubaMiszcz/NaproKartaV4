@@ -12,11 +12,15 @@ namespace NaproKarta.Server.Interfaces
 	{
 		Chart GetChart(int id);
 		int AddChart(Chart chart);
-		void UpdateChart(int id);
-		void UpdateChart(Chart chart);
-		void DeleteChart(int id);
-		void DeleteChart(Chart chart);
 		IQueryable<Chart> GetUserCharts(string loggedUserId);
+		int UpdateChart(Chart chart);
+		bool DeleteChart(Chart chart);
+
+		//HashSet<string[]> GetUserChartIdsAndTitlesHashSet(string loggedUserId);
+		//void UpdateChart(int id);
+		//void UpdateChart(Chart chart);
+		//void DeleteChart(Chart chart);
+		//IQueryable<Chart> GetUserCharts(string loggedUserId);
 	}
 
 }

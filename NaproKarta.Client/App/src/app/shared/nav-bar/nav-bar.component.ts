@@ -6,7 +6,7 @@ import { INavBar } from '../../models/inavbar';
 import { IChartIdAndTitle } from '../../models/auxmodels/chart-id-and-title';
 
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { ChartAddDialogComponent } from '../../chart/chart/chart-add-dialog/chart-add-dialog.component';
+import { ChartAddDialogComponent } from './../../chart/chart-add-dialog/chart-add-dialog.component';
 import { Router } from '@angular/router';
 
 
@@ -20,7 +20,6 @@ export class NavBarComponent implements OnInit {
   clientUrl = GlobalVariables.BASE_NAPROCLIENT_URL;
   navBarData: INavBar;
   userName: string;
-  isLogged: boolean;
   chartIdsAndTitles: IChartIdAndTitle[];
   chartAddDialogRef: MatDialogRef<ChartAddDialogComponent>;
 
@@ -41,7 +40,6 @@ export class NavBarComponent implements OnInit {
       , error => console.log(error)
       , () => {
         this.userName = this.navBarData.userName;
-        this.isLogged = this.navBarData.isLogged;
         this.chartIdsAndTitles = this.navBarData.chartIdsAndTitles;
         // console.log(this.navBarData.chartIdsAndTitles);
       });
@@ -55,6 +53,8 @@ export class NavBarComponent implements OnInit {
     this.chartAddDialogRef = this.dialog.open(ChartAddDialogComponent, {
       hasBackdrop: true
     });
+    this.chartAddDialogRef.componentInstance.chart.title = 'Karta nr ';
+    this.chartAddDialogRef.componentInstance.chart.note = '';
   }
 }
 

@@ -6,6 +6,7 @@ table {
   text-align: center;
   border-spacing: 0px;
   border-collapse: collapse;
+  height: 200px;
 }
 
 table:hover {
@@ -34,11 +35,13 @@ img {
   background-color: burlywood;
 }
 
-.marker {
+/* .marker {
   background-color: beige;
   border-radius: 0px;
   padding: 0px;
   margin: 0px;
   width: 50px;
   height: auto;
-}
+} */
+
+

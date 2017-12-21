@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IChart, Chart } from '../../../models/ichart';
-import { ChartService } from '../../../services/chart.service';
+import { IChart, Chart } from '../../models/ichart';
+import { ChartService } from '../../services/chart.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { ErrorDialogComponent } from '../../../shared/error-dialog/error-dialog.component';
+import { ErrorDialogComponent } from '../../shared/error-dialog/error-dialog.component';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,21 +11,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./chart-add-dialog.component.css']
 })
 export class ChartAddDialogComponent implements OnInit {
-  chartToAdd: IChart = new Chart();
+  chart: IChart = new Chart();
   response: any;
   errorDialogRef: MatDialogRef<ErrorDialogComponent>;
 
   constructor(private chartService: ChartService, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit() {
-    this.chartToAdd.title = 'karta nr ...';
-    this.chartToAdd.title = '';
+    // this.chart.title = 'karta nr ...';
+    // this.chart.title = '';
   }
 
 
   AddChart() {
-    if (this.chartToAdd.title !== null && this.chartToAdd.title !== '') {
-      this.chartService.AddChart(this.chartToAdd)
+    if (this.chart.title !== null && this.chart.title !== '') {
+      this.chartService.AddChart(this.chart)
         .subscribe(msg => this.response = msg, error => console.log(error), () => {
           console.log(this.response);
           alert('dodano' + this.response[0]);
@@ -38,10 +38,5 @@ export class ChartAddDialogComponent implements OnInit {
       //   hasBackdrop: true, data: { title: 'titleeee', content: 'coontent' }
       // });
     }
-
-
-    // [routerLink]="[ '/chart',chartIdAndTitle.id]"
-    //return this.response;
-
   }
 }

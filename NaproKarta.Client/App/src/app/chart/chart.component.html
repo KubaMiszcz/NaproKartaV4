@@ -9,9 +9,10 @@
         <span> {{chartNote}}</span>
       </h6>
     </mat-card-subtitle>
+    <div class="col-2"></div>
     <mat-card-actions>
-      <button mat-raised-button color="primary">Edytuj Wlaściwości tej karty</button>
-      <button mat-raised-button color="primary">Usuń te kartę</button>
+      <button mat-raised-button color="primary" (click)='ModifyChart()'>Edytuj Wlaściwości tej karty</button>
+      <button mat-raised-button color="primary" (click)='DeleteChart()'>Usuń te kartę</button>
     </mat-card-actions>
   </mat-card-header>
   <mat-card-content class="cell">
