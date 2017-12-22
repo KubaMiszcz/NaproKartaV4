@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
+//TODO: change to all cobinations of comments 3x bool => 8combinations B,W,I
 namespace NaproKarta.Server.Models
 {
 	public class Comment
