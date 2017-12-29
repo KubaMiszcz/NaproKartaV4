@@ -11,14 +11,15 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 export class ChartCellComponent implements OnInit {
   @Input() row: number;
   @Input() col: number;
-  // markerUrl: string;
-  // markerAltText: string;
-  // date: string;
-  // letter: string;
-  // numTimes: string;
-  // cipherAndCipherCD: string;
-  // comments: string;
-  // noteMarks: string;
+
+  markerUrl: string;
+  markerAltText: string;
+  date: string;
+  letter: string;
+  numTimes: string;
+  cipherAndCipherCD: string;
+  comments: string;
+  noteMarks: string;
 
   observation: IObservation = new Observation();
   observationEditDialogRef: MatDialogRef<ObservationEditDialogComponent>;
@@ -26,14 +27,15 @@ export class ChartCellComponent implements OnInit {
   constructor(private dialog: MatDialog) {
     this.row = 0;
     this.col = 0;
-    //this.markerUrl = './../../../assets/img/marker' + MarkerNames.markerNone + '.jpg';
-     //this.markerAltText = MarkerNames.markerNone;
-    // this.date = '"&nbsp"';
-    // this.letter = 'x ';
-    // this.numTimes = 'x ';
-    // this.cipherAndCipherCD = 'x ';
-    // this.comments = 'x ';
-    // this.noteMarks = 'x ';
+
+    this.markerUrl = './../../../assets/img/markers/marker-' + 'green' + '.jpg';
+    this.markerAltText = 'marker-green';
+    this.date = '12-12';
+    this.letter = 'VVL';
+    this.numTimes = 'AD';
+    this.cipherAndCipherCD = '10C/K';
+    this.comments = 'W W W';
+    this.noteMarks = 'W W W';
   }
 
   ngOnInit() {

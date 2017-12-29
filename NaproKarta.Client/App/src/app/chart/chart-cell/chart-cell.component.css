@@ -1,12 +1,15 @@
 table {
   border: 1px solid rgb(56, 56, 56);
-  padding: 0px;
-  margin: 0px;
+  /* padding: 0px; */
+  /* margin: 0px; */
   vertical-align: central;
   text-align: center;
   border-spacing: 0px;
   border-collapse: collapse;
-  height: 200px;
+  min-height: 200px;
+  /* min-height: 14.5em; */
+  min-width: 50px;
+  max-width: 50px;
 }
 
 table:hover {
@@ -14,34 +17,35 @@ table:hover {
 }
 
 td {
-  border: none;
+  border: 0px solid red;
+  border-spacing: 0px;
   vertical-align: central;
   text-align: center;
-  /* padding: 1px; */
-  width: 50px;
-  border-radius: 10px;
+  /* padding: 0px; */
+  /* min-width: 50px; */
+  /* min-height: 2em; */
   /* text-height:90%; */
   font-size: 90%;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 img {
-  width: 60px;
+  width: 50px !important;
+  background-image: "./../../../assets/img/markers/marker-none.jpg";
 }
 
 .date {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   background-color: burlywood;
+  border-radius: 10px;
 }
 
-/* .marker {
+.marker {
   background-color: beige;
-  border-radius: 0px;
   padding: 0px;
   margin: 0px;
-  width: 50px;
+  /* min-width: 50px !important;
+  max-width: 50px !important; */
   height: auto;
-} */
-
-
+}

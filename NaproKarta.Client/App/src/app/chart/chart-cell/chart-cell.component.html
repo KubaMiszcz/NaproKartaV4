@@ -1,12 +1,11 @@
-<table class="cell" (click)="onCellClicked()">
-  <tbody>
+<table class="group-box" (click)="onCellClicked()">
+  <tbody style="vertical-align: top">
     <tr>
       <td class="marker">
         <img src="{{markerUrl}}" alt="{{markerAltText}}" />
       </td>
     </tr>
     <tr>
-      <!-- pipe here -->
       <td class="date">{{date}}</td>
     </tr>
     <tr>
@@ -19,14 +18,14 @@
       <td>{{cipherAndCipherCD}}</td>
     </tr>
     <tr>
-      <td>
-        {{comments}}</td>
+      <td> {{comments}}</td>
     </tr>
     <tr>
       <td>{{noteMarks}}</td>
     </tr>
   </tbody>
 </table>
+
 
 
 

@@ -1,0 +1,87 @@
+<p mat-dialog-title class="mat-typography">
+  Nowa obserwacja na dzień RRR-MM-DD
+</p>
+<mat-card class="group-box navigation-row">
+  <button mat-mini-fab color="primary">
+    <mat-icon>skip_previous</mat-icon>
+  </button>
+  <button mat-mini-fab>
+    <mat-icon>exposure_minus_1</mat-icon>
+  </button>
+
+  <mat-form-field disabled class="date-picker">
+    <input matInput [matDatepicker]="datePicker" placeholder="Wybierz Datę:" disabled class="date-picker">
+    <mat-datepicker-toggle matSuffix [for]="datePicker" style="zoom:200%;"></mat-datepicker-toggle>
+    <mat-datepicker touchUi="true" #datePicker disabled="false"></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-mini-fab>
+    <mat-icon>exposure_plus_1</mat-icon>
+  </button>
+  <button mat-mini-fab color="primary">
+    <mat-icon>skip_next</mat-icon>
+  </button>
+  <button mat-mini-fab color="warn">
+    <mat-icon>autorenew</mat-icon>
+  </button>
+
+</mat-card>
+
+<!-- znaczek -->
+<mat-card class="group-box">
+  <mat-card-subtitle>Znaczek</mat-card-subtitle>
+  <button mat-raised-button class="marker">
+    <img src="../../assets/img//markers/markerRed.jpg" alt="">
+  </button>
+  <button mat-raised-button class="marker">
+    <img src="../../assets/img//markers/markerRed.jpg" alt="">
+  </button>
+  <button mat-raised-button class="marker">
+    <img src="../../assets/img//markers/markerRed.jpg" alt="">
+  </button>
+  <button mat-raised-button class="marker">
+    <img src="../../assets/img//markers/markerRed.jpg" alt="">
+  </button>
+  <button mat-raised-button class="marker">
+    <img src="../../assets/img//markers/markerRed.jpg" alt="">
+  </button>
+  <button mat-raised-button class="marker">
+    <img src="../../assets/img//markers/markerRed.jpg" alt="">
+  </button>
+  <button mat-raised-button class="marker">
+    <img src="../../assets/img//markers/markerRed.jpg" alt="">
+  </button>
+</mat-card>
+
+<!-- opis -->
+<mat-card class="group-box">
+  <mat-card-header>
+    <mat-card-subtitle>Opis</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+    <!-- literki -->
+    <div class="navigation-row">
+      <mat-card class="vertical-radio">
+        <mat-radio-group class="example-radio-group">
+          <mat-radio-button *ngFor="let item of labelValues.letters" class="example-radio-button radio-element" value="item"> {{item}} </mat-radio-button>
+          <mat-checkbox class="radio-element">B</mat-checkbox>
+        </mat-radio-group>
+      </mat-card>
+
+      <app-radio-group-2-colums [labels]="labelValues.ciphers"></app-radio-group-2-colums>
+      <app-radio-group-2-colums [labels]="labelValues.ciphersCd"></app-radio-group-2-colums>
+      <app-radio-group-2-colums [labels]="labelValues.numTimes"></app-radio-group-2-colums>
+
+
+    </div>
+
+
+  </mat-card-content>
+</mat-card>
+
+
+<!-- notatki -->
+<mat-card>
+
+</mat-card>

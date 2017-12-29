@@ -1,7 +1,7 @@
 import { IChart, Chart } from './../../models/ichart';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material';
-import { ErrorDialogComponent } from '../../shared/error-dialog/error-dialog.component';
+// import { ErrorDialogComponent } from '../../shared/error-dialog/error-dialog.component';
 import { ChartService } from '../../services/chart.service';
 import { Router } from '@angular/router';
 
@@ -14,7 +14,7 @@ export class ChartModifyDialogComponent implements OnInit {
   id: number;
   chart: IChart = new Chart();
   response: any;
-  errorDialogRef: MatDialogRef<ErrorDialogComponent>;
+  // errorDialogRef: MatDialogRef<ErrorDialogComponent>;
   asdasdas: any;
 
   constructor(private chartService: ChartService, private dialog: MatDialog, private router: Router) { }

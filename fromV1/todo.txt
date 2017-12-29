@@ -1,0 +1,57 @@
+zapis edycja notek w cyklach
+title nie dzialaja
+obsluga wyjatku kiedy user nie ma zadnych chartow ID=1 i 3
+trzymanie poprzednich wartosc wi session storage, i stanu zalogowania
+
+
+
+
+
+trycatch mdels state``[HttpPost]
+
+[ValidateAntiForgeryToken]
+public ActionResult Create([Bind(Include = "LastName, FirstMidName, EnrollmentDate")]Student student)
+{
+    try
+    {
+        if (ModelState.IsValid)
+        {
+            db.Students.Add(student);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+    }
+    catch (DataException /* dex */)
+    {
+        //Log the error (uncomment dex variable name and add a line here to write a log.
+        ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+    }
+    return View(student);
+}
+--
+
+An alternative way to prevent overposting that is preferred by many developers is to use view models rather than entity classes with model binding. Include only the properties you want to update in the view model. Once the MVC model binder has finished, copy the view model properties to the entity instance, optionally using a tool such as AutoMapper. Use db.Entry on the entity instance to set its state to Unchanged, and then set Property("PropertyName").IsModified to true on each entity property that is included in the view model. This method works in both edit and create scenarios.
+
+ For more information about MVC helpers, see Rendering a Form Using HTML Helpers (the page is for MVC 3 but is still relevant for MVC 5).In the next tutor
+https://msdn.microsoft.com/en-us/library/dd410596(v=VS.98).aspx
+
+
+To add paging to the Students Index page, you'll start by installing the PagedList.Mvc NuGet package. Then you'll make additional changes in the Index method and add paging links to the Index view. PagedList.Mvc is one of many good paging and sorting packages for ASP.NET MVC, and its use here is intended only as an example, not as a recommendation for it over other options. The following illustration shows the paging links.1
+
+@Html.PagedListPager( Model, page => Url.Action("Index", new { page }) )
+The PagedListPager helper provides a number of options that you can customize, including URLs and styling. For more information, see TroyGoode / PagedList on the GitHub site.
+
+https://docs.microsoft.com/en-us/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#bootstrap
+
+
+
+
+
+
+
+
+
+
+
+
+

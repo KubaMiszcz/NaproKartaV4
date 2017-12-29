@@ -1,4 +1,3 @@
-import { element } from 'protractor';
 import { Component, OnInit, Input } from '@angular/core';
 import { IObservation, Observation } from '../../models/iobservation';
 import { Router } from '@angular/router';

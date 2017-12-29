@@ -1,12 +1,14 @@
-import { ChartModifyDialogComponent } from './chart-modify-dialog/chart-modify-dialog.component';
-import { element } from 'protractor';
-import { IObservation, Observation } from '../models/iobservation';
-import { ICycle, Cycle } from '../models/icycle';
-import { ChartService } from '../services/chart.service';
-import { IChart } from './../models/ichart';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { ChartService } from '../services/chart.service';
+import { IChart } from './../models/ichart';
+import { ICycle, Cycle } from '../models/icycle';
+import { IObservation, Observation } from '../models/iobservation';
+
+import { ChartModifyDialogComponent } from './chart-modify-dialog/chart-modify-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
+// import { MaterialsModule } from './../materials/materials.module';
 
 //import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 
