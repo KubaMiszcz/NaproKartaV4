@@ -52,7 +52,6 @@ import { ObservationEditDialogComponent } from './observation/observation-edit-d
 import { MyToggleSwitchComponent } from './shared/ZZZmy-toggle-switch/my-toggle-switch.component';
 import { ProgressSpinnerOverviewComponent } from './shared/progress-spinner-overview/progress-spinner-overview.component';
 import { ErrorDialogComponent } from './shared/error-dialog/error-dialog.component';
-import { RadioGroup2ColumsComponent } from './observation/observation-edit-dialog/radio-group-2-colums/radio-group-2-colums.component';
 
 
 @NgModule({
@@ -70,8 +69,7 @@ import { RadioGroup2ColumsComponent } from './observation/observation-edit-dialo
     , ChartCellComponent
     , ObservationEditDialogComponent
     , ProgressSpinnerOverviewComponent
-    , MyToggleSwitchComponent 
-    , RadioGroup2ColumsComponent
+    , MyToggleSwitchComponent
   ],
   entryComponents: [
     //dialogs components only
@@ -82,7 +80,6 @@ import { RadioGroup2ColumsComponent } from './observation/observation-edit-dialo
   imports: [
     RouterModule.forRoot([
       { path: 'chart/:id', component: ChartComponent }
-      , { path: 'test', component: ObservationEditDialogComponent }
       , { path: 'observation/:id', component: ObservationEditDialogComponent }
       , { path: 'settings', redirectTo: 'http://localhost/NaproKarta/Manage' }
       , { path: 'error', component: ErrorPageComponent }

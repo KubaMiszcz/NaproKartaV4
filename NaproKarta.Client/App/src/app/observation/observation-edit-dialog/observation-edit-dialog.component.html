@@ -30,12 +30,12 @@
 <!-- znaczek -->
 <mat-card class="cell">
   <mat-card-subtitle>Znaczek</mat-card-subtitle>
-  <button mat-raised-button class="marker">
+  <mat-button-toggle mat-raised-button class="marker">
     <img src="../../assets/img//markers/markerRed.jpg" alt="">
-  </button>
-  <button mat-raised-button class="marker">
+  </mat-button-toggle>
+  <mat-button-toggle mat-raised-button class="marker">
     <img src="../../assets/img//markers/markerRed.jpg" alt="">
-  </button>
+  </mat-button-toggle>
   <button mat-raised-button class="marker">
     <img src="../../assets/img//markers/markerRed.jpg" alt="">
   </button>
@@ -64,16 +64,24 @@
     <div class="navigation-row">
       <mat-card class="vertical-radio">
         <mat-radio-group class="example-radio-group">
-          <mat-radio-button *ngFor="let item of labelValues.letters" class="example-radio-button radio-element" value="item"> {{item}} </mat-radio-button>
+          <mat-radio-button class="example-radio-button radio-element" value="M"> M </mat-radio-button>
+          <mat-radio-button class="example-radio-button radio-element" value="H"> H </mat-radio-button>
+          <mat-radio-button class="example-radio-button radio-element" value="V"> V </mat-radio-button>
+          <mat-radio-button class="example-radio-button radio-element" value="1V"> V </mat-radio-button>
+          <mat-radio-button class="example-radio-button radio-element" value="2V"> V </mat-radio-button>
+          <mat-radio-button class="example-radio-button radio-element" value="3V"> V </mat-radio-button>
+
           <mat-checkbox class="radio-element">B</mat-checkbox>
         </mat-radio-group>
       </mat-card>
 
-      <app-radio-group-2-colums [labels]="labelValues.ciphers"></app-radio-group-2-colums>
-      <app-radio-group-2-colums [labels]="labelValues.ciphersCd"></app-radio-group-2-colums>
-      <app-radio-group-2-colums [labels]="labelValues.numTimes"></app-radio-group-2-colums>
 
-
+      <mat-card class="vertical-radio">
+        <mat-radio-group>
+          <mat-radio-button value="1" class="radio-element">Option 1</mat-radio-button>
+          <mat-radio-button value="2" class="radio-element">Option 2</mat-radio-button>
+        </mat-radio-group>
+      </mat-card>
     </div>
 
 

@@ -1,6 +1,7 @@
 import { IObservation, Observation } from './../../models/iobservation';
 import { ObservationEditDialogComponent } from './../../observation/observation-edit-dialog/observation-edit-dialog.component';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MarkerNames } from '../../models/enum/marker-names.enum';
 import { MatDialog, MatDialogRef } from '@angular/material';
 
 @Component({
@@ -26,8 +27,8 @@ export class ChartCellComponent implements OnInit {
   constructor(private dialog: MatDialog) {
     this.row = 0;
     this.col = 0;
-    //this.markerUrl = './../../../assets/img/marker' + MarkerNames.markerNone + '.jpg';
-     //this.markerAltText = MarkerNames.markerNone;
+    // this.markerUrl = './../../../assets/img/marker' + MarkerNames.markerNone + '.jpg';
+    // this.markerAltText = MarkerNames.markerNone;
     // this.date = '"&nbsp"';
     // this.letter = 'x ';
     // this.numTimes = 'x ';

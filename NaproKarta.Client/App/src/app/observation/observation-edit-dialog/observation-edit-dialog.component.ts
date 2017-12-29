@@ -1,4 +1,3 @@
-import { LabelsValues } from './../../models/auxmodels/labels-values';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,12 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./observation-edit-dialog.component.css']
 })
 export class ObservationEditDialogComponent implements OnInit {
-  markerBaseUrl: string;
-  labelValues: LabelsValues = new LabelsValues;
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit() {
   }
+
 }
