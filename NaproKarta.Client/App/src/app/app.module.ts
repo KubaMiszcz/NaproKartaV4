@@ -12,20 +12,16 @@ import { AppService } from './services/app.service';
 import { UserService } from './services/user.service';
 import { ChartService } from './services/chart.service';
 
-import { DateMmDdPipe } from './shared/pipes/date-mm-dd.pipe';
+ import { DateMmDdPipe } from './shared/pipes/date-mm-dd.pipe';
 
 import { WelcomeComponent } from './shared/welcome/welcome.component';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 
 import { ChartModule } from './chart/chart.module';
-// import { ChartComponent } from './chart/chart.component';
-// import { ChartAddDialogComponent } from './chart/chart-add-dialog/chart-add-dialog.component';
-// import { ChartModifyDialogComponent } from './chart/chart-modify-dialog/chart-modify-dialog.component';
-// import { ChartCellComponent } from './chart/chart-cell/chart-cell.component';
-// import { ChartCycleComponent } from './chart/chart-cycle/chart-cycle.component';
+import { ObservationModule } from './observation/observation.module';
 
-import { ObservationEditDialogComponent } from './observation/observation-edit-dialog/observation-edit-dialog.component';
+//import { ObservationEditDialogComponent } from './observation/observation-edit-dialog/observation-edit-dialog.component';
 
 // import { ProgressSpinnerOverviewComponent } from './shared/progress-spinner-overview/progress-spinner-overview.component';
 // import { ErrorDialogComponent } from './shared/error-dialog/error-dialog.component';
@@ -42,27 +38,20 @@ import { MymoduleModule } from './mymodule/mymodule.module';
     // , ErrorDialogComponent
     , WelcomeComponent
     , NavBarComponent
-    // , ChartComponent
-    // , ChartAddDialogComponent
-    // , ChartModifyDialogComponent
-    // , ChartCycleComponent
-    // , ChartCellComponent
-    , ObservationEditDialogComponent
+    //    , ObservationEditDialogComponent
     // , ProgressSpinnerOverviewComponent
     // , RadioGroup2ColumsComponent
   ],
   entryComponents: [
     //dialogs components only
     // ErrorDialogComponent
-    // , ChartAddDialogComponent
-    // , ChartModifyDialogComponent
   ],
   imports: [
     RouterModule.forRoot([
-      { path: 'test', component: ObservationEditDialogComponent }
+      //    { path: 'test', component: ObservationEditDialogComponent }
       // , { path: 'chart/:id', component: ChartComponent }
-      , { path: 'observation/:id', component: ObservationEditDialogComponent }
-      , { path: 'settings', redirectTo: 'http://localhost/NaproKarta/Manage' }
+      //  , { path: 'observation/:id', component: ObservationEditDialogComponent }
+      { path: 'settings', redirectTo: 'http://localhost/NaproKarta/Manage' }
       , { path: 'error', component: ErrorPageComponent }
       , { path: 'welcome', component: WelcomeComponent }
       , { path: '', redirectTo: 'welcome', pathMatch: 'full' }
@@ -74,9 +63,10 @@ import { MymoduleModule } from './mymodule/mymodule.module';
     , BrowserAnimationsModule
     , MaterialsModule
     , ChartModule
+    , ObservationModule
     , MymoduleModule
   ],
-  providers: [UserService, AppService, ChartService],
+  providers: [AppService, UserService, ChartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
