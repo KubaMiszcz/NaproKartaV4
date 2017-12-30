@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { IChart, Chart } from '../../models/ichart';
 import { ChartService } from '../../services/chart.service';
-import { MatDialog, MatDialogRef } from '@angular/material';
-import { ErrorDialogComponent } from '../../shared/error-dialog/error-dialog.component';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef } from '@angular/material';
+
+import { IChart, Chart } from '../../models/ichart';
+// import { ErrorDialogComponent } from '../../shared/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-chart-add-dialog',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 export class ChartAddDialogComponent implements OnInit {
   chart: IChart = new Chart();
   response: any;
-  errorDialogRef: MatDialogRef<ErrorDialogComponent>;
+  // errorDialogRef: MatDialogRef<ErrorDialogComponent>;
 
   constructor(private chartService: ChartService, private dialog: MatDialog, private router: Router) { }
 

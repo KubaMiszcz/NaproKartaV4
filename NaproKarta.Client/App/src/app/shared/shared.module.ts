@@ -1,22 +1,21 @@
-import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
-
+import { FormsModule } from '@angular/forms';
+import { MaterialsModule } from './../materials/materials.module';
 
 @NgModule({
   imports: [
     CommonModule
   ],
+  exports: [
+    CommonModule
+    , FormsModule
+    , MaterialsModule
+    // , NavBarComponent
+  ]
   // declarations: [
   //   NavBarComponent
   //   ,
   // ],
-  exports: [
-    CommonModule,
-    , FormsModule
-    // , NavBarComponent
-  ]
 })
 export class SharedModule { }

@@ -1,14 +1,13 @@
 import { GlobalVariables } from '../../global-variables';
-import { AppService } from '../../services/app.service';
-import { IChart } from './../../models/ichart';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { INavBar } from '../../models/inavbar';
-import { IChartIdAndTitle } from '../../models/auxmodels/chart-id-and-title';
-
+import { AppService } from '../../services/app.service';
+import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { ChartAddDialogComponent } from './../../chart/chart-add-dialog/chart-add-dialog.component';
-import { Router } from '@angular/router';
 
+import { IChart } from './../../models/ichart';
+import { INavBar } from '../../models/inavbar';
+import { IChartIdAndTitle } from '../../models/auxmodels/chart-id-and-title';
 
 @Component({
   selector: 'app-nav-bar',

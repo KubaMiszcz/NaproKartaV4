@@ -44,7 +44,7 @@ import {
     , MatRadioModule
   ]
   // , declarations: [
-  //   MatDialogRef
+  //   MatDialog
   // ]
 })
 export class MaterialsModule { }
