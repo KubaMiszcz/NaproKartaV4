@@ -1,3 +1,4 @@
+//before material, and only once, in submodules use CommonModule instead
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';

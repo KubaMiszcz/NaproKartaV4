@@ -47,4 +47,4 @@ import {
   //   MatDialog
   // ]
 })
-export class MaterialsModule { }
+export class MyOwnMaterialsModule { }

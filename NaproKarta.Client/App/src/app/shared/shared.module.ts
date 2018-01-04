@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MaterialsModule } from './../materials/materials.module';
+import { MyOwnMaterialsModule } from './../my-own-materials/my-own-materials.module';
+
 
 @NgModule({
   imports: [
@@ -10,7 +11,7 @@ import { MaterialsModule } from './../materials/materials.module';
   exports: [
     CommonModule
     , FormsModule
-    , MaterialsModule
+    , MyOwnMaterialsModule
     // , NavBarComponent
   ]
   // declarations: [
