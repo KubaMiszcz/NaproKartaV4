@@ -1,8 +1,12 @@
 <table>
-  <tr><td>{{note}}</td></tr>
   <tr>
-        <td *ngFor="let item of observations;let i=index">
-      <app-chart-cell [row]='numberInChart' [col]='i'>
+    <td>
+      {{cycle.note}}
+    </td>
+  </tr>
+  <tr>
+    <td *ngFor="let item of observations; let i=index">
+      <app-chart-cell [row]='numberInChart' [col]='i' [observation]='item'>
       </app-chart-cell>
     </td>
   </tr>

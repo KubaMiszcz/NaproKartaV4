@@ -1,12 +1,12 @@
 <table class="group-box" [routerLink]="[ '/observation',3]">
   <tbody style="vertical-align: top">
     <tr>
+      <td>cell{{marker}}{{row}}{{col}}</td>
+    </tr>
+    <tr>
       <td class="marker">
         <img src="{{markerUrl}}" alt="{{markerAltText}}" />
       </td>
-    </tr>
-    <tr>
-      <td class="date">{{date}}</td>
     </tr>
     <tr>
       <td>{{letter}}</td>

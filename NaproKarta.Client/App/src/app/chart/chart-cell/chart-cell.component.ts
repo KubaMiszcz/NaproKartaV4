@@ -11,7 +11,9 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 export class ChartCellComponent implements OnInit {
   @Input() row: number;
   @Input() col: number;
+  @Input() observation: IObservation;
 
+  marker: string;
   markerUrl: string;
   markerAltText: string;
   date: string;
@@ -21,7 +23,6 @@ export class ChartCellComponent implements OnInit {
   comments: string;
   noteMarks: string;
 
-  observation: IObservation = new Observation();
   observationEditDialogRef: MatDialogRef<ObservationEditDialogComponent>;
 
   constructor(private dialog: MatDialog) {
@@ -39,6 +40,7 @@ export class ChartCellComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.marker = this.observation.marker;
   }
 
   onCellClicked() {
