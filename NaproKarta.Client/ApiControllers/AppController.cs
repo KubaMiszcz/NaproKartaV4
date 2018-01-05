@@ -44,7 +44,7 @@ namespace NaproKarta.Client.ApiControllers
 
 			var loggedUser = _applicationUserRepository.GetLoggedUser(loggedUserId);
 			var charts = _chartRepository.GetUserCharts(loggedUserId);
-			var result = new NavBarViewModel(loggedUser, charts);
+			var result = new NavBarVm(loggedUser, charts);
 			return Request.CreateResponse(HttpStatusCode.OK, result);
 		}
 

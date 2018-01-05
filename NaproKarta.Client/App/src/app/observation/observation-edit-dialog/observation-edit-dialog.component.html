@@ -1,0 +1,57 @@
+<p mat-dialog-title class="mat-typography">
+  Nowa obserwacja na dzień RRR-MM-DD
+</p>
+<mat-card class="group-box navigation-row">
+  <app-date-nav-bar></app-date-nav-bar>
+</mat-card>
+
+<!-- znaczek -->
+<mat-card class="group-box">
+  <mat-card-subtitle>Znaczek</mat-card-subtitle>
+  <app-markers-group-box></app-markers-group-box>
+</mat-card>
+
+<!-- opis -->
+<mat-card class="group-box">
+  <mat-card-header>
+    <mat-card-subtitle>Opis</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+    <!-- literki -->
+    <div class="navigation-row">
+      <mat-card class="vertical-radio">
+        <app-radio-group-2-columns [labels]="labelValues.letters"></app-radio-group-2-columns>
+        <mat-checkbox class="radio-element">B</mat-checkbox>
+      </mat-card>
+
+      <mat-card>
+        <app-radio-group-2-columns [labels]="labelValues.ciphers"></app-radio-group-2-columns>
+      </mat-card>
+      <mat-card>
+        <app-radio-group-2-columns [labels]="labelValues.ciphersCd"></app-radio-group-2-columns>
+      </mat-card>
+      <mat-card>
+        <app-radio-group-2-columns [labels]="labelValues.numTimes"></app-radio-group-2-columns>
+      </mat-card>
+
+
+    </div>
+
+
+  </mat-card-content>
+</mat-card>
+
+
+<!-- notatki -->
+<mat-card class="group-box">
+  <mat-card-header>
+    <mat-card-subtitle>Notatki</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+    <app-observation-note></app-observation-note>
+    <app-observation-note></app-observation-note>
+    <app-observation-note></app-observation-note>
+  </mat-card-content>
+</mat-card>

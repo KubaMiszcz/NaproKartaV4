@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IObservation, Observation } from '../../models/iobservation';
-import { Router } from '@angular/router';
+import { ICycle } from './../../models/icycle';
 
 const maxObservations = 35;
 
@@ -12,11 +12,13 @@ const maxObservations = 35;
 export class ChartCycleComponent implements OnInit {
   observations: IObservation[];
   note: string;
+  @Input()cycle: ICycle;
   @Input() numberInChart: number;
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
+    //console.log(this.note + '\n');
     this.observations = new Array<Observation>(maxObservations);
   }
 }

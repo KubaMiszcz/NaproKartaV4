@@ -12,27 +12,41 @@ namespace NaproKarta.Client.Services
 {
 	public class NaproClientChartService
 	{
-		public static ChartViewModel ChartDb2ChartVm(Chart chart)
-		{
-			return new ChartViewModel()
-			{
-				Id = chart.Id,
-				Title = chart.Title,
-				Note = chart.Note,
-				Cycles = chart.Cycles
-			};
-		}
+		//public static ChartVm ChartDb2ChartVm(Chart chart)
+		//{
+		//	return new ChartVm()
+		//	{
+		//		Id = chart.Id,
+		//		Title = chart.Title,
+		//		Note = chart.Note,
+		//		Cycles = chart.Cycles
+		//	};
+		//}
 
-		public static Chart ChartVm2ChartDb(string loggedUserId, ChartViewModel chartVm)
+		//refactor to save model
+		public static Chart ChartVm2ChartDb(string loggedUserId, ChartVm chartVm)
 		{
-			return new Chart()
+			var result = new Chart()
 			{
 				Id = chartVm.Id,
 				UserId = loggedUserId,
 				Title = chartVm.Title,
 				Note = chartVm.Note,
-				Cycles = chartVm.Cycles
 			};
+
+			//result.Cycles = new List<Cycle>();
+			//foreach (var item in chartVm.Cycles)
+			//{
+			//	Cycle cycle = new Cycle()
+			//	{
+			//		Id = item.Id,
+			//		ChartId = item.ChartId,
+			//		Note = item.Note,
+			//		NumberInChart=item.NumberInChart,
+			//	};
+			//	cycle.Observations
+			//}
+			return result;
 		}
 	}
 }

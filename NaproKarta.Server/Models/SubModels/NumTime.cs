@@ -10,13 +10,14 @@ namespace NaproKarta.Server.Models
 	public class NumTime
 	{
 		[Key]
-		public string Id { get; set; }
+		public int Id { get; set; }
+		public string Value { get; set; }
 	}
 	internal sealed class NumTimeMappings : EntityTypeConfiguration<NumTime>
 	{
 		public NumTimeMappings()
 		{
-			Property(p => p.Id).HasMaxLength(2).IsRequired();
+			Property(p => p.Value).HasMaxLength(2).IsRequired();
 		}
 	}
 }

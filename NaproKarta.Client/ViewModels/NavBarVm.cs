@@ -4,14 +4,14 @@ using System.Linq;
 
 namespace NaproKarta.Client.ViewModels
 {
-	public class NavBarViewModel
+	public class NavBarVm
 	{
 		public string UserName { get; set; }
 		public IList<ChartIdAndTitle> ChartIdsAndTitles { get; set; }
 
-		public NavBarViewModel() { }
+		public NavBarVm() { }
 
-		public NavBarViewModel(ApplicationUser loggedUser, IQueryable<Chart> charts)
+		public NavBarVm(ApplicationUser loggedUser, IQueryable<Chart> charts)
 		{
 			UserName = loggedUser?.UserName;
 			ChartIdsAndTitles = new List<ChartIdAndTitle>();

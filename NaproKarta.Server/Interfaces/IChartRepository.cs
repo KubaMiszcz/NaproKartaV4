@@ -10,7 +10,7 @@ namespace NaproKarta.Server.Interfaces
 {
 	public interface IChartRepository
 	{
-		Chart GetChart(int id);
+		IQueryable<Chart> GetChart(int id);
 		int AddChart(Chart chart);
 		IQueryable<Chart> GetUserCharts(string loggedUserId);
 		int UpdateChart(Chart chart);
@@ -22,5 +22,4 @@ namespace NaproKarta.Server.Interfaces
 		//void DeleteChart(Chart chart);
 		//IQueryable<Chart> GetUserCharts(string loggedUserId);
 	}
-
 }

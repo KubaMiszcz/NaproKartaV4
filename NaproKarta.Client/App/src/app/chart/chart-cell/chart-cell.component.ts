@@ -41,6 +41,14 @@ export class ChartCellComponent implements OnInit {
   ngOnInit() {
   }
 
+  onCellClicked() {
+    //console.log('from cell: ' + this.row + ',' + this.col);
+    this.observationEditDialogRef = this.dialog.open(ObservationEditDialogComponent, {
+      hasBackdrop: true
+    });
+    //this.observationEditDialogRef.componentInstance.chart = this.chart;
+  }
+
   convertArrayToString(array: string[]): string {
     let arr = '';
     array.forEach(element => {
@@ -52,12 +60,5 @@ export class ChartCellComponent implements OnInit {
 
   //EditObservation(row: number, col: number) {
 
-  onCellClicked() {
-    //console.log('from cell: ' + this.row + ',' + this.col);
-    this.observationEditDialogRef = this.dialog.open(ObservationEditDialogComponent, {
-      hasBackdrop: true
-    });
-    //this.observationEditDialogRef.componentInstance.chart = this.chart;
-  }
 
 }

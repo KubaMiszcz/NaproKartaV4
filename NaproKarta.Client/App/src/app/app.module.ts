@@ -6,26 +6,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import 'hammerjs';
 import { SharedModule } from './shared/shared.module';
+import { MyCoreModule } from './my-core/my-core.module';
+
 import { AppComponent } from './app.component';
 
 import { AppService } from './services/app.service';
 import { UserService } from './services/user.service';
 import { ChartService } from './services/chart.service';
 
-import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
-import { WelcomeComponent } from './shared/welcome/welcome.component';
-
 import { ChartModule } from './chart/chart.module';
-import { MymoduleModule } from './mymodule/mymodule.module';
-
-//import { ObservationModule } from './observation/observation.module';
-//import { ObservationEditDialogComponent } from './observation/observation-edit-dialog/observation-edit-dialog.component';
+import { ObservationModule } from './observation/observation.module';
 
 @NgModule({
   declarations: [
     AppComponent
-    , NavBarComponent
-    , WelcomeComponent
+    // , NavBarComponent
+    // , WelcomeComponent
     // , DateMmDdPipe
     // , ErrorPageComponent
     // , ErrorDialogComponent
@@ -41,7 +37,6 @@ import { MymoduleModule } from './mymodule/mymodule.module';
     RouterModule.forRoot([
       { path: 'settings', redirectTo: 'http://localhost/NaproKarta/Manage' }
       //  , { path: 'observation/:id', component: ObservationEditDialogComponent }
-      , { path: 'welcome', component: WelcomeComponent }
       , { path: '', redirectTo: 'welcome', pathMatch: 'full' }
       , { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ])
@@ -49,9 +44,9 @@ import { MymoduleModule } from './mymodule/mymodule.module';
     , HttpClientModule
     , BrowserAnimationsModule
     , SharedModule
+    , MyCoreModule
     , ChartModule
-    // , ObservationModule
-    , MymoduleModule
+    , ObservationModule
   ],
   providers: [AppService, UserService, ChartService],
   bootstrap: [AppComponent]

@@ -21,25 +21,25 @@ namespace NaproKarta.Server.Repositories
 			_context = context;
 		}
 
-		//public HashSet<string[]> GetUserChartIdsAndTitlesHashSet(string loggedUserId)
-		//{
-		//	HashSet<string[]> result = new HashSet<string[]>();
 
-		//	foreach (var x in GetUserCharts(loggedUserId))
-		//	{
-		//		result.Add(new string[] { x.Id.ToString(), x.Title });
-		//	}
 
-		//	//_context.Charts
-		//	// .Where(x => x.UserId == loggedUserId).ToList()
-		//	// .ForEach(x => result.Add(new string[] { x.Id.ToString(), x.Title }));
-
-		//	return result;
-		//}
-
-		public Chart GetChart(int id)
+		public IQueryable<Chart> GetChart(int id)
 		{
-			return _context.Charts.Find(id);
+			var result = _context.Charts.Where(x => x.Id == id)
+				//.Include(c => c.Cycles)
+				//.Include(c => c.Cycles.Select(o => o.Observations))
+				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.Letter)))
+				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.Cipher)))
+				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.CipherCd)))
+				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.NumTime)))
+				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.Comment)))
+				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.Notes)))
+				.AsQueryable();
+
+			return result;
+
+			//return _context.Charts.Where(x => x.Id == id)
+			//.Include(c => c.Cycles.Select(o => o.Observations)).AsQueryable();
 		}
 
 		public IQueryable<Chart> GetUserCharts(string loggedUserId)
@@ -60,7 +60,7 @@ namespace NaproKarta.Server.Repositories
 			_context.Entry(chart).CurrentValues.SetValues(newChart);
 			_context.Entry(chart).State = EntityState.Modified;
 			_context.SaveChanges();
-			return chart.Id;
+			return chart.FirstOrDefault().Id;
 		}
 
 		public bool DeleteChart(Chart chart)
@@ -93,3 +93,19 @@ namespace NaproKarta.Server.Repositories
 
 	}
 }
+
+//public HashSet<string[]> GetUserChartIdsAndTitlesHashSet(string loggedUserId)
+//{
+//	HashSet<string[]> result = new HashSet<string[]>();
+
+//	foreach (var x in GetUserCharts(loggedUserId))
+//	{
+//		result.Add(new string[] { x.Id.ToString(), x.Title });
+//	}
+
+//	//_context.Charts
+//	// .Where(x => x.UserId == loggedUserId).ToList()
+//	// .ForEach(x => result.Add(new string[] { x.Id.ToString(), x.Title }));
+
+//	return result;
+//}

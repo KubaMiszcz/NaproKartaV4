@@ -1,0 +1,22 @@
+<button mat-mini-fab color="primary">
+    <mat-icon>skip_previous</mat-icon>
+  </button>
+  <button mat-mini-fab>
+    <mat-icon>exposure_minus_1</mat-icon>
+  </button>
+
+  <mat-form-field disabled class="date-picker">
+    <input matInput [matDatepicker]="datePicker" placeholder="Wybierz Datę:" disabled class="date-picker">
+    <mat-datepicker-toggle matSuffix [for]="datePicker" style="zoom:200%;"></mat-datepicker-toggle>
+    <mat-datepicker touchUi="true" #datePicker disabled="false"></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-mini-fab>
+    <mat-icon>exposure_plus_1</mat-icon>
+  </button>
+  <button mat-mini-fab color="primary">
+    <mat-icon>skip_next</mat-icon>
+  </button>
+  <button mat-mini-fab color="warn">
+    <mat-icon>autorenew</mat-icon>
+  </button>

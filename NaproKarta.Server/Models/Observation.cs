@@ -24,18 +24,18 @@ namespace NaproKarta.Server.Models
 
 		public DateTime Date { get; set; }
 
-		public string LetterId { get; set; }
+		public int LetterId { get; set; }
 		public virtual Letter Letter { get; set; }
 
 		public bool IsB { get; set; }
 
-		public string NumTimeId { get; set; }
+		public int NumTimeId { get; set; }
 		public virtual NumTime NumTime { get; set; }
 
-		public string CipherId { get; set; }
+		public int CipherId { get; set; }
 		public virtual Cipher Cipher { get; set; }
 
-		public string CipherCdId { get; set; }
+		public int CipherCdId { get; set; }
 		public virtual CipherCd CipherCd { get; set; }
 
 		public int CommentId { get; set; }

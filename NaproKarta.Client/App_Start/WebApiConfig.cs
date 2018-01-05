@@ -18,13 +18,17 @@ namespace NaproKarta.Client
 			container.RegisterType<IApplicationUserRepository, ApplicationUserRepository>(new HierarchicalLifetimeManager());
 			container.RegisterType<IChartRepository, ChartRepository>(new HierarchicalLifetimeManager());
 			container.RegisterType<IObservationRepository, ObservationRepository>(new HierarchicalLifetimeManager());
+			container.RegisterType<ICoreRepository, CoreRepository>(new HierarchicalLifetimeManager());
+
 			config.DependencyResolver = new UnityResolver(container);
-
-
+			
 			// Web API routes
 			config.MapHttpAttributeRoutes();
 			config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
+			//config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+			//config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+			
 			//enable CORS across the API without annotating each controller:
 			//var corsAttr = new EnableCorsAttribute("http://localhost:4200", "*", "*");
 			var cors = new EnableCorsAttribute("*", "*", "*");

@@ -1,9 +1,9 @@
-import { IChart, Chart } from './../../models/ichart';
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef, MatDialog } from '@angular/material';
+// import { MatDialogRef, MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
+import { IChart, Chart } from './../../models/ichart';
 // import { ErrorDialogComponent } from '../../shared/error-dialog/error-dialog.component';
 import { ChartService } from '../../services/chart.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chart-modify-dialog',
@@ -15,14 +15,11 @@ export class ChartModifyDialogComponent implements OnInit {
   chart: IChart = new Chart();
   response: any;
   // errorDialogRef: MatDialogRef<ErrorDialogComponent>;
-  asdasdas: any;
 
-  constructor(private chartService: ChartService, private dialog: MatDialog, private router: Router) { }
+  constructor(private chartService: ChartService, private router: Router) { }
+  // private dialog: MatDialog,
 
   ngOnInit() {
-    // this.chart.title = 'karta nr ...';
-    // this.chart.title = '';
-    // console.log(this.chart);
   }
 
   ModifyChart() {

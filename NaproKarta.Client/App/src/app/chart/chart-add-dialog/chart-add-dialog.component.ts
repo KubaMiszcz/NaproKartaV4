@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartService } from '../../services/chart.service';
 import { Router } from '@angular/router';
-import { MatDialog, MatDialogRef } from '@angular/material';
+// import { MatDialog, MatDialogRef } from '@angular/material';
 
 import { IChart, Chart } from '../../models/ichart';
 // import { ErrorDialogComponent } from '../../shared/error-dialog/error-dialog.component';
@@ -16,13 +16,10 @@ export class ChartAddDialogComponent implements OnInit {
   response: any;
   // errorDialogRef: MatDialogRef<ErrorDialogComponent>;
 
-  constructor(private chartService: ChartService, private dialog: MatDialog, private router: Router) { }
+  constructor(private chartService: ChartService,  private router: Router) { } //private dialog: MatDialog,
 
   ngOnInit() {
-    // this.chart.title = 'karta nr ...';
-    // this.chart.title = '';
   }
-
 
   AddChart() {
     if (this.chart.title !== null && this.chart.title !== '') {

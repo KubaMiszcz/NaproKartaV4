@@ -14,6 +14,7 @@ using NaproKarta.Client.ViewModels;
 using NaproKarta.Server.Interfaces;
 using NaproKarta.Server.Models;
 using NaproKarta.Server.Context;
+using Newtonsoft.Json;
 
 namespace NaproKarta.Client.ApiControllers
 {
@@ -23,6 +24,7 @@ namespace NaproKarta.Client.ApiControllers
 	public class ChartController : ApiController
 	{
 		private readonly IChartRepository _chartRepository;
+		private readonly ICoreRepository _coreRepository;
 		private string loggedUserId;
 
 		public ChartController()
@@ -30,9 +32,10 @@ namespace NaproKarta.Client.ApiControllers
 			loggedUserId = User.Identity.GetUserId();
 		}
 
-		public ChartController(IChartRepository chartRepository) : this()
+		public ChartController(IChartRepository chartRepository, ICoreRepository coreRepository) : this()
 		{
 			_chartRepository = chartRepository;
+			_coreRepository = coreRepository;
 		}
 
 		[Route("GetChart/{id?}")]
@@ -43,21 +46,23 @@ namespace NaproKarta.Client.ApiControllers
 				//TODO: you are not logged message here
 				return Request.CreateResponse(HttpStatusCode.Unauthorized, "err niezalogowany");
 
-			var chart = _chartRepository.GetChart(id);
-
+			var chart = _chartRepository.GetChart(id).FirstOrDefault();
+			
 			if (chart == null)
 				return Request.CreateResponse(HttpStatusCode.OK, "err chart nie istenieje");
 
 			if (chart.UserId != loggedUserId)
 				return Request.CreateResponse(HttpStatusCode.OK, "err nie twoj chart");
 
-			var result = NaproClientChartService.ChartDb2ChartVm(chart);
+			//var result = NaproClientChartService.ChartDb2ChartVm(chart);
+			var result = new ChartVm(chart);
+			//var res = JsonConvert.SerializeObject(result);
 			return Request.CreateResponse(HttpStatusCode.OK, result);
 		}
 
 		//[Route("AddChart")]
 		[HttpPost, HttpOptions]
-		public HttpResponseMessage AddChart(ChartViewModel chartVm)
+		public HttpResponseMessage AddChart(ChartVm chartVm)
 		{
 			if (NaproClientAppService.HasReqestOPTIONSHeader(Request))
 				return new HttpResponseMessage() { StatusCode = HttpStatusCode.OK };
@@ -87,7 +92,7 @@ namespace NaproKarta.Client.ApiControllers
 				//TODO: you are not logged message here
 				return Request.CreateResponse(HttpStatusCode.Unauthorized, "err niezalogowany");
 
-			var chart = _chartRepository.GetChart(id);
+			var chart = _chartRepository.GetChart(id).FirstOrDefault();
 
 			if (chart == null)
 				return Request.CreateResponse(HttpStatusCode.OK, "err chart nie istenieje");
@@ -102,7 +107,7 @@ namespace NaproKarta.Client.ApiControllers
 		}
 
 		[HttpPut, HttpOptions]
-		public HttpResponseMessage ModifyChart(ChartViewModel chartVm)
+		public HttpResponseMessage ModifyChart(ChartVm chartVm)
 		{
 			if (NaproClientAppService.HasReqestOPTIONSHeader(Request))
 				return new HttpResponseMessage() { StatusCode = HttpStatusCode.OK };
@@ -114,7 +119,7 @@ namespace NaproKarta.Client.ApiControllers
 			if (!ModelState.IsValid)
 				return Request.CreateResponse(HttpStatusCode.BadRequest);
 
-			var chart = _chartRepository.GetChart(chartVm.Id);
+			var chart = _chartRepository.GetChart(chartVm.Id).FirstOrDefault(); ;
 
 			if (chart.UserId != loggedUserId)
 				return Request.CreateResponse(HttpStatusCode.OK, "err nie twoj chart");

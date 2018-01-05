@@ -6,13 +6,14 @@ namespace NaproKarta.Server.Models
 	public class Cipher
 	{
 		[Key]
-		public string Id { get; set; }
+		public int Id { get; set; }
+		public string Value { get; set; }
 	}
 	internal sealed class CipherMappings : EntityTypeConfiguration<Cipher>
 	{
 		public CipherMappings()
 		{
-			Property(p => p.Id).HasMaxLength(4).IsRequired();
+			Property(p => p.Value).HasMaxLength(4).IsRequired();
 		}
 	}
 }

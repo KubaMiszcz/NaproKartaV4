@@ -177,9 +177,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="Interfaces\ICoreRepository.cs" />
     <Compile Include="Migrations\201712191037565_init.cs" />
     <Compile Include="Migrations\201712191037565_init.Designer.cs">
       <DependentUpon>201712191037565_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801050858257_1.cs" />
+    <Compile Include="Migrations\201801050858257_1.Designer.cs">
+      <DependentUpon>201801050858257_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801050924477_2.cs" />
+    <Compile Include="Migrations\201801050924477_2.Designer.cs">
+      <DependentUpon>201801050924477_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\SubModels\Cipher.cs" />
     <Compile Include="Models\SubModels\CipherCd.cs" />
@@ -189,6 +198,7 @@
     <Compile Include="Interfaces\IApplicationUserRepository.cs" />
     <Compile Include="Models\SubModels\NumTime.cs" />
     <Compile Include="Models\SubModels\ObservationNote.cs" />
+    <Compile Include="Repositories\CoreRepository.cs" />
     <Compile Include="Repositories\ObservationRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -232,6 +242,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712191037565_init.resx">
       <DependentUpon>201712191037565_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801050858257_1.resx">
+      <DependentUpon>201801050858257_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801050924477_2.resx">
+      <DependentUpon>201801050924477_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

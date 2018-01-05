@@ -6,15 +6,18 @@ namespace NaproKarta.Server.Models
 {
 	public class Letter
 	{
-		[Key,MaxLength(3)]
-		public string Id { get; set; }
+		[Key]
+		public int Id { get; set; }
+		[MaxLength(3)]
+		public string Value { get; set; }
 	}
 
 	//internal sealed class LetterMappings : EntityTypeConfiguration<Letter>
 	//{
 	//	public LetterMappings()
 	//	{
-			
+	//		HasKey(p => p.Id);
+	//		Property(p => p.Value).HasMaxLength(3).IsRequired();
 	//	}
 	//}
 }
