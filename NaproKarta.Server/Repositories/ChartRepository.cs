@@ -31,8 +31,8 @@ namespace NaproKarta.Server.Repositories
 				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.Letter)))
 				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.Cipher)))
 				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.CipherCd)))
-				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.NumTime)))
-				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.Comment)))
+				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.NumTimes)))
+				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.Comments)))
 				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.Notes)))
 				.AsQueryable();
 

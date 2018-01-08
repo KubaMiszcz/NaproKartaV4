@@ -1,24 +1,28 @@
 <table class="group-box" [routerLink]="[ '/observation',3]">
   <tbody style="vertical-align: top">
     <tr>
-      <td>cell{{marker}}{{row}}{{col}}</td>
-    </tr>
-    <tr>
-      <td class="marker">
-        <img src="{{markerUrl}}" alt="{{markerAltText}}" />
+      <td>cell
+        <!-- <br>r:{{row}} -->
+        <br>c:{{numberInCycle}}
+        <br>m{{observation.marker}}
       </td>
     </tr>
     <tr>
-      <td>{{letter}}</td>
+      <td class="marker">
+        <img src="{{markerUrl}}" alt="{{observation.marker}}" />
+      </td>
+    </tr>
+    <td>{{observation.letter}}</td>
+    <tr>
     </tr>
     <tr>
-      <td>{{numTimes}}</td>
+      <td>{{observation.numTimes}}</td>
     </tr>
     <tr>
-      <td>{{cipherAndCipherCD}}</td>
+      <td>{{observation.cipher}}{{observation.cipherCd}}</td>
     </tr>
     <tr>
-      <td> {{comments}}</td>
+      <td>{{comments}}</td>
     </tr>
     <tr>
       <td>{{noteMarks}}</td>

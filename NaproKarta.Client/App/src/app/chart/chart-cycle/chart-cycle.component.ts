@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IObservation, Observation } from '../../models/iobservation';
 import { ICycle } from './../../models/icycle';
+import { Observable } from 'rxjs/Observable';
 
 const maxObservations = 35;
 
@@ -15,21 +16,21 @@ export class ChartCycleComponent implements OnInit {
   @Input() cycle: ICycle;
   @Input() numberInChart: number;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    this.note = 'none';
     this.observations = new Array(maxObservations);
     for (let i = 0; i < maxObservations; i++) {
       this.observations[i] = new Observation();
+      //this.observations[i].marker = 'none';
     }
+  }
 
-    // for (let i = 0; i < maxCycles; i++) {
-    //   this.cycles[i] = new Cycle();
-    // }
-
-    this.cycle.observations.forEach(e => {
-      this.observations[e.col] = e;
-     // console.log(e);
-    });
+  ngOnInit() {
+    this.note = this.cycle.note;
+    if (this.cycle.observations !== undefined) {
+      this.cycle.observations.forEach(element => {
+        this.observations[element.numberInCycle] = element;
+      });
+    }
   }
 }

@@ -1,27 +1,31 @@
 import { INote } from './inote';
 
 export interface IObservation {
-    row: number;
-    col: number;
+    id: number;
+    cycleId: number;
+    numberInCycle: number;
     marker: string;
-    markerUrl: string;
-    markerTxt: string;
+    date: string; //Date;
     letter: string;
+    isB: boolean;
+    numTimes: string;
     cipher: string;
     cipherCd: string;
-    comment: string[];
+    comments: any; //????
     notes: INote[];
 }
 
 export class Observation implements IObservation {
-    row: number;
-    col: number;
+    id: number;
+    cycleId: number;
+    numberInCycle: number;
     marker: string;
-    markerUrl: string;
-    markerTxt: string;
+    date: string; //Date;
     letter: string;
+    isB: boolean;
+    numTimes: string;
     cipher: string;
     cipherCd: string;
-    comment: string[];
+    comments: any; //????
     notes: INote[];
 }

@@ -6,7 +6,7 @@ table {
   text-align: center;
   border-spacing: 0px;
   border-collapse: collapse;
-  min-height: 200px;
+  /* min-height: 200px; */
   /* min-height: 14.5em; */
   min-width: 50px;
   max-width: 50px;

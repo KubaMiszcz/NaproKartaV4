@@ -32,26 +32,34 @@ export class ChartComponent implements OnInit, OnDestroy {
     this.cycles = new Array(maxCycles);
     for (let i = 0; i < maxCycles; i++) {
       this.cycles[i] = new Cycle();
+      //this.cycles[i].note = 'none';
     }
   }
 
   ngOnInit() {
     this.sub = this.route.paramMap
-      .subscribe(v => this.UpdateChart(+v.get('id')),
-      error => console.log(error)
-      );
+      .subscribe(v => this.UpdateChart(+v.get('id'))
+      , error => console.log(error));
   }
 
   UpdateChart(id: number) {
     this.currentChartId = id;
     this.chartService.GetChart(this.currentChartId)
-      .subscribe(chart => this.chart = chart, error => console.log(error), () => {
+      .subscribe(chart => this.chart = chart
+      , error => console.log(error)
+      , () => {
         this.chartTitle = this.chart.title;
         this.chartNote = this.chart.note;
         this.currentChartId = this.chart.id;
-        this.chart.cycles.forEach(c => {
-          this.cycles[c.numberInChart] = c;
+        this.chart.cycles.forEach(element => {
+          //console.log(e.observations.length);
+          this.cycles[element.numberInChart] = element;
+          //console.log(this.cycles[element.numberInChart]);
         });
+        // this.cycles.forEach(e => {
+        //   console.log(e);
+        // });
+        //console.log(this.cycles);
       });
 
   }

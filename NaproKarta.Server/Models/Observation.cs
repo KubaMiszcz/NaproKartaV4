@@ -30,7 +30,7 @@ namespace NaproKarta.Server.Models
 		public bool IsB { get; set; }
 
 		public int NumTimeId { get; set; }
-		public virtual NumTime NumTime { get; set; }
+		public virtual NumTime NumTimes { get; set; }
 
 		public int CipherId { get; set; }
 		public virtual Cipher Cipher { get; set; }
@@ -39,7 +39,7 @@ namespace NaproKarta.Server.Models
 		public virtual CipherCd CipherCd { get; set; }
 
 		public int CommentId { get; set; }
-		public virtual Comment Comment { get; set; }
+		public virtual Comment Comments { get; set; }
 
 		public virtual IList<ObservationNote> Notes { get; set; }
 	}
