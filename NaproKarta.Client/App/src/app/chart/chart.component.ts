@@ -52,7 +52,7 @@ export class ChartComponent implements OnInit, OnDestroy {
         this.chartNote = this.chart.note;
         this.currentChartId = this.chart.id;
         this.chart.cycles.forEach(element => {
-          //console.log(e.observations.length);
+          console.log(element);
           this.cycles[element.numberInChart] = element;
           //console.log(this.cycles[element.numberInChart]);
         });
