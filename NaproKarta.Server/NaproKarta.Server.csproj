@@ -177,7 +177,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\UnityConfig.cs" />
-    <Compile Include="Interfaces\ICoreRepository.cs" />
     <Compile Include="Migrations\201712191037565_init.cs" />
     <Compile Include="Migrations\201712191037565_init.Designer.cs">
       <DependentUpon>201712191037565_init.cs</DependentUpon>
@@ -198,7 +197,6 @@
     <Compile Include="Interfaces\IApplicationUserRepository.cs" />
     <Compile Include="Models\SubModels\NumTime.cs" />
     <Compile Include="Models\SubModels\ObservationNote.cs" />
-    <Compile Include="Repositories\CoreRepository.cs" />
     <Compile Include="Repositories\ObservationRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

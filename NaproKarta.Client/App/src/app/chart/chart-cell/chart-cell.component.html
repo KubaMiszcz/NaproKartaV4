@@ -1,25 +1,31 @@
 <table class="group-box" [routerLink]="[ '/observation',3]">
   <tbody style="vertical-align: top">
-    <tr>
+    <!-- <tr>
       <td>cell
-        <!-- <br>r:{{row}} -->
         <br>c:{{numberInCycle}}
         <br>m{{observation.marker}}
       </td>
-    </tr>
+    </tr> -->
     <tr>
-      <td class="marker">
-        <img src="{{markerUrl}}" alt="{{observation.marker}}" />
+      <td class="marker" [ngStyle]="{'background-image':'url('+markerUrl+')'}">
+        <div>
+          <img src="http://placehold.it/10" alt="">
+        </div>
+        <!-- <img src="{{markerUrl}}" alt="{{observation.marker}}" /> -->
+        <!-- <img src="{{markerUrl}}" alt="{{observation.marker}}" /> -->
       </td>
     </tr>
-    <td>{{observation.letter}}</td>
     <tr>
+      <td class="date">{{observation.date | dateMmDd}}</td>
+    </tr>
+    <tr>
+      <td>{{observation.letter}}</td>
     </tr>
     <tr>
       <td>{{observation.numTimes}}</td>
     </tr>
     <tr>
-      <td>{{observation.cipher}}x{{observation.cipherCd}}</td>
+      <td>{{observation.cipher}}{{observation.cipherCd}}</td>
     </tr>
     <tr>
       <td>{{comments}}</td>
@@ -34,7 +40,7 @@
 
 
 
-<!-- 
+<!--
 <table class="chartCellContent" name="RowCol" value="@Model.RowCol" @*onclick="@(" window.location.href='" + @Url.Action("ObservationEdit", "User", new {id = Model.ID, RowCol = Model.RowCol}) + "'
   ");">*@ @*onclick="@("location.href='" + @Url.Action("ObservationEdit", "User", new {id = Model.ID, RowCol = Model.RowCol}) +
   "'");"*@ onclick="location.href='@Url.Action("ObservationEdit", "User", new { id = Model.ID, RowCol = Model.RowCol })'"

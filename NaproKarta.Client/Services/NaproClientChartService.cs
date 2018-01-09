@@ -12,19 +12,18 @@ namespace NaproKarta.Client.Services
 {
 	public class NaproClientChartService
 	{
-		//public static ChartVm ChartDb2ChartVm(Chart chart)
-		//{
-		//	return new ChartVm()
-		//	{
-		//		Id = chart.Id,
-		//		Title = chart.Title,
-		//		Note = chart.Note,
-		//		Cycles = chart.Cycles
-		//	};
-		//}
+		internal static Chart ChartVm2ChartDb(ChartVm chartVm)
+		{
+			var result = new Chart()
+			{
+				Id = chartVm.Id,
+				Title = chartVm.Title,
+				Note = chartVm.Note,
+			};
+			return result;
+		}
 
-		//refactor to save model
-		public static Chart ChartVm2ChartDb(string loggedUserId, ChartVm chartVm)
+		internal static Chart ChartVm2ChartDb(string loggedUserId, ChartVm chartVm)
 		{
 			var result = new Chart()
 			{
@@ -33,20 +32,8 @@ namespace NaproKarta.Client.Services
 				Title = chartVm.Title,
 				Note = chartVm.Note,
 			};
-
-			//result.Cycles = new List<Cycle>();
-			//foreach (var item in chartVm.Cycles)
-			//{
-			//	Cycle cycle = new Cycle()
-			//	{
-			//		Id = item.Id,
-			//		ChartId = item.ChartId,
-			//		Note = item.Note,
-			//		NumberInChart=item.NumberInChart,
-			//	};
-			//	cycle.Observations
-			//}
 			return result;
 		}
+
 	}
 }

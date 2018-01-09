@@ -18,7 +18,6 @@ namespace NaproKarta.Client
 			container.RegisterType<IApplicationUserRepository, ApplicationUserRepository>(new HierarchicalLifetimeManager());
 			container.RegisterType<IChartRepository, ChartRepository>(new HierarchicalLifetimeManager());
 			container.RegisterType<IObservationRepository, ObservationRepository>(new HierarchicalLifetimeManager());
-			container.RegisterType<ICoreRepository, CoreRepository>(new HierarchicalLifetimeManager());
 
 			config.DependencyResolver = new UnityResolver(container);
 			

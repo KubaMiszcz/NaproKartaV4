@@ -24,7 +24,6 @@ namespace NaproKarta.Client.ApiControllers
 	public class ChartController : ApiController
 	{
 		private readonly IChartRepository _chartRepository;
-		private readonly ICoreRepository _coreRepository;
 		private string loggedUserId;
 
 		public ChartController()
@@ -32,10 +31,9 @@ namespace NaproKarta.Client.ApiControllers
 			loggedUserId = User.Identity.GetUserId();
 		}
 
-		public ChartController(IChartRepository chartRepository, ICoreRepository coreRepository) : this()
+		public ChartController(IChartRepository chartRepository) : this()
 		{
 			_chartRepository = chartRepository;
-			_coreRepository = coreRepository;
 		}
 
 		[Route("GetChart/{id?}")]
@@ -92,18 +90,17 @@ namespace NaproKarta.Client.ApiControllers
 				//TODO: you are not logged message here
 				return Request.CreateResponse(HttpStatusCode.Unauthorized, "err niezalogowany");
 
-			var chart = _chartRepository.GetChart(id).FirstOrDefault();
+			var chartUserId = _chartRepository.GetChart(id).Select(x => x.UserId).FirstOrDefault();
 
-			if (chart == null)
+			if (chartUserId == null)
 				return Request.CreateResponse(HttpStatusCode.OK, "err chart nie istenieje");
 
-			if (chart.UserId != loggedUserId)
+			if (chartUserId != loggedUserId)
 				return Request.CreateResponse(HttpStatusCode.OK, "err nie twoj chart");
 
-			var result = _chartRepository.DeleteChart(chart);
+			var result = _chartRepository.DeleteChart(id);
 			//TODO: what if chart with this name already exists??
 			return Request.CreateResponse(HttpStatusCode.OK, "success karta usunieta");
-
 		}
 
 		[HttpPut, HttpOptions]
@@ -119,12 +116,13 @@ namespace NaproKarta.Client.ApiControllers
 			if (!ModelState.IsValid)
 				return Request.CreateResponse(HttpStatusCode.BadRequest);
 
-			var chart = _chartRepository.GetChart(chartVm.Id).FirstOrDefault(); ;
+			//var chart = _chartRepository.GetChart(chartVm.Id).FirstOrDefault();
+			var chartUserId = _chartRepository.GetChart(chartVm.Id).Select(x => x.UserId).FirstOrDefault();
 
-			if (chart.UserId != loggedUserId)
+			if (chartUserId != loggedUserId)
 				return Request.CreateResponse(HttpStatusCode.OK, "err nie twoj chart");
 
-			chart = NaproClientChartService.ChartVm2ChartDb(loggedUserId, chartVm);
+			var chart = NaproClientChartService.ChartVm2ChartDb(chartVm);
 
 			//TODO: what if chart with this name already exists??
 			var result = _chartRepository.UpdateChart(chart);

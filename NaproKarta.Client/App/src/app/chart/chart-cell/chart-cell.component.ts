@@ -17,7 +17,7 @@ export class ChartCellComponent implements OnInit {
   id: number;
   marker: string;
   markerUrl: string;
-  date: string; //Date;
+  date: Date;
   letter: string;
   isB: boolean;
   numTimes: string;
@@ -49,7 +49,7 @@ export class ChartCellComponent implements OnInit {
       // this.marker = this.observation.marker;
     } else {
       // this.marker = 'none';
-      // this.markerUrl = this.assetsUrl + '/img/markers/marker-' + 'none' + '.jpg';
+      //this.markerUrl = this.assetsUrl + '/img/markers/marker-' + 'none' + '.jpg';
     }
     //console.log(this.observation);
   }

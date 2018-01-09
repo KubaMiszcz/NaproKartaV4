@@ -14,6 +14,8 @@ namespace NaproKarta.Client.ViewModels
 		public string Note { get; set; }
 		public IList<ObservationVm> Observations { get; set; }
 
+		public CycleVm() { }
+
 		public CycleVm(Cycle cycle)
 		{
 			Id = cycle.Id;

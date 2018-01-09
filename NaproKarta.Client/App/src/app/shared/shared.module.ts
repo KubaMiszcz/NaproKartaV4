@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { MyOwnMaterialsModule } from './../my-own-materials/my-own-materials.module';
 
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import { DateMmDdPipe } from './date-mm-dd.pipe';
+
 
 @NgModule({
   imports: [
@@ -17,6 +19,7 @@ import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
   ],
   declarations: [
     ErrorDialogComponent
+    , DateMmDdPipe
   ],
   entryComponents: [ //dialogs components only
     ErrorDialogComponent
@@ -25,6 +28,8 @@ import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
     FormsModule
     , MyOwnMaterialsModule
     , ErrorDialogComponent
+    , DateMmDdPipe
+
   ]
 })
 export class SharedModule { }

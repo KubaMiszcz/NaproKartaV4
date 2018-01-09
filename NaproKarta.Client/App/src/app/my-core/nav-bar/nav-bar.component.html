@@ -3,9 +3,9 @@
     <div class="d-flex justify-content-start">
 
 
-      <span class="navbar-brand">
+      <span class="navbar-brand rotating-logo">
         <img [routerLink]="[ '/welcome']" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" width="30" height="30"
-          class="d-inline-block align-top rotating-logo" alt="NaproKarta"> NaproKarta
+          class="d-inline-block align-top " alt="NaproKarta"> NaproKarta
       </span>
       <a [routerLink]="[ '/settings' ]" class="navbar-brand ">
         {{userName ? ('Hello ' + userName) : ''}}

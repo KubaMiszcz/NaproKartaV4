@@ -21,13 +21,9 @@ namespace NaproKarta.Server.Repositories
 			_context = context;
 		}
 
-
-
 		public IQueryable<Chart> GetChart(int id)
 		{
 			var result = _context.Charts.Where(x => x.Id == id)
-				//.Include(c => c.Cycles)
-				//.Include(c => c.Cycles.Select(o => o.Observations))
 				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.Letter)))
 				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.Cipher)))
 				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.CipherCd)))
@@ -37,9 +33,6 @@ namespace NaproKarta.Server.Repositories
 				.AsQueryable();
 
 			return result;
-
-			//return _context.Charts.Where(x => x.Id == id)
-			//.Include(c => c.Cycles.Select(o => o.Observations)).AsQueryable();
 		}
 
 		public IQueryable<Chart> GetUserCharts(string loggedUserId)
@@ -56,16 +49,18 @@ namespace NaproKarta.Server.Repositories
 
 		public int UpdateChart(Chart newChart)
 		{
-			var chart = GetChart(newChart.Id);
-			_context.Entry(chart).CurrentValues.SetValues(newChart);
+			var chart = GetChart(newChart.Id).FirstOrDefault();
+			chart.Title = newChart.Title;
+			chart.Note = newChart.Note;
+			//_context.Entry(chart).CurrentValues.SetValues(newChart);
 			_context.Entry(chart).State = EntityState.Modified;
 			_context.SaveChanges();
-			return chart.FirstOrDefault().Id;
+			return chart.Id;
 		}
 
-		public bool DeleteChart(Chart chart)
+		public bool DeleteChart(int id)
 		{
-			_context.Charts.Remove(chart);
+			_context.Charts.Remove(_context.Charts.Find(id));
 			_context.SaveChanges();
 			return true;
 		}

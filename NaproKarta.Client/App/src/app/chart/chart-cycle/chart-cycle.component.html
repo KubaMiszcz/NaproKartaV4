@@ -1,11 +1,11 @@
 <table>
-  <tr>
+  <!-- <tr>
     <td>
       {{note}}
       <br>row {{numberInChart}}
       <br>id {{cycle.id}}
     </td>
-  </tr>
+  </tr> -->
   <tr>
     <td *ngFor="let item of observations; let i=index">
       <app-chart-cell [observation]='item'>

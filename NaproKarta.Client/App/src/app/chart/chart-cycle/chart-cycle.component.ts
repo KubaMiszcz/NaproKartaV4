@@ -21,7 +21,7 @@ export class ChartCycleComponent implements OnInit {
     this.observations = new Array(maxObservations);
     for (let i = 0; i < maxObservations; i++) {
       this.observations[i] = new Observation();
-      //this.observations[i].marker = 'none';
+      this.observations[i].marker = 'none';
     }
   }
 

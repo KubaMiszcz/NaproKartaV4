@@ -6,10 +6,13 @@ table {
   text-align: center;
   border-spacing: 0px;
   border-collapse: collapse;
+  width: 50px;
+  height: 200px;
   /* min-height: 200px; */
+  /* max-height: 200px; */
   /* min-height: 14.5em; */
-  min-width: 50px;
-  max-width: 50px;
+  /* min-width: 50px; */
+  /* max-width: 50px !important; */
 }
 
 table:hover {
@@ -19,6 +22,8 @@ table:hover {
 td {
   border: 0px solid red;
   border-spacing: 0px;
+  padding: 0px;
+  margin: 0px;
   vertical-align: central;
   text-align: center;
   /* padding: 0px; */
@@ -30,11 +35,16 @@ td {
 }
 
 img {
-  width: 50px !important;
-  background-image: "./../../../assets/img/markers/marker-none.jpg";
+  /* width: 50px !important; */
+  /* max-width: 50px !important; */
+  height: auto;
+  width: auto;
+  /* height: 100%;
+  width: 100%; */
 }
 
 .date {
+  vertical-align: central;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   background-color: burlywood;
@@ -42,10 +52,12 @@ img {
 }
 
 .marker {
-  background-color: beige;
+  /* background-color: beige;*/
   padding: 0px;
   margin: 0px;
-  /* min-width: 50px !important;
-  max-width: 50px !important; */
-  height: auto;
+  height: 80px;
+  width: 50px;
+  background-size: 100% 100%;
+  /* min-width: 50px !important;*/
+  /* height: auto; */
 }

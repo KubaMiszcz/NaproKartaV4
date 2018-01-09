@@ -5,8 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DateMmDdPipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
-    return null;
+  transform(value: Date, args?: any): any {
+    if (value !== undefined) {
+      return value.toString().slice(5, 10);
+    } else { return ''; }
   }
 
 }

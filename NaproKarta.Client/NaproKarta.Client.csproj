@@ -242,6 +242,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Resolver\UnityResolver.cs" />
+    <Compile Include="SaveModels\ChartSm.cs" />
     <Compile Include="Services\NaproClientAppService.cs" />
     <Compile Include="Services\NaproClientChartService.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
@@ -335,7 +336,6 @@
   <ItemGroup>
     <Folder Include="App\" />
     <Folder Include="App_Data\" />
-    <Folder Include="SaveModels\" />
     <Folder Include="Views\my1Default\" />
     <Folder Include="Views\my2Default\" />
   </ItemGroup>

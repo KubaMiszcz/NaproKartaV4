@@ -14,7 +14,7 @@ namespace NaproKarta.Server.Interfaces
 		int AddChart(Chart chart);
 		IQueryable<Chart> GetUserCharts(string loggedUserId);
 		int UpdateChart(Chart chart);
-		bool DeleteChart(Chart chart);
+		bool DeleteChart(int id);
 
 		//HashSet<string[]> GetUserChartIdsAndTitlesHashSet(string loggedUserId);
 		//void UpdateChart(int id);

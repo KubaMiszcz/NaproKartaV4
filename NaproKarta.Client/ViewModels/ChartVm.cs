@@ -26,9 +26,5 @@ namespace NaproKarta.Client.ViewModels
 				Cycles.Add(new CycleVm(item));
 			}
 		}
-
-		public ChartVm(string loggedUserId, ChartVm chartVm)
-		{
-		}
 	}
 }
