@@ -1,4 +1,21 @@
-.rotating-logo{
+.rotating-logo {
+  /* height: 50px; */
+  /* width: 50px; */
+  /* border-radius: 50%; */
+  /* border: 5px solid black; */
+  margin: auto;
+  -webkit-animation: rotateY 5s infinite linear;
+  animation: rotateY 5s infinite linear;
+}
 
-    
+@-webkit-keyframes rotateY {
+  to {
+    -webkit-transform: rotateY(360deg);
+  }
+}
+
+@keyframes rotateY {
+  to {
+    transform: rotateY(360deg);
+  }
 }

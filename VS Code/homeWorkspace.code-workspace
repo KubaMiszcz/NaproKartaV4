@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": ".\\..\\NaproKartaV4\\NaproKarta.Client\\App"
+		},
+		{
+			"path": ".\\..\\NaproKartaV4\\NaproKarta.Client"
+		},
+		{
+			"path": ".\\..\\NaproKartaV4\\NaproKarta.Server"
+		},
+		{
+			"path": ".\\..\\NaproKartaV4\\NaproKarta.Client\\App\\src\\app"
+		}
+	],
+	"settings": {}
+}
