@@ -9,17 +9,15 @@
     <tr>
       <td class="marker" [ngStyle]="{'background-image':'url('+markerUrl+')'}">
         <div>
-          <img src="http://placehold.it/10" alt="">
+          <img src="http://placehold.it/10" alt="">{{observation.peakDayNumber}}
         </div>
-        <!-- <img src="{{markerUrl}}" alt="{{observation.marker}}" /> -->
-        <!-- <img src="{{markerUrl}}" alt="{{observation.marker}}" /> -->
       </td>
     </tr>
     <tr>
       <td class="date">{{observation.date | dateMmDd}}</td>
     </tr>
     <tr>
-      <td>{{observation.letter}}</td>
+      <td>{{observation.letter}}x{{observation.isB?"B":""}}</td>
     </tr>
     <tr>
       <td>{{observation.numTimes}}</td>
@@ -28,10 +26,10 @@
       <td>{{observation.cipher}}{{observation.cipherCd}}</td>
     </tr>
     <tr>
-      <td>{{comments}}</td>
+      <!-- <td>{{comments}}</td> -->
     </tr>
     <tr>
-      <td>{{noteMarks}}</td>
+      <td *ngFor="let item of noteMarks">{{item}}</td>
     </tr>
   </tbody>
 </table>

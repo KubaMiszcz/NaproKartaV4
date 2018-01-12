@@ -21,8 +21,8 @@ const maxCycles = 5;
 
 export class ChartComponent implements OnInit, OnDestroy {
   chart: IChart;
-  chartTitle: string;
-  chartNote: string;
+  // chartTitle: string;
+  // chartNote: string;
   cycles: ICycle[];
   currentChartId: number;
   sub: any;
@@ -37,6 +37,7 @@ export class ChartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.chart = new Chart();
     this.sub = this.route.paramMap
       .subscribe(v => this.UpdateChart(+v.get('id'))
       , error => console.log(error));
@@ -48,20 +49,13 @@ export class ChartComponent implements OnInit, OnDestroy {
       .subscribe(chart => this.chart = chart
       , error => console.log(error)
       , () => {
-        this.chartTitle = this.chart.title;
-        this.chartNote = this.chart.note;
-        this.currentChartId = this.chart.id;
+        // this.chartTitle = this.chart.title;
+        // this.chartNote = this.chart.note;
+        // this.currentChartId = this.chart.id;
         this.chart.cycles.forEach(element => {
-          console.log(element);
           this.cycles[element.numberInChart] = element;
-          //console.log(this.cycles[element.numberInChart]);
         });
-        // this.cycles.forEach(e => {
-        //   console.log(e);
-        // });
-        //console.log(this.cycles);
       });
-
   }
 
   DeleteChart() {

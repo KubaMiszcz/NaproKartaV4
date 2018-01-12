@@ -22,6 +22,8 @@ namespace NaproKarta.Server.Models
 		public string MarkerId { get; set; }
 		public virtual Marker Marker { get; set; }
 
+		public int? PeakDayNumber { get; set; }
+
 		public DateTime Date { get; set; }
 
 		public int LetterId { get; set; }
@@ -38,7 +40,7 @@ namespace NaproKarta.Server.Models
 		public int CipherCdId { get; set; }
 		public virtual CipherCd CipherCd { get; set; }
 
-		public int CommentId { get; set; }
+		public int? CommentId { get; set; }
 		public virtual Comment Comments { get; set; }
 
 		public virtual IList<ObservationNote> Notes { get; set; }

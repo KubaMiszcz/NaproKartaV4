@@ -7,7 +7,6 @@ namespace NaproKarta.Client.ViewModels
 		public int Id { get; set; }
 		public string Content { get; set; }
 		public bool IsImportant { get; set; }
-
 		public int ObservationId { get; set; }
 
 		public ObservationNoteVm() { }

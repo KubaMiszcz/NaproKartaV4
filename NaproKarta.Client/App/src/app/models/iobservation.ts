@@ -5,6 +5,7 @@ export interface IObservation {
   cycleId: number;
   numberInCycle: number;
   marker: string;
+  peakDayNumber: number;
   date: Date;
   letter: string;
   isB: boolean;
@@ -20,6 +21,7 @@ export class Observation implements IObservation {
   cycleId: number;
   numberInCycle: number;
   marker: string;
+  peakDayNumber: number;
   date: Date;
   letter: string;
   isB: boolean;

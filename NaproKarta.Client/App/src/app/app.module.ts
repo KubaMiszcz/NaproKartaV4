@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { AppService } from './services/app.service';
 import { UserService } from './services/user.service';
 import { ChartService } from './services/chart.service';
+import { ObservationService } from './services/observation.service';
 
 import { ChartModule } from './chart/chart.module';
 import { ObservationModule } from './observation/observation.module';
@@ -48,7 +49,7 @@ import { ObservationModule } from './observation/observation.module';
     , ChartModule
     , ObservationModule
   ],
-  providers: [AppService, UserService, ChartService],
+  providers: [AppService, UserService, ChartService, ObservationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

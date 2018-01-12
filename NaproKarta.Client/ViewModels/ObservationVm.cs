@@ -10,13 +10,14 @@ namespace NaproKarta.Client.ViewModels
 		public int CycleId { get; set; }
 		public int NumberInCycle { get; set; }
 		public string Marker { get; set; }
+		public int? PeakDayNumber { get; set; }
 		public DateTime Date { get; set; }
 		public string Letter { get; set; }
 		public bool IsB { get; set; }
 		public string NumTimes { get; set; }
 		public string Cipher { get; set; }
 		public string CipherCd { get; set; }
-		public int Comments { get; set; }
+		public int? Comments { get; set; }
 		public IList<ObservationNoteVm> Notes { get; set; }
 
 		public ObservationVm() { }
@@ -27,6 +28,7 @@ namespace NaproKarta.Client.ViewModels
 			CycleId = observation.CycleId;
 			NumberInCycle = observation.NumberInCycle;
 			Marker = observation.MarkerId;
+			PeakDayNumber = observation.PeakDayNumber;
 			Date = observation.Date;
 			Letter = observation.Letter.Value;
 			IsB = observation.IsB;
@@ -34,11 +36,11 @@ namespace NaproKarta.Client.ViewModels
 			Cipher = observation.Cipher.Value;
 			CipherCd = observation.CipherCd.Value;
 			//Comments = observation.Comments
-			//IList<ObservationNoteVm> Notes = new List<ObservationNoteVm>();
-			//foreach (var item in observation.Notes)
-			//{
-			//	Notes.Add(new ObservationNoteVm(item));
-			//}
+			Notes = new List<ObservationNoteVm>();
+			foreach (var item in observation.Notes)
+			{
+				Notes.Add(new ObservationNoteVm(item));
+			}
 		}
 	}
 }

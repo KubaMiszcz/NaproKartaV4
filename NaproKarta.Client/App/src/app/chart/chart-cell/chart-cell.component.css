@@ -6,8 +6,10 @@ table {
   text-align: center;
   border-spacing: 0px;
   border-collapse: collapse;
-  width: 50px;
-  height: 200px;
+  /* width: 50px; */
+  /* height: 200px; */
+  height: 10em;
+  width: 5em;
   /* min-height: 200px; */
   /* max-height: 200px; */
   /* min-height: 14.5em; */
@@ -44,6 +46,7 @@ img {
 }
 
 .date {
+  height: 1.5em;
   vertical-align: central;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
