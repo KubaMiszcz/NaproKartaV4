@@ -1,3 +1,4 @@
+import { GlobalVariables } from './../../global-variables';
 import { GlobalVariables } from '../../global-variables';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AppService } from '../../services/app.service';
@@ -8,6 +9,7 @@ import { ChartAddDialogComponent } from './../../chart/chart-add-dialog/chart-ad
 import { IChart } from './../../models/ichart';
 import { INavBar } from '../../models/inavbar';
 import { IChartIdAndTitle } from '../../models/auxmodels/chart-id-and-title';
+import { SHARED_FORM_DIRECTIVES } from '@angular/forms/src/directives';
 
 @Component({
   selector: 'app-nav-bar',

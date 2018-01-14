@@ -1,4 +1,4 @@
-﻿using System;
+﻿         using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -52,11 +52,9 @@ namespace NaproKarta.Client.ApiControllers
 			if (chart.UserId != loggedUserId)
 				return Request.CreateResponse(HttpStatusCode.OK, "err nie twoj chart");
 
-			//var result = NaproClientChartService.ChartDb2ChartVm(chart);
 			var result = new ChartVm(chart);
-			//var res = JsonConvert.SerializeObject(result);
-			return Request.CreateResponse(HttpStatusCode.OK, result);
-		}
+         return Request.CreateResponse(HttpStatusCode.OK, result);
+      }
 
 		//[Route("AddChart")]
 		[HttpPost, HttpOptions]
