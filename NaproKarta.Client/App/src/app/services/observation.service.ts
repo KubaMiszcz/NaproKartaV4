@@ -9,6 +9,8 @@ const apiUrl = GlobalVariables.BASE_API_URL + '/chart';
 @Injectable()
 export class ObservationService {
 
+  public storage: IObservation;
+
   constructor(private http: HttpClient) { }
 
   GetObservation(id): Observable<IObservation> {

@@ -1,5 +1,3 @@
-
-
 zmiana theme+inny kolor
 
 spinner
@@ -9,3 +7,5 @@ updaty widokow po zmianie ID w pasku adresu, zmianyach wartosci, usunieciu itp
 error message z parametrami
     sprawdzanie czy to twoj chart
     sprawdzanie czy zalgoowany
+
+    pipe: OnlyFirstLeterAndUppercase

@@ -25,8 +25,8 @@ namespace NaproKarta.Client.ViewModels
 			Observations = new List<ObservationVm>();
 			foreach (var item in cycle.Observations)
 			{
-				Observations.Add(new ObservationVm(item));
-			}
+            Observations.Add(new ObservationVm(item));
+         }
 		}
 	}
 }

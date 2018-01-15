@@ -22,6 +22,6 @@ export class ObservationNoteComponent implements OnInit {
 
   noteMarkUpdate() {
     this.noteMark = this.note.content.slice(0, 1).toUpperCase();
-    console.log('dasdsad');
+    console.log('obs note');
   }
 }

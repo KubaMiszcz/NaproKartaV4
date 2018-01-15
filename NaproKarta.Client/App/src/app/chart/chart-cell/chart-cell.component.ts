@@ -39,21 +39,11 @@ export class ChartCellComponent implements OnInit {
       if (this.observation.notes !== undefined) {
         this.noteMarks = new Array();
         this.observation.notes.forEach(element => {
-          console.log(element);
           this.noteMarks.push(element.content.substr(0, 1).toUpperCase());
         });
       }
-
-      //this.comments = 'W W W';
-      // this.numberInCycle = this.observation.numberInCycle;
-      // this.marker = this.observation.marker;
-    } else {
-      // this.marker = 'none';
-      //this.markerUrl = this.assetsUrl + '/img/markers/marker-' + 'none' + '.jpg';
     }
-    //console.log(this.observation);
   }
-
   // onCellClicked() {
   //   //console.log('from cell: ' + this.row + ',' + this.col);
   //   // this.observationEditDialogRef = this.dialog.open(ObservationEditDialogComponent, {
@@ -72,6 +62,7 @@ export class ChartCellComponent implements OnInit {
   // }
 
   //EditObservation(row: number, col: number) {
+
 
 
 }
