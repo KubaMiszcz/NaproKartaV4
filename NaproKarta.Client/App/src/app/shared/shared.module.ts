@@ -6,6 +6,7 @@ import { MyOwnMaterialsModule } from './../my-own-materials/my-own-materials.mod
 
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import { DateMmDdPipe } from './date-mm-dd.pipe';
+import { OnlyFirstUpperLetter } from './only-first-upper-letter.pipe';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { DateMmDdPipe } from './date-mm-dd.pipe';
   declarations: [
     ErrorDialogComponent
     , DateMmDdPipe
+    , OnlyFirstUpperLetter
   ],
   entryComponents: [ //dialogs components only
     ErrorDialogComponent
@@ -29,7 +31,7 @@ import { DateMmDdPipe } from './date-mm-dd.pipe';
     , MyOwnMaterialsModule
     , ErrorDialogComponent
     , DateMmDdPipe
-
+    , OnlyFirstUpperLetter
   ]
 })
 export class SharedModule { }

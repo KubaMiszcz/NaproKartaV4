@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using NaproKarta.Server.Models;
 
 namespace NaproKarta.Server.Interfaces
 {
    public interface IObservationRepository
 	{
-		Observation GetObservation(int id);
+      IQueryable<Observation> GetObservation(int id);
+      object UpdateObservation(Observation observation);
    }
 }

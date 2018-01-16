@@ -1,7 +1,8 @@
 <!-- <mat-card class="vertical-radio"> -->
-<div class="vertical-radio">
-  <mat-radio-group class="">
-    <mat-radio-button *ngFor="let item of labels" class="radio-element" value="item"> {{item}} </mat-radio-button>
-  </mat-radio-group>
-</div>
+<!-- <div> -->
+<mat-radio-group class="vertical-radio">
+  <mat-radio-button *ngFor="let item of labels" class="radio-element" value={{item}} (click)="passValue(item)"> {{item}} </mat-radio-button>
+</mat-radio-group>
+<!-- <button mat-raised-button (click)="onClick()">Action</button> -->
+<!-- </div> -->
 <!-- </mat-card> -->

@@ -10,30 +10,25 @@ using NaproKarta.Server.Models;
 
 namespace NaproKarta.Client.Services
 {
-	public class NaproClientChartService
-	{
-		internal static Chart ChartVm2ChartDb(ChartVm chartVm)
-		{
-			var result = new Chart()
-			{
-				Id = chartVm.Id,
-				Title = chartVm.Title,
-				Note = chartVm.Note,
-			};
-			return result;
-		}
+   public class NaproClientChartService
+   {
+      internal static Chart ChartVm2ChartDb(ChartVm chartVm)
+      {
+         var result = new Chart()
+         {
+            Id = chartVm.Id,
+            Title = chartVm.Title,
+            Note = chartVm.Note,
+         };
+         return result;
+      }
 
-		internal static Chart ChartVm2ChartDb(string loggedUserId, ChartVm chartVm)
-		{
-			var result = new Chart()
-			{
-				Id = chartVm.Id,
-				UserId = loggedUserId,
-				Title = chartVm.Title,
-				Note = chartVm.Note,
-			};
-			return result;
-		}
+      internal static Chart ChartVm2ChartDb(string loggedUserId, ChartVm chartVm)
+      {
+         var result = ChartVm2ChartDb(chartVm);
+         result.UserId = loggedUserId;
+         return result;
+      }
 
-	}
+   }
 }

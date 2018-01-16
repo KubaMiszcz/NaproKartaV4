@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { StringifyOptions } from 'querystring';
 
 @Component({
   selector: 'app-radio-group-2-columns',
@@ -7,10 +8,22 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RadioGroup2ColumnsComponent implements OnInit {
   @Input() labels: string[];
-  constructor() {
-    this.labels = ['XX1', 'XX2', 'XX3', 'XX4', 'XX5', 'XX6', 'XX7'];
-  }
+  @Input() radioGroupValue: string;
+  @Output() notify: EventEmitter<string> = new EventEmitter<string>();
+
+  constructor() { }
 
   ngOnInit() {
+    console.log(' ' + this.labels);
+    console.log('ss ' + this.radioGroupValue);
+  }
+
+  onClick(item: any) {
+    console.log('ss ' + item);
+    // console.log('ss ' + this.value);
+  }
+
+  passValue(val: string) {
+    this.notify.emit(val);
   }
 }

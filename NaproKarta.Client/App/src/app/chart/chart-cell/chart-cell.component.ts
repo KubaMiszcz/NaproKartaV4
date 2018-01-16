@@ -15,7 +15,6 @@ export class ChartCellComponent implements OnInit {
   @Input() observation: IObservation;
 
   markerUrl: string;
-  noteMarks: string[];
 
   // id: number;
   // marker: string;
@@ -26,6 +25,7 @@ export class ChartCellComponent implements OnInit {
   // cipher: string;
   // cipherCd: string;
   // comments: string;
+  // noteMarks: string[];
 
   assetsUrl: string = GlobalVariables.BASE_ASSETS_URL;
   // observationEditDialogRef: MatDialogRef<ObservationEditDialogComponent>;
@@ -36,12 +36,12 @@ export class ChartCellComponent implements OnInit {
   ngOnInit() {
     if (this.observation !== undefined) {
       this.markerUrl = this.assetsUrl + '/img/markers/marker-' + this.observation.marker + '.jpg';
-      if (this.observation.notes !== undefined) {
-        this.noteMarks = new Array();
-        this.observation.notes.forEach(element => {
-          this.noteMarks.push(element.content.substr(0, 1).toUpperCase());
-        });
-      }
+      //if (this.observation.notes !== undefined) {
+      // this.noteMarks = new Array();
+      // this.observation.notes.forEach(element => {
+      //   this.noteMarks.push(element.content.substr(0, 1).toUpperCase());
+      // });
+      //}
     }
   }
   // onCellClicked() {

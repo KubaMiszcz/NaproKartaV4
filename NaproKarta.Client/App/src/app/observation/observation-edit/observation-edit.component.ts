@@ -32,6 +32,8 @@ export class ObservationEditComponent implements OnInit {
       .subscribe(observation => this.observation = observation
       , error => console.log(error)
       , () => {
+        console.log(' ' + this.observation);
+
         // this.chart.cycles.forEach(element => {
         //   console.log(element);
         //   this.cycles[element.numberInChart] = element;
@@ -42,5 +44,27 @@ export class ObservationEditComponent implements OnInit {
         // });
         //console.log(this.cycles);
       });
+  }
+
+  onDateChanged(value: string) {
+
+  }
+  onMarkerChanged(value: string) {
+
+  }
+  onLetterChanged(value: string) {
+    this.observation.letter = value;
+  }
+  onCipherChanged(value: string) {
+    this.observation.cipher = value;
+  }
+  onCipherCdChanged(value: string) {
+    this.observation.cipherCd = value;
+  }
+  onNumTimesChanged(value: string) {
+    this.observation.numTimes = value;
+  }
+  onNoteChanged(value: string) {
+
   }
 }

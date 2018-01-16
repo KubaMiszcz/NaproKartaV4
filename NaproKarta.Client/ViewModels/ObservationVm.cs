@@ -17,7 +17,7 @@ namespace NaproKarta.Client.ViewModels
 		public string NumTimes { get; set; }
 		public string Cipher { get; set; }
 		public string CipherCd { get; set; }
-		public int? Comments { get; set; }
+		public IList<string> Comments { get; set; }
 		public IList<ObservationNoteVm> Notes { get; set; }
 
 		public ObservationVm() { }
@@ -35,7 +35,11 @@ namespace NaproKarta.Client.ViewModels
 			NumTimes = observation.NumTimes.Value;
 			Cipher = observation.Cipher.Value;
 			CipherCd = observation.CipherCd.Value;
-			//Comments = observation.Comments
+         Comments = new List<string>();
+         foreach (var item in observation.Comments)
+         {
+            Comments.Add(item.Content);
+         }         
 			Notes = new List<ObservationNoteVm>();
 			foreach (var item in observation.Notes)
 			{

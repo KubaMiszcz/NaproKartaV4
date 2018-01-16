@@ -43,14 +43,13 @@ namespace NaproKarta.Client.ApiControllers
 				//TODO: you are not logged message here
 				return Request.CreateResponse(HttpStatusCode.Unauthorized, "err niezalogowany");
 
-			var observation = _observationRepository.GetObservation(id);
+			var observation = _observationRepository.GetObservation(id).FirstOrDefault();
 
 			if (observation == null)
 				return Request.CreateResponse(HttpStatusCode.OK, "err Observation nie istenieje");
 
-			//			var result = NaproClientChartService.ChartDb2ChartVm(chart);
-			var result = observation;
-			return Request.CreateResponse(HttpStatusCode.OK, result);
+         var result = new ObservationVm(observation);
+         return Request.CreateResponse(HttpStatusCode.OK, result);
 		}
 
 		//======================================
@@ -100,9 +99,10 @@ namespace NaproKarta.Client.ApiControllers
 			return Request.CreateResponse(HttpStatusCode.OK, "success karta usunieta");
 
 		}
+      */
 
 		[HttpPut, HttpOptions]
-		public HttpResponseMessage ModifyChart(ChartViewModel chartVm)
+		public HttpResponseMessage ModifyObservation(ObservationVm observationVm)
 		{
 			if (NaproClientAppService.HasReqestOPTIONSHeader(Request))
 				return new HttpResponseMessage() { StatusCode = HttpStatusCode.OK };
@@ -114,20 +114,17 @@ namespace NaproKarta.Client.ApiControllers
 			if (!ModelState.IsValid)
 				return Request.CreateResponse(HttpStatusCode.BadRequest);
 
-			var chart = _observationRepository.GetChart(chartVm.Id);
+         var observation = _observationRepository.GetObservation(observationVm.Id).FirstOrDefault();
 
-			if (chart.UserId != loggedUserId)
+			if (observation.Cycle.Chart.UserId != loggedUserId)
 				return Request.CreateResponse(HttpStatusCode.OK, "err nie twoj chart");
 
-			chart = NaproClientChartService.ChartVm2ChartDb(loggedUserId, chartVm);
+			observation = NaproClientObservationService.ObservationVm2ObservationDb(observationVm);
 
-			//TODO: what if chart with this name already exists??
-			var result = _observationRepository.UpdateChart(chart);
+			var result = _observationRepository.UpdateObservation(observation);
 			return Request.CreateResponse(HttpStatusCode.OK,
-				new string[] { result.ToString(), "success karta zmieniona" });
+				new string[] { result.ToString(), "success dane obserwacji zmienione" });
 		}
-
-	*/
 	}
 }
 

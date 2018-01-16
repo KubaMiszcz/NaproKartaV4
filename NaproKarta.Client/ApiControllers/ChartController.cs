@@ -125,7 +125,7 @@ namespace NaproKarta.Client.ApiControllers
 			//TODO: what if chart with this name already exists??
 			var result = _chartRepository.UpdateChart(chart);
 			return Request.CreateResponse(HttpStatusCode.OK,
-				new string[] { result.ToString(), "success karta zmieniona" });
+				new string[] { result.ToString(), "success dane karty zmienione" });
 		}
 	}
 }

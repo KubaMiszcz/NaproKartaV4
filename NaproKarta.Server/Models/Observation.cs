@@ -40,8 +40,8 @@ namespace NaproKarta.Server.Models
 		public int CipherCdId { get; set; }
 		public virtual CipherCd CipherCd { get; set; }
 
-		public int? CommentId { get; set; }
-		public virtual Comment Comments { get; set; }
+		//public int? CommentId { get; set; }
+		public virtual IList<Comment> Comments { get; set; }
 
 		public virtual IList<ObservationNote> Notes { get; set; }
 	}

@@ -23,4 +23,3 @@ export const GlobalVariables = Object.freeze({
         , 'yellowbaby']
     // ... more of your variables
 });
-

@@ -244,6 +244,7 @@
     <Compile Include="Resolver\UnityResolver.cs" />
     <Compile Include="SaveModels\ChartSm.cs" />
     <Compile Include="Services\NaproClientAppService.cs" />
+    <Compile Include="Services\NaproClientObservationService.cs" />
     <Compile Include="Services\NaproClientChartService.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\CycleVm.cs" />

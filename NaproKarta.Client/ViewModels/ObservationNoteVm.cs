@@ -11,7 +11,6 @@ namespace NaproKarta.Client.ViewModels
 
 		public ObservationNoteVm() { }
 
-
 		public ObservationNoteVm(ObservationNote note)
 		{
 			Id = note.Id;

@@ -29,7 +29,7 @@
       <!-- <td>{{comments}}</td> -->
     </tr>
     <tr>
-      <td *ngFor="let item of noteMarks">{{item}}</td>
+      <td *ngFor="let item of observation.notes">{{item | onlyFirstUpperLetter}}</td>
     </tr>
   </tbody>
 </table>

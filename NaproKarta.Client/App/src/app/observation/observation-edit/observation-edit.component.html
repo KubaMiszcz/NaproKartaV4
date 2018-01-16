@@ -1,5 +1,20 @@
+<mat-radio-group class="vertical-radio">
+  <mat-radio-button value="1">Option 1</mat-radio-button>
+  <br>
+  <mat-radio-button value="2">Option 1</mat-radio-button>
+  <br>
+  <mat-radio-button value="3">Option 1</mat-radio-button>
+  <br>
+  <mat-radio-button value="4">Option 1</mat-radio-button>
+  <br>
+  <mat-radio-button value="5">Option 1</mat-radio-button>
+  <br>
+  <mat-radio-button value="6">Option 1</mat-radio-button>
+  <br>
+</mat-radio-group>
+
 <p mat-dialog-title class="mat-typography">
-  Nowa obserwacja na dzień RRR-MM-DD id:{{id}}
+  Nowa obserwacja na dzień {{observation.date | dateMmDd}}
 </p>
 <mat-card class="group-box navigation-row">
   <app-date-nav-bar></app-date-nav-bar>
@@ -31,7 +46,7 @@
         <app-radio-group-2-columns [labels]="labelValues.ciphersCd"></app-radio-group-2-columns>
       </mat-card>
       <mat-card>
-        <app-radio-group-2-columns [labels]="labelValues.numTimes"></app-radio-group-2-columns>
+        <app-radio-group-2-columns [radioGroupValue]="observation.numTimes" [labels]="labelValues.numTimes" (notify)="onNumTimesChanged($event)"></app-radio-group-2-columns>
       </mat-card>
     </div>
   </mat-card-content>
