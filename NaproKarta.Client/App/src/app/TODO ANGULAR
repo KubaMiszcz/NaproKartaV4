@@ -8,16 +8,7 @@ error message z parametrami
     sprawdzanie czy to twoj chart
     sprawdzanie czy zalgoowany
 
-    pipe: OnlyFirstLeterAndUppercase
-
-
-
-
-
-    popraw snippety
-        console.log(' ' + JSON.stringify(this.observation));
-
-
+  
 event source:
 html
 (click)="passValue(item)"
