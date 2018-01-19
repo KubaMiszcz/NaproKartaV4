@@ -8,29 +8,11 @@ error message z parametrami
     sprawdzanie czy to twoj chart
     sprawdzanie czy zalgoowany
 
-  
-event source:
-html
-(click)="passValue(item)"
-
-TS
-  @Output() notify: EventEmitter<string> = new EventEmitter<string>();
-
-  passValue(val: string) {
-    this.notify.emit(val);
-  }
 
 
 
-
-event target
-html
-(notify)="onNumTimesChanged($event)"
-
-ts  
-onNumTimesChanged(value: string) {
-    this.observation.numTimes = value;
-    console.log(' ' + JSON.stringify(this.observation));
-
-
-  }
+kmsnippets
+ngfor
+ngif
+ 
+ uzupelnij nawiasy i klamerki na koncach

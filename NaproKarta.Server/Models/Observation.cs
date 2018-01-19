@@ -44,5 +44,8 @@ namespace NaproKarta.Server.Models
 		public virtual IList<Comment> Comments { get; set; }
 
 		public virtual IList<ObservationNote> Notes { get; set; }
-	}
+
+      [Url]
+      public string PictureUrl { get; set; }
+   }
 }

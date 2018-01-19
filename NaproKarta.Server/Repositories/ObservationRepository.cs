@@ -36,6 +36,24 @@ namespace NaproKarta.Server.Repositories
          return result;
       }
 
+      public IQueryable<string> GetObservationOwnerId(int id)
+      {
+         var result = _context.Cycles
+            .Where(x => x.Id == id)
+            .Select(y => y.Chart)
+            .Select(y => y.User)
+            .Select(y => y.Id)
+            .AsQueryable();
+         return result;
+      }
+
+      public int UpdateObservation(Observation observation)
+      {
+         _context.Entry(observation).State = EntityState.Modified;
+         _context.SaveChanges();
+         return observation.Id;
+      }
+
 
 
 

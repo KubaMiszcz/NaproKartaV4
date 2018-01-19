@@ -1,33 +1,51 @@
+.left-column {
+  display: inline-block;
+  width: 75%;
+}
+
 mat-card {
-    margin: 0.2em;
+  margin: 0.2em;
+  /* text-shadow: 0px 0px 6px #800000; */
 }
 
 .group-box {
-    border: 1px solid #7B1FA2;
-    border-radius: 5px;
-    padding: 5px;
-    margin: 5px;
+  border: 1px solid #7B1FA2;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  box-shadow: 0px 0px 5px #800000;
 }
 
 .navigation-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.radio-element {
+.parameters {
+  display: inline-flex;
+  width: 16.5em;
+}
+
+.bottom-buttons {
+  text-align: right;
+}
+
+/* .radio-element {
     margin-left: 1.5em;
-    margin-right: 1.5em;
-    /* background-color: aqua;
+    margin-right: 1.5em; */
+
+/* background-color: aqua;
       border: 1px solid darkslategray;
       border-radius: 5px; */
-}
+
+/* } */
 
 /* .card{
     border-color: lightseagreen;
 }
  button{
-    background-color: rgb(165, 168, 255) 
+    background-color: rgb(165, 168, 255)
 
 }*/
 
@@ -38,7 +56,7 @@ mat-card {
     background-color: rgb(35, 41, 221);
 } */
 
-/* 
+/*
 table {
     border: 2px solid rgb(56, 56, 56);
     padding: 0px;
@@ -48,7 +66,7 @@ table {
     border-spacing: 0px;
     border-collapse: collapse;
   }
-  
+
   td {
     border: none;
     vertical-align: central;

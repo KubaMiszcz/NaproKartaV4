@@ -19,8 +19,9 @@ namespace NaproKarta.Client.ViewModels
 		public string CipherCd { get; set; }
 		public IList<string> Comments { get; set; }
 		public IList<ObservationNoteVm> Notes { get; set; }
+      public string PictureUrl { get; set; }
 
-		public ObservationVm() { }
+      public ObservationVm() { }
 
 		public ObservationVm(Observation observation)
 		{
@@ -45,6 +46,7 @@ namespace NaproKarta.Client.ViewModels
 			{
 				Notes.Add(new ObservationNoteVm(item));
 			}
+         PictureUrl = observation.PictureUrl;
 		}
 	}
 }

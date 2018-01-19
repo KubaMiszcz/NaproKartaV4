@@ -7,7 +7,7 @@ import { ChartComponent } from './chart.component';
 import { ChartCycleComponent } from './chart-cycle/chart-cycle.component';
 import { ChartCellComponent } from './chart-cell/chart-cell.component';
 import { ChartAddDialogComponent } from './chart-add-dialog/chart-add-dialog.component';
-import { ChartModifyDialogComponent } from './chart-modify-dialog/chart-modify-dialog.component';
+import { ChartUpdateDialogComponent } from './chart-update-dialog/chart-update-dialog.component';
 
 @NgModule({
   imports: [
@@ -22,12 +22,12 @@ import { ChartModifyDialogComponent } from './chart-modify-dialog/chart-modify-d
     , ChartCycleComponent
     , ChartCellComponent
     , ChartAddDialogComponent
-    , ChartModifyDialogComponent
+    , ChartUpdateDialogComponent
   ],
   entryComponents: [
     //dialogs components only
     ChartAddDialogComponent
-    , ChartModifyDialogComponent
+    , ChartUpdateDialogComponent
   ]
 })
 export class ChartModule { }

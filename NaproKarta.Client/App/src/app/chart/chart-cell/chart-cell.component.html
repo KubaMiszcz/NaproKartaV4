@@ -1,5 +1,6 @@
-<table class="group-box" [routerLink]="[ '/observation',observation.id]">
-  <tbody style="vertical-align: top">
+<table class="group-box zoom" [routerLink]="[ '/observation',observation.id]" [queryParams]="{ chartId: fromChartId }">
+  <!-- <tbody style="vertical-align: top"> -->
+  <tbody>
     <!-- <tr>
       <td>cell
         <br>c:{{numberInCycle}}
@@ -9,7 +10,7 @@
     <tr>
       <td class="marker" [ngStyle]="{'background-image':'url('+markerUrl+')'}">
         <div>
-          <img src="http://placehold.it/10" alt="">{{observation.peakDayNumber}}
+          <img class="peak-number" src="http://placehold.it/10" alt="">{{observation.peakDayNumber}}
         </div>
       </td>
     </tr>
@@ -17,7 +18,7 @@
       <td class="date">{{observation.date | dateMmDd}}</td>
     </tr>
     <tr>
-      <td>{{observation.letter}}x{{observation.isB?"B":""}}</td>
+      <td>{{observation.letter}} {{observation.isB?"B":""}}</td>
     </tr>
     <tr>
       <td>{{observation.numTimes}}</td>
@@ -27,9 +28,12 @@
     </tr>
     <tr>
       <!-- <td>{{comments}}</td> -->
+      <td>B W I</td>
     </tr>
     <tr>
-      <td *ngFor="let item of observation.notes">{{item | onlyFirstUpperLetter}}</td>
+      <td>
+        <span *ngFor="let item of observation.notes">{{item.content | onlyFirstUpperLetter}}</span>
+      </td>
     </tr>
   </tbody>
 </table>

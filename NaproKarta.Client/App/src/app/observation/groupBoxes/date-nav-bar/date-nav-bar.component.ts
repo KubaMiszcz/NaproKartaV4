@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-date-nav-bar',
@@ -7,9 +8,18 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DateNavBarComponent implements OnInit {
   @Input() date: Date;
+  @Output() notify: EventEmitter<Date> = new EventEmitter<Date>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  passValueFromEvent(value: any) {
+    // let str = value.value.;
+    // console.log(' xx' + str);
+    // console.log(' xx' + s);
+    //this.notify.emit(value.value.clone().tz('Europe/Warsaw'));
+    this.notify.emit(value.value);
+  }
 }

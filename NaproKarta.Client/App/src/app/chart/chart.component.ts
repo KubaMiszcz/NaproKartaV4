@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ChartModifyDialogComponent } from './chart-modify-dialog/chart-modify-dialog.component';
+import { ChartUpdateDialogComponent } from './chart-update-dialog/chart-update-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 
 import { ChartService } from '../services/chart.service';
@@ -26,7 +26,7 @@ export class ChartComponent implements OnInit, OnDestroy {
   cycles: ICycle[];
   currentChartId: number;
   sub: any;
-  chartModifyDialogRef: MatDialogRef<ChartModifyDialogComponent>;
+  ChartUpdateDialogRef: MatDialogRef<ChartUpdateDialogComponent>;
 
   constructor(private chartService: ChartService, private route: ActivatedRoute, private router: Router, private dialog: MatDialog) {
     this.cycles = new Array(maxCycles);
@@ -69,11 +69,11 @@ export class ChartComponent implements OnInit, OnDestroy {
     }
   }
 
-  ModifyChart() {
-    this.chartModifyDialogRef = this.dialog.open(ChartModifyDialogComponent, {
+  UpdateChartDialog() {
+    this.ChartUpdateDialogRef = this.dialog.open(ChartUpdateDialogComponent, {
       hasBackdrop: true
     });
-    this.chartModifyDialogRef.componentInstance.chart = this.chart;
+    this.ChartUpdateDialogRef.componentInstance.chart = this.chart;
   }
 
   ngOnDestroy() {

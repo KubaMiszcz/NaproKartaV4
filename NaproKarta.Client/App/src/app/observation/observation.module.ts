@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from './../shared/shared.module';
 
 import { ObservationEditComponent } from './observation-edit/observation-edit.component';
-import { ObservationEditDialogComponent } from './observation-edit-dialog/observation-edit-dialog.component';
 
 import { DateNavBarComponent } from './groupBoxes/date-nav-bar/date-nav-bar.component';
 import { MarkersGroupBoxComponent } from './groupBoxes/markers-group-box/markers-group-box.component';
@@ -22,16 +21,14 @@ import { ObservationNoteComponent } from './groupBoxes/observation-note/observat
   ],
   declarations: [
     ObservationEditComponent
-    , ObservationEditDialogComponent
     , DateNavBarComponent
     , MarkersGroupBoxComponent
     , RadioGroup1ColumnComponent
     , RadioGroup2ColumnsComponent
     , ObservationNoteComponent
   ],
-  entryComponents: [
-    ObservationEditDialogComponent
-  ]
+  // entryComponents: [
+  // ]
   // , exports: [
   //   ObscomComponent
   // ]

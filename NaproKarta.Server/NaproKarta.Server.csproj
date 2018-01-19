@@ -197,6 +197,10 @@
     <Compile Include="Migrations\201801161159420_4.Designer.cs">
       <DependentUpon>201801161159420_4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801191313102_5.cs" />
+    <Compile Include="Migrations\201801191313102_5.Designer.cs">
+      <DependentUpon>201801191313102_5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\SubModels\Cipher.cs" />
     <Compile Include="Models\SubModels\CipherCd.cs" />
     <Compile Include="Models\SubModels\Comment.cs" />
@@ -260,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801161159420_4.resx">
       <DependentUpon>201801161159420_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801191313102_5.resx">
+      <DependentUpon>201801191313102_5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

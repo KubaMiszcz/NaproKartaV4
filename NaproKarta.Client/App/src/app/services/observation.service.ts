@@ -17,6 +17,11 @@ export class ObservationService {
     return this.http.get<IObservation>(apiUrl + '/GetObservation/' + id, { withCredentials: true });
   }
 
+  UpdateObservation(observation: IObservation): Observable<any> {
+    console.log('api:' + apiUrl + '/UpdateObservation:' + observation);
+    return this.http.put(apiUrl + '/UpdateObservation', observation, { withCredentials: true });
+  }
+
   // AddChart(chart: IChart): Observable<any> {
   //   //console.log('api:' + apiUrl + '/AddChart');
   //   return this.http.post(apiUrl + '/AddChart', chart, { withCredentials: true });
@@ -27,9 +32,9 @@ export class ObservationService {
   //   return this.http.delete(apiUrl + '/DeleteChart/' + id, { withCredentials: true });
   // }
 
-  // ModifyChart(chart: IChart): Observable<any> {
-  //   console.log('api:' + apiUrl + '/ModifyChart:' + chart);
-  //   return this.http.put(apiUrl + '/ModifyChart', chart, { withCredentials: true });
+  // UpdateChart(chart: IChart): Observable<any> {
+  //   console.log('api:' + apiUrl + '/UpdateChart:' + chart);
+  //   return this.http.put(apiUrl + '/UpdateChart', chart, { withCredentials: true });
   // }
 
   // CashbackForUnfinished(rejectedUserOrders: IOrder[]) {

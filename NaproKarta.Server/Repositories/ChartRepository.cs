@@ -47,18 +47,22 @@ namespace NaproKarta.Server.Repositories
 			return chart.Id;
 		}
 
-		public int UpdateChart(Chart newChart)
+		public int UpdateChart(Chart chart)
 		{
-			var chart = GetChart(newChart.Id).FirstOrDefault();
-			chart.Title = newChart.Title;
-			chart.Note = newChart.Note;
-			//_context.Entry(chart).CurrentValues.SetValues(newChart);
-			_context.Entry(chart).State = EntityState.Modified;
-			_context.SaveChanges();
-			return chart.Id;
-		}
+         _context.Entry(chart).State = EntityState.Modified;
+         _context.SaveChanges();
+         return chart.Id;
 
-		public bool DeleteChart(int id)
+         //var chart = GetChart(newChart.Id).FirstOrDefault();
+         //chart.Title = newChart.Title;
+         //chart.Note = newChart.Note;
+         ////_context.Entry(chart).CurrentValues.SetValues(newChart);
+         //_context.Entry(chart).State = EntityState.Modified;
+         //_context.SaveChanges();
+         //return chart.Id;
+      }
+
+      public bool DeleteChart(int id)
 		{
 			_context.Charts.Remove(_context.Charts.Find(id));
 			_context.SaveChanges();

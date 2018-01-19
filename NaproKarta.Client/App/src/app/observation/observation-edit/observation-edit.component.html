@@ -1,75 +1,58 @@
-<mat-radio-group class="vertical-radio">
-  <mat-radio-button value="1">Option 1</mat-radio-button>
-  <br>
-  <mat-radio-button value="2">Option 1</mat-radio-button>
-  <br>
-  <mat-radio-button value="3">Option 1</mat-radio-button>
-  <br>
-  <mat-radio-button value="4">Option 1</mat-radio-button>
-  <br>
-  <mat-radio-button value="5">Option 1</mat-radio-button>
-  <br>
-  <mat-radio-button value="6">Option 1</mat-radio-button>
-  <br>
-</mat-radio-group>
-
-<p mat-dialog-title class="mat-typography">
-  Nowa obserwacja na dzień {{observation.date | dateMmDd}}
-</p>
+obs id{{observation.id}}
 <mat-card class="group-box navigation-row">
-  <app-date-nav-bar></app-date-nav-bar>
+  <!-- <span mat-dialog-title class="mat-typography"> -->
+  <app-date-nav-bar [date]="observation.date" (notify)="onDateChanged($event)"></app-date-nav-bar>
+  <!-- </span> -->
 </mat-card>
 
-<!-- znaczek -->
-<mat-card class="group-box">
-  <mat-card-subtitle>Znaczek</mat-card-subtitle>
-  <app-markers-group-box></app-markers-group-box>
-</mat-card>
+<div class="left-column">
+  <!-- znaczek -->
+  <mat-card class="group-box">
+    <!-- <mat-card-subtitle>Znaczek</mat-card-subtitle> -->
+    <app-markers-group-box [marker]="observation.marker" [labels]="labelValues.markerNames" (notify)="onMarkerChanged($event)"></app-markers-group-box>
+  </mat-card>
 
-<!-- opis -->
-<mat-card class="group-box">
-  <mat-card-header>
+  <!-- opis -->
+  <mat-card class="group-box">
+    <!-- <mat-card-header>
     <mat-card-subtitle>Opis</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <!-- literki -->
-    <div class="navigation-row">
-      <mat-card class="vertical-radio">
-        <app-radio-group-2-columns [labels]="labelValues.letters"></app-radio-group-2-columns>
-        <mat-checkbox class="radio-element">B</mat-checkbox>
-      </mat-card>
+  </mat-card-header> -->
+    <mat-card-content>
+      <div>
+        <mat-card class="parameters">
+          <app-radio-group-2-columns [radioGroupValue]="observation.letter" [labels]="labelValues.letters" (notify)="onLetterChanged($event)"></app-radio-group-2-columns>
+          <mat-checkbox class="radio-element">B</mat-checkbox>
+        </mat-card>
+        <mat-card class="parameters">
+          <app-radio-group-2-columns [radioGroupValue]="observation.cipher" [labels]="labelValues.ciphers" (notify)="onCipherChanged($event)"></app-radio-group-2-columns>
+        </mat-card>
+        <mat-card class="parameters">
+          <app-radio-group-2-columns [radioGroupValue]="observation.cipherCd" [labels]="labelValues.ciphersCd" (notify)="onCipherCdChanged($event)"></app-radio-group-2-columns>
+        </mat-card>
+        <mat-card class="parameters">
+          <app-radio-group-2-columns [radioGroupValue]="observation.numTimes" [labels]="labelValues.numTimes" (notify)="onNumTimesChanged($event)"></app-radio-group-2-columns>
+        </mat-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
 
-      <mat-card>
-        <app-radio-group-2-columns [labels]="labelValues.ciphers"></app-radio-group-2-columns>
-      </mat-card>
-      <mat-card>
-        <app-radio-group-2-columns [labels]="labelValues.ciphersCd"></app-radio-group-2-columns>
-      </mat-card>
-      <mat-card>
-        <app-radio-group-2-columns [radioGroupValue]="observation.numTimes" [labels]="labelValues.numTimes" (notify)="onNumTimesChanged($event)"></app-radio-group-2-columns>
-      </mat-card>
-    </div>
-  </mat-card-content>
-</mat-card>
+  <!-- notatki -->
+  <mat-card class="group-box">
+    <mat-card-header>
+      <!-- <mat-card-subtitle>Notatki</mat-card-subtitle> -->
+    </mat-card-header>
+    <mat-card-content>
+      <app-observation-note *ngFor="let item of observation.notes" [note]="item"></app-observation-note>
+      <!-- <app-observation-note></app-observation-note>
+      <app-observation-note></app-observation-note> -->
+    </mat-card-content>
+  </mat-card>
+</div>
 
-
-<!-- notatki -->
-<mat-card class="group-box">
-  <mat-card-header>
-    <mat-card-subtitle>Notatki</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <app-observation-note></app-observation-note>
-    <app-observation-note></app-observation-note>
-    <app-observation-note></app-observation-note>
-  </mat-card-content>
-</mat-card>
-
+<!-- buttons -->
 <mat-card>
-
-  <!-- buttons -->
-  <mat-card-actions>
-    <button mat-raised-button color="primary" [routerLink]="[ '/chart', 3 ]">Anuluj</button>
-    <button mat-raised-button color="primary" (click)="SaveObservation">Zapisz</button>
+  <mat-card-actions class="bottom-buttons">
+    <button mat-raised-button color="primary" [routerLink]="[ '/chart', fromChartId ]">Anuluj</button>
+    <button mat-raised-button color="primary" (click)="saveObservation()" [routerLink]="[ '/chart', fromChartId]">Zapisz</button>
   </mat-card-actions>
 </mat-card>

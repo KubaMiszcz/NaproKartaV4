@@ -12,20 +12,16 @@ namespace NaproKarta.Client.Services
 {
    public class NaproClientChartService
    {
-      internal static Chart ChartVm2ChartDb(ChartVm chartVm)
+      internal static Chart ChartVm2ChartDb(Chart chart, ChartVm chartVm)
       {
-         var result = new Chart()
-         {
-            Id = chartVm.Id,
-            Title = chartVm.Title,
-            Note = chartVm.Note,
-         };
-         return result;
+         chart.Title = chartVm.Title;
+         chart.Note = chartVm.Note;
+         return chart;
       }
 
       internal static Chart ChartVm2ChartDb(string loggedUserId, ChartVm chartVm)
       {
-         var result = ChartVm2ChartDb(chartVm);
+         var result = ChartVm2ChartDb(new Chart(), chartVm);
          result.UserId = loggedUserId;
          return result;
       }

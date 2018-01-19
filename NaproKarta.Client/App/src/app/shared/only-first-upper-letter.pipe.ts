@@ -5,9 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class OnlyFirstUpperLetter implements PipeTransform {
 
-  transform(value: Date, args?: any): any {
+  transform(value: string): any {
     if (value !== undefined) {
-      return value.toString().slice(5, 10);
+      return value.slice(0, 1).toUpperCase();
     } else { return ''; }
   }
 

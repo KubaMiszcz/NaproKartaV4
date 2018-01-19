@@ -1,11 +1,11 @@
-.vertical-radio{
-    width: 16.5em;   
+.vertical-radio {
+  display: block;
+  width: 16.5em;
 }
 
-.radio-element{
-    margin-left: 1.5em;
-    margin-right: 1.5em;
-    /* background-color: aqua;
-    border: 1px solid darkslategray;
-    border-radius: 5px; */
+.radio-element {
+  display: inline-block;
+  width: 4em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
 }

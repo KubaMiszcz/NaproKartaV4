@@ -6,11 +6,11 @@ import { IChart, Chart } from './../../models/ichart';
 import { ChartService } from '../../services/chart.service';
 
 @Component({
-  selector: 'app-chart-modify-dialog',
-  templateUrl: './chart-modify-dialog.component.html',
-  styleUrls: ['./chart-modify-dialog.component.css']
+  selector: 'app-chart-update-dialog',
+  templateUrl: './chart-update-dialog.component.html',
+  styleUrls: ['./chart-update-dialog.component.css']
 })
-export class ChartModifyDialogComponent implements OnInit {
+export class ChartUpdateDialogComponent implements OnInit {
   id: number;
   chart: IChart = new Chart();
   response: any;
@@ -22,11 +22,13 @@ export class ChartModifyDialogComponent implements OnInit {
   ngOnInit() {
   }
 
-  ModifyChart() {
+  UpdateChart() {
     if (this.chart.title !== null && this.chart.title !== '') {
-      this.chartService.ModifyChart(this.chart)
-        .subscribe(msg => this.response = msg, error => console.log(error), () => {
-          console.log(this.response);
+      this.chartService.UpdateChart(this.chart)
+        .subscribe(msg => this.response = msg
+        , error => console.log(error)
+        , () => {
+          console.log('resp ' + this.response);
           alert('zmieniono' + this.response[0]);
           this.router.navigate(['/chart', this.response[0]]);
         });
@@ -46,7 +48,7 @@ export class ChartModifyDialogComponent implements OnInit {
     // this.chart.note = this.chartNote;
     // this.chart.cycles = this.cycles;
 
-    // this.chartService.ModifyChart(this.chart)
+    // this.chartService.UpdateChart(this.chart)
     //   .subscribe(msg => console.log(msg)
     //   , error => console.log(error));
     // this.router.navigate(['/welcome']);

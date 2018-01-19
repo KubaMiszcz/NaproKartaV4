@@ -1,3 +1,4 @@
+import { IObservation } from './../../../models/iobservation';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { StringifyOptions } from 'querystring';
 
@@ -14,16 +15,11 @@ export class RadioGroup2ColumnsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(' ' + this.labels);
-    console.log('ss ' + this.radioGroupValue);
+    //console.log(' ' + this.labels);
+    console.log('radioGroupValue ' + this.radioGroupValue);
   }
 
-  onClick(item: any) {
-    console.log('ss ' + item);
-    // console.log('ss ' + this.value);
-  }
-
-  passValue(val: string) {
+  emitValue(val: string) {
     this.notify.emit(val);
   }
 }

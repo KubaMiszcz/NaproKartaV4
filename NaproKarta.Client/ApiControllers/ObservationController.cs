@@ -102,10 +102,14 @@ namespace NaproKarta.Client.ApiControllers
       */
 
 		[HttpPut, HttpOptions]
-		public HttpResponseMessage ModifyObservation(ObservationVm observationVm)
+		public HttpResponseMessage UpdateObservation(ObservationVm observationVm)
 		{
-			if (NaproClientAppService.HasReqestOPTIONSHeader(Request))
+			//if (NaproClientAppService.HasReqestOPTIONSHeader(Request))
+
+         if (this.Request.Method== HttpMethod.Options)
+         {
 				return new HttpResponseMessage() { StatusCode = HttpStatusCode.OK };
+         }
 
 			if (loggedUserId == null)
 				//TODO: you are not logged message here
@@ -114,16 +118,16 @@ namespace NaproKarta.Client.ApiControllers
 			if (!ModelState.IsValid)
 				return Request.CreateResponse(HttpStatusCode.BadRequest);
 
+			if (_observationRepository.GetObservationOwnerId(observationVm.Id).FirstOrDefault() != loggedUserId)
+				return Request.CreateResponse(HttpStatusCode.OK, "err nie twoja obserwacja");
+
          var observation = _observationRepository.GetObservation(observationVm.Id).FirstOrDefault();
 
-			if (observation.Cycle.Chart.UserId != loggedUserId)
-				return Request.CreateResponse(HttpStatusCode.OK, "err nie twoj chart");
-
-			observation = NaproClientObservationService.ObservationVm2ObservationDb(observationVm);
+			NaproClientObservationService.ObservationVm2ObservationDb(observation, observationVm);
 
 			var result = _observationRepository.UpdateObservation(observation);
-			return Request.CreateResponse(HttpStatusCode.OK,
-				new string[] { result.ToString(), "success dane obserwacji zmienione" });
+         return Request.CreateResponse(HttpStatusCode.OK,
+            new string[] { result.ToString(), "success dane obserwacji zmienione" });
 		}
 	}
 }

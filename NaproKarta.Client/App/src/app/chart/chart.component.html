@@ -11,7 +11,7 @@
     </mat-card-subtitle>
     <div class="col-2"></div>
     <mat-card-actions>
-      <button mat-raised-button color="primary" (click)='ModifyChart()'>Edytuj Wlaściwości tej karty</button>
+      <button mat-raised-button color="primary" (click)='UpdateChartDialog()'>Edytuj Wlaściwości tej karty</button>
       <button mat-raised-button color="primary" (click)='DeleteChart()'>Usuń te kartę</button>
     </mat-card-actions>
   </mat-card-header>
@@ -21,7 +21,7 @@
         <table>
           <tr *ngFor="let item of cycles; let i=index">
             <td>
-              <app-chart-cycle [cycle]='item' [numberInChart]='i'></app-chart-cycle>
+              <app-chart-cycle [cycle]='item' [numberInChart]='i' [fromChartId]='chart.id'></app-chart-cycle>
             </td>
           </tr>
         </table>

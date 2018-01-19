@@ -7,6 +7,7 @@ namespace NaproKarta.Server.Interfaces
    public interface IObservationRepository
 	{
       IQueryable<Observation> GetObservation(int id);
-      object UpdateObservation(Observation observation);
+      int UpdateObservation(Observation observation);
+      IQueryable<string> GetObservationOwnerId(int id);
    }
 }

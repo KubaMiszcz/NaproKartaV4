@@ -10,17 +10,27 @@ using NaproKarta.Server.Models;
 
 namespace NaproKarta.Client.Services
 {
-	public class NaproClientObservationService
+   public class NaproClientObservationService
    {
-		internal static Observation ObservationVm2ObservationDb(ObservationVm observationVm)
-		{
-			var result = new Observation()
-			{
-				//Id = chartVm.Id,
-				//Title = chartVm.Title,
-				//Note = chartVm.Note,
-			};
-			return result;
-		}
-	}
+      internal static Observation ObservationVm2ObservationDb(Observation observation, ObservationVm observationVm)
+      {
+         observation.MarkerId = observationVm.Marker;
+         observation.PeakDayNumber = observationVm.PeakDayNumber;
+         observation.Date= observationVm.Date;
+         observation.Letter.Value = observationVm.Letter;
+         observation.IsB = observationVm.IsB;
+         observation.NumTimes.Value = observationVm.NumTimes;
+         observation.Cipher.Value = observationVm.Cipher;
+         observation.CipherCd.Value = observationVm.CipherCd;
+         //public int? CommentId { get; set; }
+         //public virtual IList<Comment> Comments { get; set; }
+
+         foreach (var item in observationVm.Notes)
+         {
+            //todo: implemet
+         }
+
+         return observation;
+      }
+   }
 }

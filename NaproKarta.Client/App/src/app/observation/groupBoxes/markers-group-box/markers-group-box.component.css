@@ -1,13 +1,15 @@
 .marker {
-    background-color: lightcyan;
-    border: 1px solid darkslategray;
-    border-radius: 5px;
-    padding: 5px;
-    margin: 5px;
-    width: 30px;
-    height: auto;
+  background-color: lightcyan;
+  border: 1px solid darkslategray;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  width: 30px;
+  height: auto;
 }
 
 img {
-    width: 30px;
+  /* malutkie do testow  */
+  width: 5px;
+  /* width: 30px; */
 }

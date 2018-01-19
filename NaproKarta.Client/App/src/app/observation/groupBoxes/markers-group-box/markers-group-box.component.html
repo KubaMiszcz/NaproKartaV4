@@ -1,22 +1,25 @@
-  <button mat-raised-button class="marker">
-    <img src="../../../../assets/img/markers/marker-grey.jpg" alt="">
-  </button>
-  <button mat-raised-button class="marker">
-    <img src="../../../../assets/img/markers/marker-grey.jpg" alt="">
-  </button>
-  <button mat-raised-button class="marker">
-    <img src="../../../../assets/img/markers/marker-grey.jpg" alt="">
-  </button>
-  <button mat-raised-button class="marker">
-    <img src="../../../../assets/img/markers/marker-grey.jpg" alt="">
-  </button>
-  <button mat-raised-button class="marker">
-    <img src="../../../../assets/img/markers/marker-grey.jpg" alt="">
-  </button>
-  <button mat-raised-button class="marker">
-    <img src="../../../../assets/img/markers/marker-grey.jpg" alt="">
-  </button>
-  <button mat-raised-button class="marker">
-    <img src="../../../../assets/img/markers/marker-grey.jpg" alt="">
-  </button>
-  
+<button *ngFor="let item of labels" mat-raised-button class="marker" (click)="passValueFromEvent(item)">
+  <img src="./../../../../assets/img/markers/marker-{{item}}.jpg" alt="item">
+</button>
+<!--
+<button mat-raised-button class="marker" (click)="passValueFromEvent({{itemName}})">
+  <img src="../../../../assets/img/markers/marker-grey.jpg" alt="">
+</button>
+<button mat-raised-button class="marker">
+  <img src="../../../../assets/img/markers/marker-grey.jpg" alt="">
+</button>
+<button mat-raised-button class="marker">
+  <img src="../../../../assets/img/markers/marker-grey.jpg" alt="">
+</button>
+<button mat-raised-button class="marker">
+  <img src="../../../../assets/img/markers/marker-grey.jpg" alt="">
+</button>
+<button mat-raised-button class="marker">
+  <img src="../../../../assets/img/markers/marker-grey.jpg" alt="">
+</button>
+<button mat-raised-button class="marker">
+  <img src="../../../../assets/img/markers/marker-grey.jpg" alt="">
+</button>
+<button mat-raised-button class="marker">
+  <img src="../../../../assets/img/markers/marker-grey.jpg" alt="">
+</button> -->

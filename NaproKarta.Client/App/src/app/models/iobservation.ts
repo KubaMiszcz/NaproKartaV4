@@ -1,4 +1,5 @@
 import { INote } from './inote';
+import { Url } from 'url';
 
 export interface IObservation {
   id: number;
@@ -14,6 +15,7 @@ export interface IObservation {
   cipherCd: string;
   comments: any; //????
   notes: INote[];
+  pictureUrl: Url;// URL
 }
 
 export class Observation implements IObservation {
@@ -30,4 +32,5 @@ export class Observation implements IObservation {
   cipherCd: string;
   comments: any; //????
   notes: INote[];
+  pictureUrl: Url;// URL
 }

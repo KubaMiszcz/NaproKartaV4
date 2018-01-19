@@ -7,7 +7,7 @@
         <img [routerLink]="[ '/welcome']" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" width="30" height="30"
           class="d-inline-block align-top " alt="NaproKarta"> NaproKarta
       </span>
-      <a [routerLink]="[ '/settings' ]" class="navbar-brand ">
+      <a class="navbar-brand " [routerLink]="[ '/settings' ]">
         {{userName ? ('Hello ' + userName) : ''}}
       </a>
 
@@ -22,10 +22,10 @@
 
           <li *ngIf="chartIdsAndTitles.length>0" class="mr-2 nav-item ">
             <div class="dropdown">
-              <button mat-raised-button color="primary" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+              <button mat-raised-button color="primary" class="btn btn-secondary dropdown-toggle zoom" type="button" id="dropdownMenuButton"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Wybierz karte </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <div class="dropdown-menu zoom" aria-labelledby="dropdownMenuButton">
                 <a *ngFor="let chartIdAndTitle of chartIdsAndTitles" class="dropdown-item" [id]='chartIdAndTitle.id' (click)='RefreshChart(chartIdAndTitle.id)'>
                   {{chartIdAndTitle.title}}
                 </a>
@@ -34,7 +34,7 @@
             </div>
           </li>
           <li class="ml-2 nav-item">
-            <button mat-raised-button color="primary" class="btn btn-md" (click)='AddChartByPopup()'>Dodaj nową kartę</button>
+            <button mat-raised-button color="primary" class="btn btn-md zoom" (click)='AddChartByPopup()'>Dodaj nową kartę</button>
           </li>
         </ul>
       </div>
@@ -43,16 +43,16 @@
     <div class="d-flex justify-content-end">
       <ul class="navbar-nav mr-auto">
         <li *ngIf="userName">
-          <a href="{{clientUrl + '/Manage'}}" class="nav-item nav-link">Ustawienia Konta</a>
+          <a href="{{clientUrl + '/Manage'}}" class="nav-item nav-link zoom">Ustawienia Konta</a>
         </li>
         <li *ngIf="!userName" class="nav-item">
-          <a href="{{clientUrl + '/Account/Register'}}" class="nav-item nav-link">Zarejestruj</a>
+          <a href="{{clientUrl + '/Account/Register'}}" class="nav-item nav-link zoom">Zarejestruj</a>
         </li>
         <li *ngIf="!userName" class="nav-item">
-          <a href="{{clientUrl + '/Account/Login'}}" class="nav-item nav-link">Zaloguj</a>
+          <a href="{{clientUrl + '/Account/Login'}}" class="nav-item nav-link zoom">Zaloguj</a>
         </li>
         <li *ngIf="userName" class="nav-item">
-          <a href="{{clientUrl + ''}}" class="nav-item nav-link">Wyloguj</a>
+          <a href="{{clientUrl + ''}}" class="nav-item nav-link zoom">Wyloguj</a>
         </li>
       </ul>
     </div>

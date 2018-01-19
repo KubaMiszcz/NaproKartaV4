@@ -14,6 +14,7 @@ export class ChartCycleComponent implements OnInit {
   observations: IObservation[];
   @Input() cycle: ICycle;
   @Input() numberInChart: number;
+  @Input() fromChartId: number;
 
   constructor() {
     //this.note = 'none';

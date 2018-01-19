@@ -1,7 +1,7 @@
 <div class="note">
   <mat-checkbox class="checkbox marginlefright notemark" [(ngModel)]="note.isImportant"></mat-checkbox>
-  <button *ngIf="!note.isImportant" button class="notemark marginlefright" mat-mini-fab color="primary">{{noteMark}}</button>
-  <button *ngIf="note.isImportant" button class="notemark marginlefright" mat-mini-fab color="warn">{{noteMark}}</button>
+  <button *ngIf="!note.isImportant" button class="notemark marginlefright" mat-mini-fab color="primary">{{note.content | onlyFirstUpperLetter}}</button>
+  <button *ngIf="note.isImportant" button class="notemark marginlefright" mat-mini-fab color="warn">{{note.content |onlyFirstUpperLetter}}</button>
 
   <mat-form-field>
     <textarea matInput class="marginlefright" placeholder="notka:" [(ngModel)]='note.content' (change)="noteMarkUpdate()"></textarea>
