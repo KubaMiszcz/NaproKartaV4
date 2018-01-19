@@ -1,6 +1,12 @@
 .left-column {
   display: inline-block;
-  width: 75%;
+  /* width: 60%; */
+}
+
+.right-column {
+  display: inline-block;
+  width: 40%;
+  margin-left: 60%
 }
 
 mat-card {

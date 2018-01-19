@@ -51,15 +51,16 @@ span {
   border-radius: 50%;
 }
 
-/* .zoom {
-  -moz-transition: all 1s;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+.zoom {
+  /* -moz-transition: all 0.4s;
+  -webkit-transition: all 0.4s; */
+  transition: all 0.4s;
+  background-color: white;
 }
 
 .zoom:hover {
-  margin-right: 1em;
-  -moz-transform: scale(1.5);
-  -webkit-transform: scale(1.5);
-  transform: scale(1.5);
-} */
+  /* -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2); */
+  transform: scale(1.2, 1.2);
+  /* transform: scaleY(1.2); */
+}
