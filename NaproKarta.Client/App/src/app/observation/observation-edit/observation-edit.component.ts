@@ -22,6 +22,7 @@ export class ObservationEditComponent implements OnInit {
 
   constructor(private observationService: ObservationService, private route: ActivatedRoute, private router: Router) {
     this.observation = new Observation();
+    this.observation.id = 0;
   }
 
   ngOnInit() {
@@ -34,28 +35,22 @@ export class ObservationEditComponent implements OnInit {
     this.sub = this.route.paramMap
       .subscribe(v =>
         this.UpdateObservation(+v.get('id'))
-      , error => console.log(error));
+      , error => console.log(error))
+      , console.log('xxx' + JSON.stringify(this.observation));
   }
 
   UpdateObservation(id: number) {
+    // if (this.observation.id === 0) {
+    //   console.log('obsformnew obs  ' + JSON.stringify(this.observation));
+    // } else {
     this.currentObservationId = id;
     this.observationService.GetObservation(this.currentObservationId)
-      .subscribe(observation => this.observation = observation
+      .subscribe(observation => { this.observation.id = 0; this.observation = observation; }
       , error => console.log(error)
       , () => {
         console.log('obsforminit  ' + JSON.stringify(this.observation));
-        console.log('pictureUrl  ' + JSON.stringify(this.observation.pictureUrl));
-
-        // this.chart.cycles.forEach(element => {
-        //   console.log(element);
-        //   this.cycles[element.numberInChart] = element;
-        //console.log(this.cycles[element.numberInChart]);
-        // });
-        // this.cycles.forEach(e => {
-        //   console.log(e);
-        // });
-        //console.log(this.cycles);
       });
+    // }
   }
 
   onDateChanged(value: Date) {
@@ -88,14 +83,35 @@ export class ObservationEditComponent implements OnInit {
   }
 
   saveObservation() {
-    console.log('obsFormsave: ' + JSON.stringify(this.observation));
-    this.observationService.UpdateObservation(this.observation)
+    if (this.observation.id === undefined) {
+      console.log('obsFormsaveAdd: ' + JSON.stringify(this.observation));
+      this.observationService.AddObservation(this.observation)
+        .subscribe(response => this.response
+        , error => console.log(error)
+        , () => {
+          console.log(JSON.stringify(this.response));
+        });
+    } else {
+      console.log('obsFormsaveUpdate: ' + JSON.stringify(this.observation));
+      this.observationService.UpdateObservation(this.observation)
+        .subscribe(response => this.response
+        , error => console.log(error)
+        , () => {
+          console.log(JSON.stringify(this.response));
+        });
+    }
+  }
+
+  deleteObservation() {
+    console.log('obsFormdelete');
+    this.observationService.DeleteObservation(this.observation.id)
       .subscribe(response => this.response
       , error => console.log(error)
       , () => {
         console.log(JSON.stringify(this.response));
       });
   }
+
 
 
 

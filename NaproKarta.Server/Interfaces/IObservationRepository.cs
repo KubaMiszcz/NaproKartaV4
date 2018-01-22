@@ -9,5 +9,7 @@ namespace NaproKarta.Server.Interfaces
       IQueryable<Observation> GetObservation(int id);
       int UpdateObservation(Observation observation);
       IQueryable<string> GetObservationOwnerId(int id);
+      bool DeleteObservation(int id);
+      int AddObservation(Observation observation);
    }
 }

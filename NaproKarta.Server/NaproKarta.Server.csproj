@@ -201,6 +201,10 @@
     <Compile Include="Migrations\201801191313102_5.Designer.cs">
       <DependentUpon>201801191313102_5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801221155526_6.cs" />
+    <Compile Include="Migrations\201801221155526_6.Designer.cs">
+      <DependentUpon>201801221155526_6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\SubModels\Cipher.cs" />
     <Compile Include="Models\SubModels\CipherCd.cs" />
     <Compile Include="Models\SubModels\Comment.cs" />
@@ -208,6 +212,7 @@
     <Compile Include="Models\SubModels\Marker.cs" />
     <Compile Include="Interfaces\IApplicationUserRepository.cs" />
     <Compile Include="Models\SubModels\NumTime.cs" />
+    <Compile Include="Models\SubModels\Picture.cs" />
     <Compile Include="Models\SubModels\ObservationNote.cs" />
     <Compile Include="Repositories\ObservationRepository.cs" />
     <Compile Include="Global.asax.cs">
@@ -267,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801191313102_5.resx">
       <DependentUpon>201801191313102_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801221155526_6.resx">
+      <DependentUpon>201801221155526_6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

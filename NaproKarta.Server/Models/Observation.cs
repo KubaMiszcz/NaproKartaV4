@@ -26,18 +26,18 @@ namespace NaproKarta.Server.Models
 
 		public DateTime Date { get; set; }
 
-		public int LetterId { get; set; }
+		public int? LetterId { get; set; }
 		public virtual Letter Letter { get; set; }
 
 		public bool IsB { get; set; }
 
-		public int NumTimeId { get; set; }
+		public int? NumTimeId { get; set; }
 		public virtual NumTime NumTimes { get; set; }
 
-		public int CipherId { get; set; }
+		public int? CipherId { get; set; }
 		public virtual Cipher Cipher { get; set; }
 
-		public int CipherCdId { get; set; }
+		public int? CipherCdId { get; set; }
 		public virtual CipherCd CipherCd { get; set; }
 
 		//public int? CommentId { get; set; }
@@ -45,7 +45,6 @@ namespace NaproKarta.Server.Models
 
 		public virtual IList<ObservationNote> Notes { get; set; }
 
-      [Url]
-      public string PictureUrl { get; set; }
+      public virtual IList<Picture> Pictures { get; set; }
    }
 }

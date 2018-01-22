@@ -3,6 +3,10 @@ obs id{{observation.id}}
   <!-- <span mat-dialog-title class="mat-typography"> -->
   <app-date-nav-bar [date]="observation.date" (notify)="onDateChanged($event)"></app-date-nav-bar>
   <!-- </span> -->
+  <button mat-raised-button color="primary" [routerLink]="[ '/chart', fromChartId ]">Anuluj</button>
+  <button mat-raised-button color="primary" (click)="saveObservation()" [routerLink]="[ '/chart', fromChartId]">Zapisz</button>
+  <button mat-raised-button color="primary" (click)="deleteObservation()" [routerLink]="[ '/chart', fromChartId]">Usun</button>
+
 </mat-card>
 
 <div class="left-column">
@@ -49,7 +53,7 @@ obs id{{observation.id}}
   </mat-card>
 </div>
 
-<div class="right-column">
+<!-- <div class="right-column">
   <mat-card class="group-box">
     <mat-card-header>
       <mat-card-subtitle>Zdjecie</mat-card-subtitle>
@@ -59,7 +63,7 @@ obs id{{observation.id}}
         alt="">
     </mat-card-content>
   </mat-card>
-</div>
+</div> -->
 
 <!-- buttons -->
 <mat-card>

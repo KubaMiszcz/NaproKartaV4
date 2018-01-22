@@ -104,8 +104,9 @@ namespace NaproKarta.Client.ApiControllers
       [HttpPut, HttpOptions]
       public HttpResponseMessage UpdateChart(ChartVm chartVm)
       {
-         if (NaproClientAppService.HasReqestOPTIONSHeader(Request))
+         if (this.Request.Method == HttpMethod.Options)
             return new HttpResponseMessage() { StatusCode = HttpStatusCode.OK };
+
 
          if (loggedUserId == null)
             //TODO: you are not logged message here

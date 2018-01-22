@@ -23,7 +23,7 @@ namespace NaproKarta.Server.Repositories
 
 		public IQueryable<Chart> GetChart(int id)
 		{
-			var result = _context.Charts.Where(x => x.Id == id)
+         var result = _context.Charts.Where(x => x.Id == id)
 				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.Letter)))
 				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.Cipher)))
 				.Include(c => c.Cycles.Select(o => o.Observations.Select(i => i.CipherCd)))

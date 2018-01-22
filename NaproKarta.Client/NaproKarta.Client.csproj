@@ -254,6 +254,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\NavBarVm.cs" />
+    <Compile Include="ViewModels\PictureVm.cs" />
     <Compile Include="ViewModels\ObservationNoteVm.cs" />
     <Compile Include="ViewModels\ObservationVm.cs" />
   </ItemGroup>

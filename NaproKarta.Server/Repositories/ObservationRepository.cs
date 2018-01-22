@@ -21,6 +21,7 @@ namespace NaproKarta.Server.Repositories
          _context = context;
       }
 
+
       public IQueryable<Observation> GetObservation(int id)
       {
          var result = _context.Observations
@@ -36,14 +37,16 @@ namespace NaproKarta.Server.Repositories
          return result;
       }
 
-      public IQueryable<string> GetObservationOwnerId(int id)
+      public IQueryable<string> GetObservationOwnerId(int obsId)
       {
-         var result = _context.Cycles
-            .Where(x => x.Id == id)
-            .Select(y => y.Chart)
-            .Select(y => y.User)
-            .Select(y => y.Id)
+         var result = _context.Users
+            .Join(_context.Charts, p => p.Id, p => p.UserId, (x, y) => new { User = x, Chart = y })
+            .Join(_context.Cycles, p => p.Chart.Id, p => p.ChartId, (x, y) => new { x.User, x.Chart, Cycle = y })
+            .Join(_context.Observations, p => p.Cycle.Id, p => p.CycleId, (x, y) => new { x.User, x.Chart, x.Cycle, Observation = y })
+            .Where(p => p.Observation.Id == obsId)
+            .Select(p => p.User.Id)
             .AsQueryable();
+
          return result;
       }
 
@@ -54,43 +57,18 @@ namespace NaproKarta.Server.Repositories
          return observation.Id;
       }
 
+      public bool DeleteObservation(int id)
+      {
+         _context.Observations.Remove(_context.Observations.Find(id));
+         _context.SaveChanges();
+         return true;
+      }
 
-
-
-
-      ////===================================================
-      //public IQueryable<Chart> GetUserCharts(string loggedUserId)
-      //{
-      //	return _context.Charts.Where(x => x.UserId == loggedUserId);
-      //}
-
-      //public int AddChart(Chart chart)
-      //{
-      //	_context.Charts.Add(chart);
-      //	_context.SaveChanges();
-      //	return chart.Id;
-      //}
-
-      //public void UpdateChart(int id)
-      //{
-      //	throw new NotImplementedException();
-      //}
-
-      //public void UpdateChart(Chart chart)
-      //{
-      //	throw new NotImplementedException();
-      //}
-
-      //public void DeleteChart(int id)
-      //{
-      //	//this.DeleteChart(this.GetChart(id));
-      //}
-
-      //public void DeleteChart(Chart chart)
-      //{
-      //	_context.Charts.Remove(chart);
-      //	_context.SaveChanges();
-      //}
-
+      public int AddObservation(Observation observation)
+      {
+         _context.Observations.Add(observation);
+         _context.SaveChanges();
+         return observation.Id;
+      }
    }
 }

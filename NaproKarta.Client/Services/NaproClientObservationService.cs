@@ -16,8 +16,8 @@ namespace NaproKarta.Client.Services
       {
          observation.MarkerId = observationVm.Marker;
          observation.PeakDayNumber = observationVm.PeakDayNumber;
-         observation.Date= observationVm.Date;
-         observation.Letter.Value = observationVm.Letter;
+         observation.Date = observationVm.Date;
+         observation.Letter = new Letter() { Value = observationVm.Letter };
          observation.IsB = observationVm.IsB;
          observation.NumTimes.Value = observationVm.NumTimes;
          observation.Cipher.Value = observationVm.Cipher;
@@ -32,5 +32,12 @@ namespace NaproKarta.Client.Services
 
          return observation;
       }
+
+      internal static Observation ObservationVm2ObservationDb(ObservationVm observationVm)
+      {
+         Observation observation = ObservationVm2ObservationDb(new Observation(), observationVm);
+         return observation;
+      }
+
    }
 }

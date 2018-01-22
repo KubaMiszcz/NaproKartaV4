@@ -14,14 +14,14 @@ namespace NaproKarta.Server.Models
 
       public virtual IList<Observation> Observations { get; set; }
    }
-	internal sealed class CommentMappings : EntityTypeConfiguration<Comment>
-	{
-		public CommentMappings()
-		{
-			HasKey(p => p.Id);
-			Property(p => p.Content).HasMaxLength(16).IsRequired();
-		}
-	}
+	//internal sealed class CommentMappings : EntityTypeConfiguration<Comment>
+	//{
+	//	public CommentMappings()
+	//	{
+	//		HasKey(p => p.Id);
+	//		Property(p => p.Content).HasMaxLength(16).IsRequired();
+	//	}
+	//}
 }
 
 
