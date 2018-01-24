@@ -5,6 +5,7 @@ export interface ICycle {
   note: string;
   observations: IObservation[];
   numberInChart: number;
+  chartId: number;
 }
 
 export class Cycle implements ICycle {
@@ -12,4 +13,5 @@ export class Cycle implements ICycle {
   note: string;
   observations: IObservation[];
   numberInChart: number;
+  chartId: number;
 }

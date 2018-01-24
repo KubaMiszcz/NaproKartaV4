@@ -19,16 +19,16 @@ namespace NaproKarta.Client.Services
          observation.Date = observationVm.Date;
          observation.Letter = new Letter() { Value = observationVm.Letter };
          observation.IsB = observationVm.IsB;
-         observation.NumTimes.Value = observationVm.NumTimes;
-         observation.Cipher.Value = observationVm.Cipher;
-         observation.CipherCd.Value = observationVm.CipherCd;
+         observation.NumTimes = new NumTime() { Value = observationVm.NumTimes };
+         observation.Cipher = new Cipher() { Value = observationVm.Cipher};
+         observation.CipherCd = new CipherCd() { Value = observationVm.CipherCd };
          //public int? CommentId { get; set; }
          //public virtual IList<Comment> Comments { get; set; }
 
-         foreach (var item in observationVm.Notes)
-         {
-            //todo: implemet
-         }
+         //foreach (var item in observationVm.Notes)
+         //{
+         //   //todo: implemet
+         //}
 
          return observation;
       }

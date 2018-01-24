@@ -14,8 +14,8 @@ export class MarkersGroupBoxComponent implements OnInit {
 
   ngOnInit() {
     if (this.marker !== undefined) {
-      console.log(' ' + this.labels);
-      console.log('marker ' + this.marker);
+      // console.log(' ' + this.labels);
+      // console.log('marker ' + this.marker);
     }
   }
 

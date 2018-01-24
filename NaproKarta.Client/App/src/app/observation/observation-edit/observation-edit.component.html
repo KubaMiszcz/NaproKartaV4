@@ -1,6 +1,6 @@
-obs id{{observation.id}}
 <mat-card class="group-box navigation-row">
   <!-- <span mat-dialog-title class="mat-typography"> -->
+  obs id{{observation.id}}
   <app-date-nav-bar [date]="observation.date" (notify)="onDateChanged($event)"></app-date-nav-bar>
   <!-- </span> -->
   <button mat-raised-button color="primary" [routerLink]="[ '/chart', fromChartId ]">Anuluj</button>
@@ -24,8 +24,12 @@ obs id{{observation.id}}
     <mat-card-content>
       <div>
         <mat-card class="parameters">
-          <app-radio-group-2-columns [radioGroupValue]="observation.letter" [labels]="labelValues.letters" (notify)="onLetterChanged($event)"></app-radio-group-2-columns>
-          <mat-checkbox class="radio-element">B</mat-checkbox>
+          <div>
+            <app-radio-group-2-columns [radioGroupValue]="observation.letter" [labels]="labelValues.letters" (notify)="onLetterChanged($event)"></app-radio-group-2-columns>
+          </div>
+          <div>
+            <mat-checkbox>B</mat-checkbox>
+          </div>
         </mat-card>
         <mat-card class="parameters">
           <app-radio-group-2-columns [radioGroupValue]="observation.cipher" [labels]="labelValues.ciphers" (notify)="onCipherChanged($event)"></app-radio-group-2-columns>
@@ -46,7 +50,7 @@ obs id{{observation.id}}
       <!-- <mat-card-subtitle>Notatki</mat-card-subtitle> -->
     </mat-card-header>
     <mat-card-content>
-      <app-observation-note *ngFor="let item of observation.notes" [note]="item"></app-observation-note>
+      <app-observation-note *ngFor="let item of notes" [note]="item"></app-observation-note>
       <!-- <app-observation-note></app-observation-note>
       <app-observation-note></app-observation-note> -->
     </mat-card-content>

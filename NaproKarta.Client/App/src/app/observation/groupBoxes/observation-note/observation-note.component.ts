@@ -8,7 +8,6 @@ import { notEqual } from 'assert';
   styleUrls: ['./observation-note.component.css']
 })
 export class ObservationNoteComponent implements OnInit {
-  noteMark: string;
   @Input() note: INote;
 
   constructor() {
@@ -19,12 +18,7 @@ export class ObservationNoteComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(' ' + JSON.stringify(this.note));
-    this.noteMarkUpdate();
-  }
-
-  noteMarkUpdate() {
-    this.noteMark = this.note.content.substr(0, 1).toUpperCase();
-    // console.log('obs note');
+    // console.log(' ' + JSON.stringify(this.note));
+    // this.noteMarkUpdate();
   }
 }

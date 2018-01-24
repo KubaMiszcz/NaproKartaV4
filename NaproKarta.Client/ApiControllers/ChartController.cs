@@ -60,7 +60,7 @@ namespace NaproKarta.Client.ApiControllers
       [HttpPost, HttpOptions]
       public HttpResponseMessage AddChart(ChartVm chartVm)
       {
-         if (NaproClientAppService.HasReqestOPTIONSHeader(Request))
+         if (Request.Method == HttpMethod.Options)
             return new HttpResponseMessage() { StatusCode = HttpStatusCode.OK };
 
          if (loggedUserId == null)
@@ -81,7 +81,7 @@ namespace NaproKarta.Client.ApiControllers
       [HttpDelete, HttpOptions]
       public HttpResponseMessage DeleteChart(int id)
       {
-         if (NaproClientAppService.HasReqestOPTIONSHeader(Request))
+         if (Request.Method == HttpMethod.Options)
             return new HttpResponseMessage() { StatusCode = HttpStatusCode.OK };
 
          if (loggedUserId == null)
@@ -104,7 +104,7 @@ namespace NaproKarta.Client.ApiControllers
       [HttpPut, HttpOptions]
       public HttpResponseMessage UpdateChart(ChartVm chartVm)
       {
-         if (this.Request.Method == HttpMethod.Options)
+         if (Request.Method == HttpMethod.Options)
             return new HttpResponseMessage() { StatusCode = HttpStatusCode.OK };
 
 

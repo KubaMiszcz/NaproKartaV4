@@ -66,6 +66,7 @@ namespace NaproKarta.Server.Repositories
 
       public int AddObservation(Observation observation)
       {
+         var result =_context.Letters.Where(x => x.Value == observation.Letter.Value).FirstOrDefault();
          _context.Observations.Add(observation);
          _context.SaveChanges();
          return observation.Id;

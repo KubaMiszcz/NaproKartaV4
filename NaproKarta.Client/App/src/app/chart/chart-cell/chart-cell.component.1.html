@@ -1,21 +1,42 @@
-<a class="group-box zoom" [routerLink]="[ '/observation',observation.id]" [queryParams]="{ chartId: chartId, cycleId: cycleId }">
-  <div class="marker" [ngStyle]="{'background-image':'url('+markerUrl+')'}">
-    <div>
-      <img class="peak-number" src="http://placehold.it/10" alt="">{{observation.peakDayNumber}}
-    </div>
-  </div>
-
-  <div class="tdd date">{{observation.date | dateMmDd}}</div>
-
-  <div class="tdd">{{observation.letter}} {{observation.isB?"B":""}}</div>
-  <div class="tdd">{{observation.numTimes}}</div>
-  <div class="tdd">{{observation.cipher}}{{observation.cipherCd}}</div>
-  <!-- <td>{{comments}}</td> -->
-  <div class="tdd">B W I</div>
-  <div class="tdd">
-    <span *ngFor="let item of observation.notes">{{item.content | onlyFirstUpperLetter}}</span>
-  </div>
-</a>
+<table class="group-box zoom" [routerLink]="[ '/observation',observation.id]" [queryParams]="{ chartId: fromChartId }">
+  <!-- <tbody style="vertical-align: top"> -->
+  <tbody>
+    <!-- <tr>
+      <td>cell
+        <br>c:{{numberInCycle}}
+        <br>m{{observation.marker}}
+      </td>
+    </tr> -->
+    <tr>
+      <td class="marker" [ngStyle]="{'background-image':'url('+markerUrl+')'}">
+        <div>
+          <img class="peak-number" src="http://placehold.it/10" alt="">{{observation.peakDayNumber}}
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class="date">{{observation.date | dateMmDd}}</td>
+    </tr>
+    <tr>
+      <td>{{observation.letter}} {{observation.isB?"B":""}}</td>
+    </tr>
+    <tr>
+      <td>{{observation.numTimes}}</td>
+    </tr>
+    <tr>
+      <td>{{observation.cipher}}{{observation.cipherCd}}</td>
+    </tr>
+    <tr>
+      <!-- <td>{{comments}}</td> -->
+      <td>B W I</td>
+    </tr>
+    <tr>
+      <td>
+        <span *ngFor="let item of observation.notes">{{item.content | onlyFirstUpperLetter}}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 
 

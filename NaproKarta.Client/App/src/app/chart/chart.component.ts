@@ -7,7 +7,6 @@ import { ChartService } from '../services/chart.service';
 
 import { IChart, Chart } from './../models/ichart';
 import { ICycle, Cycle } from '../models/icycle';
-import { IObservation, Observation } from '../models/iobservation';
 
 //import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 
@@ -20,38 +19,33 @@ const maxCycles = 5;
 })
 
 export class ChartComponent implements OnInit, OnDestroy {
-  chart: IChart;
-  // chartTitle: string;
-  // chartNote: string;
   cycles: ICycle[];
-  currentChartId: number;
+  chart: IChart;
   sub: any;
   ChartUpdateDialogRef: MatDialogRef<ChartUpdateDialogComponent>;
 
   constructor(private chartService: ChartService, private route: ActivatedRoute, private router: Router, private dialog: MatDialog) {
-    this.cycles = new Array(maxCycles);
-    for (let i = 0; i < maxCycles; i++) {
-      this.cycles[i] = new Cycle();
-      //this.cycles[i].note = 'none';
-    }
   }
 
   ngOnInit() {
     this.chart = new Chart();
+    this.cycles = new Array(maxCycles);
+    for (let i = 0; i < maxCycles; i++) {
+      this.cycles[i] = new Cycle();
+      this.cycles[i].id = 0;
+      this.cycles[i].chartId = 0;
+    }
+
     this.sub = this.route.paramMap
-      .subscribe(v => this.UpdateChart(+v.get('id'))
+      .subscribe(v => this.RefreshChart(+v.get('id'))
       , error => console.log(error));
   }
 
-  UpdateChart(id: number) {
-    this.currentChartId = id;
-    this.chartService.GetChart(this.currentChartId)
+  RefreshChart(id: number) {
+    this.chartService.GetChart(id)
       .subscribe(chart => this.chart = chart
       , error => console.log(error)
       , () => {
-        // this.chartTitle = this.chart.title;
-        // this.chartNote = this.chart.note;
-        // this.currentChartId = this.chart.id;
         this.chart.cycles.forEach(element => {
           this.cycles[element.numberInChart] = element;
         });
@@ -60,7 +54,7 @@ export class ChartComponent implements OnInit, OnDestroy {
 
   DeleteChart() {
     if (confirm('na pewno usunac?')) {
-      this.chartService.DeleteChart(this.currentChartId)
+      this.chartService.DeleteChart(this.chart.id)
         .subscribe(msg => console.log(msg)
         , error => console.log(error));
       this.router.navigate(['/welcome']);

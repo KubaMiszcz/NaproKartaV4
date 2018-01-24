@@ -29,12 +29,20 @@ mat-card {
 }
 
 .parameters {
-  display: inline-flex;
-  width: 16.5em;
+  display: inline-table;
+  padding: 1em 1em 0em 1em;
+  height: 12em;
+  /* width: 17.0em; */
 }
 
 .bottom-buttons {
   text-align: right;
+}
+
+.isB-element {
+  background-color: #800000;
+  /* display: block; */
+  margin-left: 1.2em;
 }
 
 /* .radio-element {

@@ -1,14 +1,14 @@
 <table>
   <!-- <tr>
     <td>
-      {{note}}
-      <br>row {{numberInChart}}
+      {{cycle.note}}
+      <br>row {{cycle.numberInChart}}
       <br>id {{cycle.id}}
     </td>
   </tr> -->
   <tr>
     <td *ngFor="let item of observations; let i=index">
-      <app-chart-cell [observation]='item' [fromChartId]='fromChartId'>
+      <app-chart-cell [observation]='item' [chartId]='cycle.chartId' [cycleId]='cycle.id'>
         <!-- [numberInCycle]='i' -->
       </app-chart-cell>
     </td>

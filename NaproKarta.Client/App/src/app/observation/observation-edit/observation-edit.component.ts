@@ -1,9 +1,11 @@
+import { INote, Note } from './../../models/inote';
 import { Observation, IObservation } from './../../models/iobservation';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LabelsValues } from './../../models/auxmodels/labels-values';
 import { Component, OnInit } from '@angular/core';
 import { ObservationService } from '../../services/observation.service';
 
+const numberOfNotes = 3;
 
 @Component({
   selector: 'app-observation-edit',
@@ -11,21 +13,32 @@ import { ObservationService } from '../../services/observation.service';
   styleUrls: ['./observation-edit.component.css']
 })
 export class ObservationEditComponent implements OnInit {
-  currentObservationId: number;
   observation: IObservation;
-
-  markerBaseUrl: string;
+  observationId: number;
+  notes: INote[];
+  fromChartId: number;
   labelValues: LabelsValues = new LabelsValues;
+  date: Date;
+
+  // markerBaseUrl: string;
   sub: any;
   response: any;
-  fromChartId: number;
+  // currentObservationId: number;
 
   constructor(private observationService: ObservationService, private route: ActivatedRoute, private router: Router) {
     this.observation = new Observation();
-    this.observation.id = 0;
   }
 
   ngOnInit() {
+
+    console.log(' ' + JSON.stringify(this.observation));
+
+    this.date = new Date();
+    this.notes = new Array(numberOfNotes);
+    for (let i = 0; i < numberOfNotes; i++) {
+      this.notes[i] = new Note();
+    }
+
     this.sub = this.route
       .queryParams
       .subscribe(params => this.fromChartId = +params['chartId'] || 0     // Defaults to 0 if no query param provided.
@@ -33,24 +46,60 @@ export class ObservationEditComponent implements OnInit {
       );
 
     this.sub = this.route.paramMap
-      .subscribe(v =>
-        this.UpdateObservation(+v.get('id'))
-      , error => console.log(error))
-      , console.log('xxx' + JSON.stringify(this.observation));
-  }
-
-  UpdateObservation(id: number) {
-    // if (this.observation.id === 0) {
-    //   console.log('obsformnew obs  ' + JSON.stringify(this.observation));
-    // } else {
-    this.currentObservationId = id;
-    this.observationService.GetObservation(this.currentObservationId)
-      .subscribe(observation => { this.observation.id = 0; this.observation = observation; }
+      .subscribe(params =>
+        this.observation.id = +params.get('id')
       , error => console.log(error)
       , () => {
-        console.log('obsforminit  ' + JSON.stringify(this.observation));
       });
-    // }
+    this.RefreshObservation(this.observation.id);
+  }
+
+  RefreshObservation(id: number) {
+    if (this.observation.id === 0) {
+      this.observation.date = new Date();
+      console.log('obsformnew obs  ' + JSON.stringify(this.observation));
+    } else {
+      this.observationService.GetObservation(id)
+        .subscribe(observation => this.observation = observation
+        , error => console.log(error)
+        , () => {
+          //this.date = this.observation.date;
+          // this.observation.notes.forEach(element => {
+          //   this.notes
+          // });
+          console.log('obsexistforminit  ' + JSON.stringify(this.observation));
+        });
+    }
+  }
+
+  saveObservation() {
+    if (this.observation.id === 0) {
+      console.log('obsFormsaveAdd: ' + JSON.stringify(this.observation));
+      this.observationService.AddObservation(this.observation)
+        .subscribe(response => this.response
+        , error => console.log(error)
+        , () => {
+          console.log(JSON.stringify(this.response));
+        });
+    } else {
+      console.log('obsFormsaveUpdate: ' + JSON.stringify(this.observation));
+      this.observationService.UpdateObservation(this.observation)
+        .subscribe(response => this.response
+        , error => console.log(error)
+        , () => {
+          console.log(JSON.stringify(this.response));
+        });
+    }
+  }
+
+  deleteObservation() {
+    console.log('obsFormdelete');
+    this.observationService.DeleteObservation(this.observation.id)
+      .subscribe(response => this.response
+      , error => console.log(error)
+      , () => {
+        console.log(JSON.stringify(this.response));
+      });
   }
 
   onDateChanged(value: Date) {
@@ -80,36 +129,6 @@ export class ObservationEditComponent implements OnInit {
   }
   onNoteChanged(value: string) {
     console.log('val ' + value);
-  }
-
-  saveObservation() {
-    if (this.observation.id === undefined) {
-      console.log('obsFormsaveAdd: ' + JSON.stringify(this.observation));
-      this.observationService.AddObservation(this.observation)
-        .subscribe(response => this.response
-        , error => console.log(error)
-        , () => {
-          console.log(JSON.stringify(this.response));
-        });
-    } else {
-      console.log('obsFormsaveUpdate: ' + JSON.stringify(this.observation));
-      this.observationService.UpdateObservation(this.observation)
-        .subscribe(response => this.response
-        , error => console.log(error)
-        , () => {
-          console.log(JSON.stringify(this.response));
-        });
-    }
-  }
-
-  deleteObservation() {
-    console.log('obsFormdelete');
-    this.observationService.DeleteObservation(this.observation.id)
-      .subscribe(response => this.response
-      , error => console.log(error)
-      , () => {
-        console.log(JSON.stringify(this.response));
-      });
   }
 
 

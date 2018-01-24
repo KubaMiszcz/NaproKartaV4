@@ -56,7 +56,7 @@ namespace NaproKarta.Client.ApiControllers
       [HttpPost, HttpOptions]
       public HttpResponseMessage AddObservation(ObservationVm observationVm)
       {
-         if (NaproClientAppService.HasReqestOPTIONSHeader(Request))
+         if (Request.Method == HttpMethod.Options)
             return new HttpResponseMessage() { StatusCode = HttpStatusCode.OK };
 
          if (loggedUserId == null)
@@ -76,9 +76,7 @@ namespace NaproKarta.Client.ApiControllers
       [HttpPut, HttpOptions]
       public HttpResponseMessage UpdateObservation(ObservationVm observationVm)
       {
-         //if (NaproClientAppService.HasReqestOPTIONSHeader(Request))
-
-         if (this.Request.Method == HttpMethod.Options)
+         if (Request.Method == HttpMethod.Options)
             return new HttpResponseMessage() { StatusCode = HttpStatusCode.OK };
 
          if (loggedUserId == null)
@@ -104,7 +102,7 @@ namespace NaproKarta.Client.ApiControllers
       [HttpDelete, HttpOptions]
       public HttpResponseMessage DeleteObservation(int id)
       {
-         if (this.Request.Method == HttpMethod.Options)
+         if (Request.Method == HttpMethod.Options)
             return new HttpResponseMessage() { StatusCode = HttpStatusCode.OK };
 
          if (loggedUserId == null)
