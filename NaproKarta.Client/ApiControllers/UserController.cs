@@ -8,7 +8,7 @@ using System.Web.Http.Cors;
 using System.Web.Mvc;
 //using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-using NaproKarta.Client.ViewModels;
+using NaproKarta.Client.Models.ViewModels;
 using NaproKarta.Server.Context;
 
 namespace NaproKarta.Client.ApiControllers

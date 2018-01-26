@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using NaproKarta.Server.Models;
 
-namespace NaproKarta.Client.SaveModels
+namespace NaproKarta.Client.Models.SaveModels
 {
 	public class ChartSm
 	{

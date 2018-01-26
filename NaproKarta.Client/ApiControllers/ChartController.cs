@@ -9,12 +9,13 @@ using System.Web.Http.Cors;
 using System.Web.UI.WebControls;
 using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
-using NaproKarta.Client.Services;
-using NaproKarta.Client.ViewModels;
+using NaproKarta.Client.Models.ViewModels;
 using NaproKarta.Server.Interfaces;
 using NaproKarta.Server.Models;
 using NaproKarta.Server.Context;
 using Newtonsoft.Json;
+using NaproKarta.Client.Interfaces;
+using NaproKarta.Client.Repositories;
 
 namespace NaproKarta.Client.ApiControllers
 {
@@ -24,6 +25,7 @@ namespace NaproKarta.Client.ApiControllers
    public class ChartController : ApiController
    {
       private readonly IChartRepository _chartRepository;
+      private readonly IChartVmRepository _chartVmRepository;
       private string loggedUserId;
 
       public ChartController()
@@ -34,6 +36,7 @@ namespace NaproKarta.Client.ApiControllers
       public ChartController(IChartRepository chartRepository) : this()
       {
          _chartRepository = chartRepository;
+         _chartVmRepository = new ChartVmRepository(_chartRepository);
       }
 
       [Route("GetChart/{id?}")]
@@ -70,7 +73,7 @@ namespace NaproKarta.Client.ApiControllers
          if (!ModelState.IsValid)
             return Request.CreateResponse(HttpStatusCode.BadRequest);
 
-         Chart chart = NaproClientChartService.ChartVm2ChartDb(loggedUserId, chartVm);
+         Chart chart = _chartVmRepository.CreateNewChartFromChartVm(loggedUserId, chartVm);
          var result = _chartRepository.AddChart(chart);
          //TODO: what if chart with this name already exists??
          return Request.CreateResponse(HttpStatusCode.Created,
@@ -121,7 +124,7 @@ namespace NaproKarta.Client.ApiControllers
          if (chartUserId != loggedUserId)
             return Request.CreateResponse(HttpStatusCode.OK, "err nie twoj chart");
 
-         var chart = NaproClientChartService.ChartVm2ChartDb(chartQuery.FirstOrDefault(), chartVm);
+         var chart = _chartVmRepository.UpdateChartFromChartVm(chartQuery.FirstOrDefault(), chartVm);
 
          //TODO: what if chart with this name already exists??
          var result = _chartRepository.UpdateChart(chart);

@@ -6,6 +6,8 @@ using Unity.Lifetime;
 using NaproKarta.Server.Interfaces;
 using NaproKarta.Server.Repositories;
 using NaproKarta.Client.Resolver;
+using NaproKarta.Client.Interfaces;
+using NaproKarta.Client.Repositories;
 
 namespace NaproKarta.Client
 {
@@ -18,6 +20,7 @@ namespace NaproKarta.Client
 			container.RegisterType<IApplicationUserRepository, ApplicationUserRepository>(new HierarchicalLifetimeManager());
 			container.RegisterType<IChartRepository, ChartRepository>(new HierarchicalLifetimeManager());
 			container.RegisterType<IObservationRepository, ObservationRepository>(new HierarchicalLifetimeManager());
+			//container.RegisterType<IObservationVmRepository, ObservationVmRepository>(new HierarchicalLifetimeManager());
 
 			config.DependencyResolver = new UnityResolver(container);
 			

@@ -1,13 +1,14 @@
-﻿using NaproKarta.Server.Models;
+﻿using NaproKarta.Client.Models.ViewModels;
+using NaproKarta.Server.Models;
 using System;
 using System.Collections.Generic;
 
-namespace NaproKarta.Client.ViewModels
+namespace NaproKarta.Client.Models.ViewModels
 {
    public class ObservationVm
    {
+      //for both models
       public int Id { get; set; }
-      public int CycleId { get; set; }
       public int NumberInCycle { get; set; }
       public string Marker { get; set; }
       public int? PeakDayNumber { get; set; }
@@ -21,21 +22,26 @@ namespace NaproKarta.Client.ViewModels
       public IList<ObservationNoteVm> Notes { get; set; }
       public IList<PictureVm> Pictures { get; set; }
 
+      //for save model
+      public int ParentChartId { get; set; }
+      public int NumberOfParentCycleInChart { get; set; }
+
+      //forviewmodel
+      
       public ObservationVm() { }
 
       public ObservationVm(Observation observation)
       {
          Id = observation.Id;
-         CycleId = observation.CycleId;
          NumberInCycle = observation.NumberInCycle;
-         Marker = observation.MarkerId;
-         PeakDayNumber = observation.PeakDayNumber;
+         Marker = observation?.MarkerId;
+         PeakDayNumber = observation?.PeakDayNumber;
          Date = observation.Date;
-         Letter = observation.Letter?.Value;
+         Letter = observation?.Letter?.Value;
          IsB = observation.IsB;
-         NumTimes = observation.NumTimes.Value;
-         Cipher = observation.Cipher.Value;
-         CipherCd = observation.CipherCd.Value;
+         NumTimes = observation?.NumTimes?.Value;
+         Cipher = observation?.Cipher?.Value;
+         CipherCd = observation?.CipherCd?.Value;
 
          //Comments = new List<string>();
          //foreach (var item in observation.Comments)

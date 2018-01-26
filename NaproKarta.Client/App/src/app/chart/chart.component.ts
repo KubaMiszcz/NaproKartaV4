@@ -25,15 +25,16 @@ export class ChartComponent implements OnInit, OnDestroy {
   ChartUpdateDialogRef: MatDialogRef<ChartUpdateDialogComponent>;
 
   constructor(private chartService: ChartService, private route: ActivatedRoute, private router: Router, private dialog: MatDialog) {
+    this.chart = new Chart();
   }
 
   ngOnInit() {
-    this.chart = new Chart();
     this.cycles = new Array(maxCycles);
     for (let i = 0; i < maxCycles; i++) {
       this.cycles[i] = new Cycle();
       this.cycles[i].id = 0;
-      this.cycles[i].chartId = 0;
+      this.cycles[i].numberInChart = i;
+      this.cycles[i].chartId = this.chart.id;
     }
 
     this.sub = this.route.paramMap

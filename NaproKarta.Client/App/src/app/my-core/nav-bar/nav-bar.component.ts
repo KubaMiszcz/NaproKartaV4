@@ -46,6 +46,8 @@ export class NavBarComponent implements OnInit {
   }
 
   RefreshChart(id: number) {
+    console.log('i ' + id);
+
     this.router.navigate(['/chart', id]);
   }
 

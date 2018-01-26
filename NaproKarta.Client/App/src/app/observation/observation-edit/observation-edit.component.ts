@@ -14,14 +14,16 @@ const numberOfNotes = 3;
 })
 export class ObservationEditComponent implements OnInit {
   observation: IObservation;
-  observationId: number;
   notes: INote[];
-  fromChartId: number;
+  parentChartId: number;
+  numberOfParentCycleInChart: number;
+  numberInCycle: number;
   labelValues: LabelsValues = new LabelsValues;
-  date: Date;
+  //date: Date;
 
   // markerBaseUrl: string;
-  sub: any;
+  queryParams: any;
+  params: any;
   response: any;
   // currentObservationId: number;
 
@@ -30,24 +32,24 @@ export class ObservationEditComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    console.log(' ' + JSON.stringify(this.observation));
-
-    this.date = new Date();
+    //this.date = new Date();
     this.notes = new Array(numberOfNotes);
     for (let i = 0; i < numberOfNotes; i++) {
       this.notes[i] = new Note();
     }
 
-    this.sub = this.route
+    this.queryParams = this.route
       .queryParams
-      .subscribe(params => this.fromChartId = +params['chartId'] || 0     // Defaults to 0 if no query param provided.
+      .subscribe(params => {   // Defaults to 0 if no query param provided.
+        this.parentChartId = +params['chartId'] || 0;
+        this.numberOfParentCycleInChart = +params['cycleNumber'] || 0;
+        this.numberInCycle = +params['numberInCycle'] || 0;
+      }
       , error => console.log(error)
       );
 
-    this.sub = this.route.paramMap
-      .subscribe(params =>
-        this.observation.id = +params.get('id')
+    this.params = this.route.paramMap
+      .subscribe(params => this.observation.id = +params.get('id')
       , error => console.log(error)
       , () => {
       });
@@ -55,38 +57,43 @@ export class ObservationEditComponent implements OnInit {
   }
 
   RefreshObservation(id: number) {
+    console.log('yyy' + JSON.stringify(this.observation));
     if (this.observation.id === 0) {
       this.observation.date = new Date();
-      console.log('obsformnew obs  ' + JSON.stringify(this.observation));
+      console.log('addobs' + JSON.stringify(this.observation));
+      // console.log('addobsexistforminit cyclenum ' + JSON.stringify(this.observation.cycleNumberInChart));
     } else {
       this.observationService.GetObservation(id)
         .subscribe(observation => this.observation = observation
         , error => console.log(error)
         , () => {
-          //this.date = this.observation.date;
-          // this.observation.notes.forEach(element => {
-          //   this.notes
-          // });
-          console.log('obsexistforminit  ' + JSON.stringify(this.observation));
+          console.log('obsexist' + JSON.stringify(this.observation));
+          // console.log('obsexistforminit cyclenum ' + JSON.stringify(this.observation.cycleNumberInChart));
+          // console.log('obsexistforminit chartid ' + JSON.stringify(this.chartId));
         });
     }
   }
 
   saveObservation() {
+    this.observation.parentChartId = this.parentChartId;
+    this.observation.numberOfParentCycleInChart = this.numberOfParentCycleInChart;
+    this.observation.numberInCycle = this.numberInCycle;
     if (this.observation.id === 0) {
       console.log('obsFormsaveAdd: ' + JSON.stringify(this.observation));
       this.observationService.AddObservation(this.observation)
-        .subscribe(response => this.response
+        .subscribe(response => this.response = response
         , error => console.log(error)
         , () => {
+          this.router.navigate(['/chart', this.parentChartId]);
           console.log(JSON.stringify(this.response));
         });
     } else {
       console.log('obsFormsaveUpdate: ' + JSON.stringify(this.observation));
       this.observationService.UpdateObservation(this.observation)
-        .subscribe(response => this.response
+        .subscribe(response => this.response = response
         , error => console.log(error)
         , () => {
+          this.router.navigate(['/chart', this.parentChartId]);
           console.log(JSON.stringify(this.response));
         });
     }
@@ -98,6 +105,7 @@ export class ObservationEditComponent implements OnInit {
       .subscribe(response => this.response
       , error => console.log(error)
       , () => {
+        this.router.navigate(['/chart', this.parentChartId]);
         console.log(JSON.stringify(this.response));
       });
   }

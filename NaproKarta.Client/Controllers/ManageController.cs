@@ -11,7 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using NaproKarta.Server.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
-using NaproKarta.Client.ViewModels;
+using NaproKarta.Client.Models.ViewModels;
 using NaproKarta.Server.Context;
 using NaproKarta.Server.Repositories;
 

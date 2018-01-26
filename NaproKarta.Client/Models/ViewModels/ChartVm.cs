@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using NaproKarta.Server.Models;
 
-namespace NaproKarta.Client.ViewModels
+namespace NaproKarta.Client.Models.ViewModels
 {
 	public class ChartVm
 	{

@@ -3,9 +3,9 @@
   obs id{{observation.id}}
   <app-date-nav-bar [date]="observation.date" (notify)="onDateChanged($event)"></app-date-nav-bar>
   <!-- </span> -->
-  <button mat-raised-button color="primary" [routerLink]="[ '/chart', fromChartId ]">Anuluj</button>
-  <button mat-raised-button color="primary" (click)="saveObservation()" [routerLink]="[ '/chart', fromChartId]">Zapisz</button>
-  <button mat-raised-button color="primary" (click)="deleteObservation()" [routerLink]="[ '/chart', fromChartId]">Usun</button>
+  <button mat-raised-button color="primary" [routerLink]="[ '/chart', parentChartId]">Anuluj</button>
+  <button mat-raised-button color="primary" (click)="saveObservation()">Zapisz</button>
+  <button mat-raised-button color="primary" (click)="deleteObservation()">Usun</button>
 
 </mat-card>
 

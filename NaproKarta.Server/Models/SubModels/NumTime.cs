@@ -7,13 +7,13 @@ using System.Web;
 
 namespace NaproKarta.Server.Models
 {
-	public class NumTime
+	public class NumTimes
 	{
 		[Key]
 		public int Id { get; set; }
 		public string Value { get; set; }
 	}
-	internal sealed class NumTimeMappings : EntityTypeConfiguration<NumTime>
+	internal sealed class NumTimeMappings : EntityTypeConfiguration<NumTimes>
 	{
 		public NumTimeMappings()
 		{

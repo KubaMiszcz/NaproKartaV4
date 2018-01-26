@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using NaproKarta.Server.Models;
 using System.Collections.Generic;
-using NaproKarta.Client.ViewModels;
+using NaproKarta.Client.Models.ViewModels;
 
 namespace NaproKarta.Client.Controllers
 {

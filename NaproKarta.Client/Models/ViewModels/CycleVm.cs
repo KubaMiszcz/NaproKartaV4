@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace NaproKarta.Client.ViewModels
+namespace NaproKarta.Client.Models.ViewModels
 {
 	public class CycleVm
 	{
 		public int Id { get; set; }
 		public int ChartId { get; set; }
-		public string NumberInChart { get; set; }
+		public int NumberInChart { get; set; }
 		public string Note { get; set; }
 		public IList<ObservationVm> Observations { get; set; }
 

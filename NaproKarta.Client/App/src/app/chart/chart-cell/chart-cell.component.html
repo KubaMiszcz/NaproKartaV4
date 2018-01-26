@@ -1,12 +1,15 @@
-<a class="group-box zoom" [routerLink]="[ '/observation',observation.id]" [queryParams]="{ chartId: chartId, cycleId: cycleId }">
+<a class="group-box zoom" [routerLink]="[ '/observation',observation.id]" [queryParams]="{numberInCycle:observation.numberInCycle,cycleNumber:observation.numberOfParentCycleInChart, chartId:chartId}">
   <div class="marker" [ngStyle]="{'background-image':'url('+markerUrl+')'}">
     <div>
       <img class="peak-number" src="http://placehold.it/10" alt="">{{observation.peakDayNumber}}
     </div>
   </div>
 
-  <div class="tdd date">{{observation.date | dateMmDd}}</div>
+  <!-- <div class="tdd">id{{observation.id}}</div>
+  <div class="tdd">inc{{observation.numberInCycle}}</div>
+  <div class="tdd">cinch{{observation.numberOfParentCycleInChart}}</div> -->
 
+  <div class="tdd date">{{observation.date | dateMmDd}}</div>
   <div class="tdd">{{observation.letter}} {{observation.isB?"B":""}}</div>
   <div class="tdd">{{observation.numTimes}}</div>
   <div class="tdd">{{observation.cipher}}{{observation.cipherCd}}</div>
@@ -16,43 +19,3 @@
     <span *ngFor="let item of observation.notes">{{item.content | onlyFirstUpperLetter}}</span>
   </div>
 </a>
-
-
-
-
-
-<!--
-<table class="chartCellContent" name="RowCol" value="@Model.RowCol" @*onclick="@(" window.location.href='" + @Url.Action("ObservationEdit", "User", new {id = Model.ID, RowCol = Model.RowCol}) + "'
-  ");">*@ @*onclick="@("location.href='" + @Url.Action("ObservationEdit", "User", new {id = Model.ID, RowCol = Model.RowCol}) +
-  "'");"*@ onclick="location.href='@Url.Action("ObservationEdit", "User", new { id = Model.ID, RowCol = Model.RowCol })'"
-  @*location.href='
-  <%: Url.Action("Action", "Controller")*@
-       >
-    <tr>
-        <td style="background-color: beige;">
-            <img style="width: 50px; height: auto;" src="@Model.MarkerUrl" alt="@Model.MarkerAltText"/>
-        </td>
-    </tr>
-    <tr><td class="chartCellContent date">@Html.Raw(Model.Date)</td></tr>
-    <tr><td class="chartCellContent">@Html.Raw(Model.Letter)</td></tr>
-    <tr><td class="chartCellContent">@Html.Raw(Model.NumTimes)</td></tr>
-    <tr><td class="chartCellContent">@Html.Raw(Model.CipherAndCipherCD)</td></tr>
-    <tr><td class="chartCellContent">@Html.Raw(Model.Comments)</td></tr>
-    <tr>
-        <td>
-            <table>
-                <tr>
-                    @{
-                        int i = 0;
-                        foreach (string noteMark in Model.NoteMarks)
-                        {
-                            <td class="chartCellContent" style="@Model.NoteMarksBackgroundColors[i]">
-                                <div>@Html.Raw(noteMark)</div></td>
-                            i++;
-                        }
-                    }
-                </tr>
-            </table>
-        </td>
-    </tr>
-</table> -->

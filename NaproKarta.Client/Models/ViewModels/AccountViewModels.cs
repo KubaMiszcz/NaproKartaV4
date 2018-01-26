@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace NaproKarta.Client.ViewModels
+namespace NaproKarta.Client.Models.ViewModels
 {
     public class ExternalLoginConfirmationViewModel
     {

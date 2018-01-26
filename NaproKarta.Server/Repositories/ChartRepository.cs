@@ -52,14 +52,6 @@ namespace NaproKarta.Server.Repositories
          _context.Entry(chart).State = EntityState.Modified;
          _context.SaveChanges();
          return chart.Id;
-
-         //var chart = GetChart(newChart.Id).FirstOrDefault();
-         //chart.Title = newChart.Title;
-         //chart.Note = newChart.Note;
-         ////_context.Entry(chart).CurrentValues.SetValues(newChart);
-         //_context.Entry(chart).State = EntityState.Modified;
-         //_context.SaveChanges();
-         //return chart.Id;
       }
 
       public bool DeleteChart(int id)
@@ -68,43 +60,5 @@ namespace NaproKarta.Server.Repositories
 			_context.SaveChanges();
 			return true;
 		}
-
-		//public void UpdateChart(int id)
-		//{
-		//	throw new NotImplementedException();
-		//}
-
-		//public void UpdateChart(Chart chart)
-		//{
-		//	throw new NotImplementedException();
-		//}
-
-		//public void DeleteChart(int id)
-		//{
-		//	this.DeleteChart(this.GetChart(id));
-		//}
-
-		//public void DeleteChart(Chart chart)
-		//{
-		//	_context.Charts.Remove(chart);
-		//	_context.SaveChanges();
-		//}
-
 	}
 }
-
-//public HashSet<string[]> GetUserChartIdsAndTitlesHashSet(string loggedUserId)
-//{
-//	HashSet<string[]> result = new HashSet<string[]>();
-
-//	foreach (var x in GetUserCharts(loggedUserId))
-//	{
-//		result.Add(new string[] { x.Id.ToString(), x.Title });
-//	}
-
-//	//_context.Charts
-//	// .Where(x => x.UserId == loggedUserId).ToList()
-//	// .ForEach(x => result.Add(new string[] { x.Id.ToString(), x.Title }));
-
-//	return result;
-//}

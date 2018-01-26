@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace NaproKarta.Client.ViewModels
+namespace NaproKarta.Client.Models.ViewModels
 {
     public class IndexViewModel
     {

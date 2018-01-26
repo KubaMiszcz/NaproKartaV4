@@ -9,11 +9,13 @@ using System.Web.Http.Cors;
 using System.Web.UI.WebControls;
 using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
-using NaproKarta.Client.Services;
-using NaproKarta.Client.ViewModels;
+using NaproKarta.Client.Models;
 using NaproKarta.Server.Interfaces;
 using NaproKarta.Server.Models;
 using NaproKarta.Server.Context;
+using NaproKarta.Client.Interfaces;
+using NaproKarta.Client.Repositories;
+using NaproKarta.Client.Models.ViewModels;
 
 namespace NaproKarta.Client.ApiControllers
 {
@@ -23,6 +25,8 @@ namespace NaproKarta.Client.ApiControllers
    public class ObservationController : ApiController
    {
       private readonly IObservationRepository _observationRepository;
+      private readonly IObservationVmRepository _observationVmRepository;
+
       private string loggedUserId;
 
       public ObservationController()
@@ -33,6 +37,7 @@ namespace NaproKarta.Client.ApiControllers
       public ObservationController(IObservationRepository observationRepository) : this()
       {
          _observationRepository = observationRepository;
+         _observationVmRepository = new ObservationVmRepository(_observationRepository);
       }
 
       [Route("GetObservation/{id?}")]
@@ -66,7 +71,7 @@ namespace NaproKarta.Client.ApiControllers
          if (!ModelState.IsValid)
             return Request.CreateResponse(HttpStatusCode.BadRequest);
 
-         var observation = NaproClientObservationService.ObservationVm2ObservationDb(observationVm);
+         var observation = _observationVmRepository.CreateNewObservationFromObservationVm(observationVm);
 
          var result = _observationRepository.AddObservation(observation);
          return Request.CreateResponse(HttpStatusCode.OK,
@@ -92,7 +97,7 @@ namespace NaproKarta.Client.ApiControllers
             return Request.CreateResponse(HttpStatusCode.OK, "err nie twoja obserwacja");
 
          var observationQuery = _observationRepository.GetObservation(observationVm.Id);
-         var observation = NaproClientObservationService.ObservationVm2ObservationDb(observationQuery.FirstOrDefault(), observationVm);
+         var observation = _observationVmRepository.UpdateObservationDbFromObservationVm(observationQuery.FirstOrDefault(), observationVm);
 
          var result = _observationRepository.UpdateObservation(observation);
          return Request.CreateResponse(HttpStatusCode.OK,

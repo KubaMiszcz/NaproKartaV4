@@ -20,8 +20,7 @@ namespace NaproKarta.Server.Repositories
       {
          _context = context;
       }
-
-
+      
       public IQueryable<Observation> GetObservation(int id)
       {
          var result = _context.Observations
@@ -66,10 +65,47 @@ namespace NaproKarta.Server.Repositories
 
       public int AddObservation(Observation observation)
       {
-         var result =_context.Letters.Where(x => x.Value == observation.Letter.Value).FirstOrDefault();
          _context.Observations.Add(observation);
          _context.SaveChanges();
          return observation.Id;
       }
+
+      public int UpdateCycleId(int parentChartId, int numberOfParentCycleInChart)
+      {
+         var result = _context.Cycles.Where(x => (x.ChartId == parentChartId) && (x.NumberInChart == numberOfParentCycleInChart)).FirstOrDefault();
+         if (result == null)
+         {
+            result = new Cycle(parentChartId, numberOfParentCycleInChart);
+            _context.Cycles.Add(result);
+            _context.SaveChanges();
+            return result.Id;
+         }
+         else
+         {
+            return result.Id;
+         }
+      }
+
+      public IQueryable<Marker> GetMarkerByValue(string val)
+      {
+         return _context.Markers.Where(x => x.Id == val).AsQueryable();
+      }
+      public IQueryable<Letter> GetLetterByValue(string val)
+      {
+         return _context.Letters.Where(x => x.Value == val).AsQueryable();
+      }
+      public IQueryable<Cipher> GetCipherByValue(string val)
+      {
+         return _context.Ciphers.Where(x => x.Value == val).AsQueryable();
+      }
+      public IQueryable<CipherCd> GetCipherCdByValue(string val)
+      {
+         return _context.CipherCds.Where(x => x.Value == val).AsQueryable();
+      }
+      public IQueryable<NumTimes> GetNumTimesByValue(string val)
+      {
+         return _context.NumTimes.Where(x => x.Value == val).AsQueryable();
+      }
+
    }
 }

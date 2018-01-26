@@ -8,7 +8,8 @@
   </tr> -->
   <tr>
     <td *ngFor="let item of observations; let i=index">
-      <app-chart-cell [observation]='item' [chartId]='cycle.chartId' [cycleId]='cycle.id'>
+      <app-chart-cell [observation]='item' [chartId]='cycle.chartId'>
+        <!-- [row]='cycle.numberInChart' -->
         <!-- [numberInCycle]='i' -->
       </app-chart-cell>
     </td>

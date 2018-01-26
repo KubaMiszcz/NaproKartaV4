@@ -20,7 +20,7 @@ namespace NaproKarta.Server.Context
 
 		public DbSet<Marker> Markers { get; set; }
 		public DbSet<Letter> Letters { get; set; }
-		public DbSet<NumTime> NumTimes { get; set; }
+		public DbSet<NumTimes> NumTimes { get; set; }
 		public DbSet<Cipher> Ciphers { get; set; }
 		public DbSet<CipherCd> CipherCds { get; set; }
 		public DbSet<Comment> Comments { get; set; }

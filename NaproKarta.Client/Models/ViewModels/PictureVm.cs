@@ -1,6 +1,6 @@
 ﻿using NaproKarta.Server.Models;
 
-namespace NaproKarta.Client.ViewModels
+namespace NaproKarta.Client.Models.ViewModels
 {
    public class PictureVm
    {

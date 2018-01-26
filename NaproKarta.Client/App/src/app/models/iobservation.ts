@@ -3,35 +3,39 @@ import { Url } from 'url';
 import { IPicture } from './ipicture';
 
 export interface IObservation {
+  numberOfParentCycleInChart: number;
+  parentChartId: number;
+  //observations parameters
   id: number;
-  cycleId: number;
   numberInCycle: number;
+  date: Date;
   marker: string;
   peakDayNumber: number;
-  date: Date;
   letter: string;
   isB: boolean;
-  numTimes: string;
   cipher: string;
   cipherCd: string;
+  numTimes: string;
   comments: any; //????
   notes: INote[];
-  pictures: IPicture[];// URL
+  pictures: IPicture[]; // URL
 }
 
 export class Observation implements IObservation {
+  numberOfParentCycleInChart: number;
+  parentChartId: number;
+  //observations parameters
   id: number;
-  cycleId: number;
   numberInCycle: number;
+  date: Date;
   marker: string;
   peakDayNumber: number;
-  date: Date;
   letter: string;
   isB: boolean;
-  numTimes: string;
   cipher: string;
   cipherCd: string;
+  numTimes: string;
   comments: any; //????
   notes: INote[];
-  pictures: IPicture[];// URL
+  pictures: IPicture[]; // URL
 }
