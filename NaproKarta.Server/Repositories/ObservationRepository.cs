@@ -107,5 +107,24 @@ namespace NaproKarta.Server.Repositories
          return _context.NumTimes.Where(x => x.Value == val).AsQueryable();
       }
 
+
+      public int UpdateNote(ObservationNote note) {
+         var newNote = _context.ObservationNotes.Find(note.Id);
+         newNote.IsImportant = note.IsImportant;
+         newNote.Content = note.Content;
+         _context.Entry(newNote).State = EntityState.Modified;
+         _context.SaveChanges();
+         return newNote.Id;
+      }
+      public int AddNote(ObservationNote note) {
+         _context.ObservationNotes.Add(note);
+         _context.SaveChanges();
+         return note.Id;
+      }
+      public bool DeleteNote(ObservationNote note) {
+           _context.ObservationNotes.Remove(note);
+         _context.SaveChanges();
+         return true;
+      }
    }
 }

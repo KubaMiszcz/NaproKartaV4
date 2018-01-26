@@ -5,7 +5,7 @@ import { LabelsValues } from './../../models/auxmodels/labels-values';
 import { Component, OnInit } from '@angular/core';
 import { ObservationService } from '../../services/observation.service';
 
-const numberOfNotes = 3;
+const maxNumberOfNotes = 3;
 
 @Component({
   selector: 'app-observation-edit',
@@ -33,9 +33,13 @@ export class ObservationEditComponent implements OnInit {
 
   ngOnInit() {
     //this.date = new Date();
-    this.notes = new Array(numberOfNotes);
-    for (let i = 0; i < numberOfNotes; i++) {
+    this.notes = new Array(maxNumberOfNotes);
+    for (let i = 0; i < maxNumberOfNotes; i++) {
       this.notes[i] = new Note();
+      this.notes[i].id = 0;
+      this.notes[i].isImportant = false;
+      this.notes[i].content = '';
+      this.notes[i].observationId = this.observation.id;
     }
 
     this.queryParams = this.route
@@ -64,10 +68,18 @@ export class ObservationEditComponent implements OnInit {
       // console.log('addobsexistforminit cyclenum ' + JSON.stringify(this.observation.cycleNumberInChart));
     } else {
       this.observationService.GetObservation(id)
-        .subscribe(observation => this.observation = observation
+        .subscribe(observation => {
+          this.observation = observation;
+        }
         , error => console.log(error)
         , () => {
           console.log('obsexist' + JSON.stringify(this.observation));
+          for (let i = 0; i < maxNumberOfNotes; i++) {
+            if (this.observation.notes[i] !== undefined) {
+              this.notes[i] = this.observation.notes[i];
+            }
+          }
+
           // console.log('obsexistforminit cyclenum ' + JSON.stringify(this.observation.cycleNumberInChart));
           // console.log('obsexistforminit chartid ' + JSON.stringify(this.chartId));
         });
@@ -78,6 +90,8 @@ export class ObservationEditComponent implements OnInit {
     this.observation.parentChartId = this.parentChartId;
     this.observation.numberOfParentCycleInChart = this.numberOfParentCycleInChart;
     this.observation.numberInCycle = this.numberInCycle;
+    this.observation.notes = this.notes;
+
     if (this.observation.id === 0) {
       console.log('obsFormsaveAdd: ' + JSON.stringify(this.observation));
       this.observationService.AddObservation(this.observation)
@@ -135,8 +149,9 @@ export class ObservationEditComponent implements OnInit {
     this.observation.numTimes = value;
     console.log('val ' + value);
   }
-  onNoteChanged(value: string) {
-    console.log('val ' + value);
+  onNoteContentChanged(idx: number, value: INote) {
+    this.observation.notes[idx] = value;
+    console.log('val ' + idx + 'x' + JSON.stringify(value));
   }
 
 

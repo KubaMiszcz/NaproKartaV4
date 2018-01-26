@@ -4,6 +4,6 @@
   <button *ngIf="note.isImportant" button class="notemark marginlefright" mat-mini-fab color="warn">{{note.content |onlyFirstUpperLetter}}</button>
 
   <mat-form-field>
-    <textarea matInput class="marginlefright" placeholder="notka:" [(ngModel)]='note.content'></textarea>
+    <textarea matInput class="marginlefright" placeholder="notka:" [(ngModel)]='note.content' (change)='passValueFromEvent()'></textarea>
   </mat-form-field>
 </div>

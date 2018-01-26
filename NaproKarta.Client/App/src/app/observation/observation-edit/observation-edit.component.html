@@ -50,7 +50,7 @@
       <!-- <mat-card-subtitle>Notatki</mat-card-subtitle> -->
     </mat-card-header>
     <mat-card-content>
-      <app-observation-note *ngFor="let item of notes" [note]="item"></app-observation-note>
+      <app-observation-note *ngFor="let item of notes, let i=index" [note]="item" (notify)='onNoteContentChanged(i,$event)'></app-observation-note>
       <!-- <app-observation-note></app-observation-note>
       <app-observation-note></app-observation-note> -->
     </mat-card-content>
@@ -72,7 +72,8 @@
 <!-- buttons -->
 <mat-card>
   <mat-card-actions class="bottom-buttons">
-    <button mat-raised-button color="primary" [routerLink]="[ '/chart', fromChartId ]">Anuluj</button>
-    <button mat-raised-button color="primary" (click)="saveObservation()" [routerLink]="[ '/chart', fromChartId]">Zapisz</button>
+    <button mat-raised-button color="primary" [routerLink]="[ '/chart', parentChartId]">Anuluj</button>
+    <button mat-raised-button color="primary" (click)="saveObservation()">Zapisz</button>
+    <button mat-raised-button color="primary" (click)="deleteObservation()">Usun</button>
   </mat-card-actions>
 </mat-card>

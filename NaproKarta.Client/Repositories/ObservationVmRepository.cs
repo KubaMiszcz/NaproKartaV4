@@ -38,10 +38,32 @@ namespace NaproKarta.Client.Repositories
          //public int? CommentId { get; set; }
          //public virtual IList<Comment> Comments { get; set; }
 
-         //foreach (var item in observationVm.Notes)
-         //{
-         //   //todo: implemet
-         //}
+         foreach (var item in observationVm.Notes)
+         {
+            ObservationNote note = new ObservationNote()
+            {
+               Id = item.Id,
+               IsImportant = item.IsImportant,
+               Content = item.Content,
+               ObservationId = item.ObservationId
+            };
+
+            if (item.Content != "")
+            {
+               if (item.Id != 0)
+               {
+                  _observationRepository.UpdateNote(note);
+               }
+               else
+               {
+                  _observationRepository.AddNote(note);
+               }
+            }
+            else if (item.Id != 0)
+            {
+               _observationRepository.DeleteNote(note);
+            }
+         }
 
          return observation;
       }

@@ -18,5 +18,8 @@ namespace NaproKarta.Server.Interfaces
       IQueryable<CipherCd> GetCipherCdByValue(string val);
       IQueryable<NumTimes> GetNumTimesByValue(string val);
       int UpdateCycleId(int parentChartId, int numberOfParentCycleInChart);
+      int UpdateNote(ObservationNote note);
+      int AddNote(ObservationNote note);
+      bool DeleteNote(ObservationNote note);
    }
 }
