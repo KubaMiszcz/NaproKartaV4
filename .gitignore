@@ -641,3 +641,4 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+NaproKarta.Client/Web.config

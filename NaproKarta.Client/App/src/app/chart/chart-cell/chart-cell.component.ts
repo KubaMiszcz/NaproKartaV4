@@ -13,13 +13,14 @@ export class ChartCellComponent implements OnInit {
   @Input() chartId: number;
 
   markerUrl: string;
-  assetsUrl: string = GlobalVariables.BASE_ASSETS_URL;
+  assetsUrl: string = GlobalVariables.BASE_URL_APP;
 
   constructor(private router: Router) {
     this.observation = new Observation();
   }
 
   ngOnInit() {
-    this.markerUrl = this.assetsUrl + '/img/markers/marker-' + this.observation.marker + '.jpg';
+    this.markerUrl = this.assetsUrl + '/assets/img/markers/marker-' + this.observation.marker + '.jpg';
+
   }
 }

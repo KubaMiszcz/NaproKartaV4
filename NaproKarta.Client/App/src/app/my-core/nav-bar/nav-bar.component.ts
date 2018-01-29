@@ -16,8 +16,8 @@ import { IChartIdAndTitle } from '../../models/auxmodels/chart-id-and-title';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  angularUrl = GlobalVariables.BASE_NAPROANGULAR_URL;
-  clientUrl = GlobalVariables.BASE_NAPROCLIENT_URL;
+  angularUrl = GlobalVariables.BASE_URL_APP;
+  clientUrl = GlobalVariables.BASE_URL_TEMPCLIENT;
   navBarData: INavBar;
   userName: string;
   chartIdsAndTitles: IChartIdAndTitle[];

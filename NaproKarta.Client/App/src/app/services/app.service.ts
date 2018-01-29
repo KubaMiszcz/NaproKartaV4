@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { INavBar } from '../models/inavbar';
 import { GlobalVariables } from '../global-variables';
 
-const apiUrl = GlobalVariables.BASE_API_URL + '/app';
+const apiUrl = GlobalVariables.BASE_URL_API + '/app';
 
 @Injectable()
 export class AppService {

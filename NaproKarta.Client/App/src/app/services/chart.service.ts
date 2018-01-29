@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { GlobalVariables } from '../global-variables';
 
-const apiUrl = GlobalVariables.BASE_API_URL + '/chart';
+const apiUrl = GlobalVariables.BASE_URL_API + '/chart';
 
 @Injectable()
 export class ChartService {
