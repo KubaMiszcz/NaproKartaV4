@@ -1,8 +1,18 @@
 # NaproKartaV4
+Serwis do wypelniania kart z naprotechnologii
+* logowanie EFIdentity
+* dolaczanie zdjeci i notatek
+* frontend: Angular5, MaterialsUI, bootstrap 4
+* backend: MVC, CodeFirst, and EntityFramework
+* baza danych: MSSQL 
+
+##In future Version:
+* make it PWA
 
 
 
-==TOFDO:
+
+==TODO:
 sprawdzanie czy to twoj chart
 erro page albo jakismesage jak error
 naprawic to zeby dziallao tez z authorize przy naglowku options
