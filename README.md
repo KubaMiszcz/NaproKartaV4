@@ -1,10 +1,13 @@
 # NaproKartaV4
-Serwis do wypelniania kart z naprotechnologii
+NaproKarta - Service for fulfilling sheets from Naprotechnology (attaching photos, notes, card and description printing, Android client) - C#, .NET, MVC, Angular2+, REST API
 * logowanie EFIdentity
 * dolaczanie zdjeci i notatek
 * frontend: Angular5, MaterialsUI, bootstrap 4
 * backend: WebApi, MVC, EntityFramework, Dependency Injection, CodeFirst
 * baza danych: MSSQL 
+
+
+
 
 ##In future Version:
 * make it PWA
