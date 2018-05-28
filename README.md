@@ -3,7 +3,7 @@ Serwis do wypelniania kart z naprotechnologii
 * logowanie EFIdentity
 * dolaczanie zdjeci i notatek
 * frontend: Angular5, MaterialsUI, bootstrap 4
-* backend: MVC, CodeFirst, and EntityFramework
+* backend: WebApi, MVC, EntityFramework, Dependency Injection, CodeFirst
 * baza danych: MSSQL 
 
 ##In future Version:
