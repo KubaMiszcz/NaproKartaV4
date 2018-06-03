@@ -1,5 +1,8 @@
 # NaproKartaV4
-NaproKarta - Service for fulfilling sheets from Naprotechnology (attaching photos, notes, card and description printing, Android client) - C#, .NET, MVC, Angular2+, REST API
+test login: `asd@asd.asd`
+pass: `asd`
+
+NaproKarta - Webservice for fulfilling sheets from Naprotechnology (attaching photos, notes, card and description printing, Android client) - C#, .NET, MVC, Angular2+, REST API
 * logowanie EFIdentity
 * dolaczanie zdjeci i notatek
 * frontend: Angular5, MaterialsUI, bootstrap 4
@@ -7,12 +10,8 @@ NaproKarta - Service for fulfilling sheets from Naprotechnology (attaching photo
 * baza danych: MSSQL 
 
 
-
-
 ##In future Version:
 * make it PWA
-
-
 
 
 ==TODO:
